@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-        <title>Taskmaster</title>
+        <title>TaskMaster</title>
         <meta charset="utf-8" />
 
 
@@ -38,7 +38,7 @@
                 <li><a href="/">Home</a></li>
 
                 <li><a href="/pages/about-me.html">About me</a></li>
-                <li><a href="/pages/linkedinhttpswwwlinkedincominmarc-jose-rubio-0b8420158.html">[LinkedIn](https://www.linkedin.com/in/marc-jose-rubio-0b8420158)</a></li>
+                <li><a href="https://www.linkedin.com/in/marc-jose-rubio-0b8420158">LinkedIn</a></li>  
 
               </ul>
             </div>
@@ -52,7 +52,7 @@
             <header>
               <h2 class="entry-title">
                 <a href="/TaskMaster.html" rel="bookmark"
-                   title="Permalink to Taskmaster">Taskmaster</a></h2>
+                   title="Permalink to TaskMaster">TaskMaster</a></h2>
            
             </header>
             <footer class="post-info">
@@ -65,46 +65,61 @@
               </address>
             </footer><!-- /.post-info -->
             <div class="entry-content">
-              <p>Your program must be able to start jobs like child processes, let them "live" and restart them if necessary. He must also know to any time if these processes are alive or dead.
-Information on which program to launch, how, how much, if they should be launched restart, etc.... must be contained in a configuration file. You have the choice of format (YAML may be a good idea but it is up to you). This configuration must be started at startup and must be reloadable while taskmaster is turning by sending him a SIGHUP. When it has recharged, your program must apply the changes to its current state (delete programs, add programs, change their control conditions, etc.), but it must NOT delete processes that have not changed with reloading. Your program must have a system of registers to record events in a local file (When a program starts, stops, restarts, when it dies unexpectedly, when the configuration is updated, etc.). Once your program is launched it must remain active in the background and give access to a shell to the user. It MUST not be a shell in its own right like the 42sh, but it must at least have basic functionalities such as line editing, history, etc... self-completion would also be nice. Get inspired by the supervisor shell, supervisorctl.</p>
-<p>This shell must at least allow the user to:</p>
-<div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">See</span> <span class="n">the</span> <span class="n">status</span> <span class="k">of</span> <span class="k">all</span> <span class="n">the</span> <span class="n">programs</span> <span class="n">described</span> <span class="k">in</span> <span class="n">the</span> <span class="n">configuration</span> <span class="n">file</span> <span class="p">(</span><span class="k">with</span> <span class="n">the</span> <span class="ss">&quot;status&quot;</span> <span class="n">command</span><span class="p">).</span>
-
-<span class="o">-</span> <span class="k">Start</span> <span class="o">/</span> <span class="n">stop</span> <span class="o">/</span> <span class="k">restart</span> <span class="n">programs</span><span class="p">.</span>
-
-<span class="o">-</span> <span class="n">Reload</span> <span class="n">the</span> <span class="n">configuration</span> <span class="n">file</span> <span class="k">without</span> <span class="n">the</span> <span class="n">main</span> <span class="n">program</span> <span class="n">stopping</span><span class="p">.</span>
-
-<span class="o">-</span> <span class="n">Stop</span> <span class="n">the</span> <span class="n">main</span> <span class="n">program</span><span class="p">.</span>
+              <p>Basic task manager that reads from a config.json file and supervises a number of processes.
+We were restricted to our language of choice’s standard library. Except for the config file parsing.</p>
+<p>The script reads the tasks parameters from the json file, and executes some kind of user prompt to effectively manage these tasks.</p>
+<p>The only argument needed is a config file. All info about making your own config file is in exampleconfig.json.</p>
+<p><a href="https://github.com/mjose-portfolio/42-TaskMaster">Try it on Github!</a></p>
+<h2>Install</h2>
+<ul>
+<li>Not needed.</li>
+</ul>
+<h2>Configuration</h2>
+<ul>
+<li>Create a file in json format with the following characteristics:</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="err">{                                   </span>
+<span class="err">    &quot;programs&quot;: {                   #a list of programs</span>
+<span class="err">        &quot;sleep&quot;: {                  #the name of a program *Required*</span>
+<span class="err">            &quot;cmd&quot;: &quot;sleep 1000&quot;,    #the exact command to launch *Required*</span>
+<span class="err">            &quot;cmdammount&quot;: 10,       #the number of times you need to launch this process *Required*</span>
+<span class="err">            &quot;autostart&quot;: true,      #cmd started at launch True/False? *Required*</span>
+<span class="err">            &quot;autorestart&quot;: &quot;never&quot;, #restart this program on &quot;never&quot;, &quot;always&quot;, or on &quot;unexpected&quot; termination *Required*</span>
+<span class="err">            &quot;starttime&quot;: 5,         #amount of time to go by before the program is considered &quot;succesfully started&quot; *Required*</span>
+<span class="err">            &quot;stoptime&quot;: 10,         #amount of time to go by after sending quitsit to program before killing it completely with SIGKILL *Required*</span>
+<span class="err">            &quot;restartretries&quot;: 3,    #amount of times a program will be tried to be restarted or started at the beginning before giving up on it *Required*</span>
+<span class="err">            &quot;quitsig&quot;: &quot;TERM&quot;,      #signal that will be sent to the command to be gracefully exited (QUIT, TERM, INT, KILL) *Required*</span>
+<span class="err">            &quot;exitcodes&quot;: &quot;None&quot;,    #exitcodes that define an expected termination for use autorestart or None for all exitcodes being considered unexpected</span>
+<span class="err">            &quot;workingdir&quot;: &quot;/tmp/&quot;,  #working directory to be set for the command or None for same working dir as parent(taskmaster)</span>
+<span class="err">            &quot;umask&quot;: 0,             #umask to be set for the program or None (in decimal (integer)!)</span>
+<span class="err">            &quot;stdout&quot;: &quot;None&quot;,       #option to redirect stdout to file or to simple discard it with &quot;discard&quot; or None</span>
+<span class="err">            &quot;stderr&quot;: &quot;None&quot;,       #option to redirect stderr to file or to simple discard it with &quot;discard&quot; or None</span>
+<span class="err">            &quot;env&quot;: &quot;None&quot;           #extra env parameters to provide to the new process, &quot;None&quot; for no environment at all, or &quot;default&quot; for the same env as taskmaster</span>
+<span class="err">        }</span>
+<span class="err">    }</span>
+<span class="err">}</span>
 </pre></div>
 
 
-<p>The configuration file must allow the user to specify the following in order to each program must be supervised:</p>
-<div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">The</span> <span class="n">command</span> <span class="k">to</span> <span class="n">use</span> <span class="k">to</span> <span class="n">launch</span> <span class="n">the</span> <span class="n">program</span><span class="p">.</span>
-
-<span class="o">-</span> <span class="n">The</span> <span class="nb">number</span> <span class="k">of</span> <span class="n">processes</span> <span class="k">to</span> <span class="k">start</span> <span class="k">and</span> <span class="n">run</span><span class="p">.</span>
-
-<span class="o">-</span> <span class="n">Choose</span> <span class="k">to</span> <span class="n">launch</span> <span class="n">this</span> <span class="n">program</span> <span class="k">at</span> <span class="n">startup</span> <span class="k">or</span> <span class="k">not</span><span class="p">.</span>
-
-<span class="o">-</span> <span class="n">Choose</span> <span class="n">whether</span> <span class="n">the</span> <span class="n">program</span> <span class="n">should</span> <span class="n">always</span> <span class="n">be</span> <span class="n">restarted</span><span class="p">,</span> <span class="n">never</span><span class="p">,</span> <span class="k">or</span> <span class="k">only</span> <span class="k">when</span> <span class="n">it</span> <span class="n">stops</span> <span class="n">unexpectedly</span><span class="p">.</span>
-
-<span class="o">-</span> <span class="n">Which</span> <span class="k">return</span> <span class="n">code</span> <span class="n">represents</span> <span class="n">an</span> <span class="ss">&quot;expected&quot;</span> <span class="k">output</span> <span class="k">of</span> <span class="n">the</span> <span class="n">program</span><span class="p">.</span>
-
-<span class="o">-</span> <span class="n">How</span> <span class="n">long</span> <span class="n">does</span> <span class="n">the</span> <span class="n">program</span> <span class="n">have</span> <span class="k">to</span> <span class="n">run</span> <span class="k">after</span> <span class="n">it</span> <span class="n">starts</span> <span class="k">for</span> <span class="n">it</span> <span class="k">is</span> <span class="n">considered</span> <span class="n">that</span> <span class="n">he</span> <span class="n">has</span> <span class="ss">&quot;launched himself correctly&quot;</span><span class="p">.</span>
-
-<span class="o">-</span> <span class="n">How</span> <span class="n">many</span> <span class="n">times</span> <span class="n">must</span> <span class="n">a</span> <span class="k">restart</span> <span class="n">be</span> <span class="n">performed</span> <span class="k">before</span> <span class="n">stopping</span><span class="p">.</span>
-
-<span class="o">-</span> <span class="n">Which</span> <span class="n">signal</span> <span class="n">should</span> <span class="n">be</span> <span class="n">used</span> <span class="k">to</span> <span class="n">stop</span> <span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">e</span><span class="p">.</span> <span class="n">exit</span> <span class="n">gracefully</span><span class="p">)</span> <span class="n">the</span> <span class="n">program</span><span class="p">.</span>
-
-<span class="o">-</span> <span class="n">How</span> <span class="n">many</span> <span class="n">waiting</span> <span class="n">times</span> <span class="k">after</span> <span class="n">a</span> <span class="n">graceful</span> <span class="n">stop</span> <span class="k">before</span> <span class="n">killing</span> <span class="n">the</span> <span class="n">program</span><span class="p">.</span>
-
-<span class="o">-</span> <span class="k">Options</span> <span class="k">to</span> <span class="n">remove</span> <span class="k">stdout</span><span class="o">/</span><span class="n">stderr</span> <span class="k">from</span> <span class="n">the</span> <span class="n">program</span> <span class="k">or</span> <span class="k">to</span> <span class="n">redirect</span> <span class="k">to</span> <span class="n">files</span><span class="p">.</span>
-
-<span class="o">-</span> <span class="k">Set</span> <span class="n">environment</span> <span class="n">variables</span> <span class="k">before</span> <span class="n">running</span> <span class="n">the</span> <span class="n">program</span><span class="p">.</span>
-
-<span class="o">-</span> <span class="n">A</span> <span class="n">working</span> <span class="n">directory</span> <span class="n">a</span> <span class="k">set</span> <span class="k">before</span> <span class="n">starting</span> <span class="n">the</span> <span class="n">program</span><span class="p">.</span>
-
-<span class="o">-</span> <span class="n">A</span> <span class="n">umask</span> <span class="n">a</span> <span class="k">set</span> <span class="k">before</span> <span class="n">running</span> <span class="n">the</span> <span class="n">program</span><span class="p">.</span>
-</pre></div>
+<h2>Launching method</h2>
+<ul>
+<li><code>python3 taskmaster.py config_files/&lt;yourconfig&gt;.json</code></li>
+</ul>
+<h2>Commands</h2>
+<ul>
+<li><code>help</code>: List available commands with "help" or detailed help with "help cmd".</li>
+<li><code>help &lt;command&gt;</code>: Prints the description and the method of use of the command.</li>
+<li><code>start &lt;program&gt;</code>: Starts desired program(s). Usage -&gt; start <program name(s)></li>
+<li><code>stop &lt;program&gt;</code>: Stops desired program(s). Usage -&gt; stop <program name(s)></li>
+<li><code>restart &lt;program&gt;</code>: Restarts desired program(s) that has already been launched. Usage -&gt; restart <program name(s)></li>
+<li><code>reload</code>: Reloads the whole configuration. Usage -&gt; reload</li>
+<li><code>display</code>: Opens a window that shows the pre-loaded configuration and the status of the programs to be monitored.</li>
+</ul>
+<h2>Examples</h2>
+<p><img alt="alt text" src="images/taskmaster/start_taskmaster.gif">
+<img alt="alt text" src="images/taskmaster/start_ls.gif">
+<img alt="alt text" src="images/taskmaster/display_command.gif">
+<img alt="alt text" src="images/taskmaster/display.gif"></p>
             </div><!-- /.entry-content -->
 
 
@@ -117,19 +132,12 @@ Information on which program to launch, how, how much, if they should be launche
   <ul>
 
     <li ><a href="/pages/about-me.html">About me</a></li>
-    <li ><a href="/pages/linkedinhttpswwwlinkedincominmarc-jose-rubio-0b8420158.html">[LinkedIn](https://www.linkedin.com/in/marc-jose-rubio-0b8420158)</a></li>
+    <li><a href="https://www.linkedin.com/in/marc-jose-rubio-0b8420158">LinkedIn</a></li>  
   
 
 
 
 
-<nav class="widget">
-  <h4>Social</h4>
-  <ul class="blank">
-    <li><a href="#">You can add links in your config file</a></li>
-    <li><a href="#">Another social link</a></li>
-  </ul>
-</nav>
 
 </div> </div><!-- /.row -->
 
