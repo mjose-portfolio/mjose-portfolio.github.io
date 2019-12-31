@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Portfolio's Marc Jose Rubio</title><link href="http://localhost:8000/" rel="alternate"></link><link href="http://localhost:8000/feeds/all-en.atom.xml" rel="self"></link><id>http://localhost:8000/</id><updated>2019-11-29T23:21:00+01:00</updated><entry><title>TaskMaster</title><link href="http://localhost:8000/TaskMaster.html" rel="alternate"></link><published>2019-11-29T23:14:00+01:00</published><updated>2019-11-29T23:21:00+01:00</updated><author><name>Abraham Gimbao</name></author><id>tag:localhost,2019-11-29:/TaskMaster.html</id><summary type="html">&lt;p&gt;Basic task manager that reads from a config.json file and supervises a number of processes.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Basic task manager that reads from a config.json file and supervises a number of processes.
+We were restricted to our language of choice’s standard library. Except for the config file parsing.&lt;/p&gt;
+&lt;p&gt;The script reads the tasks parameters from the json file, and executes some kind of user prompt to effectively manage these tasks.&lt;/p&gt;
+&lt;p&gt;The only argument needed is a config file. All info about making your own config file is in exampleconfig.json.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/mjose-portfolio/42-TaskMaster"&gt;Try it on Github!&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Project partners&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/abguimba"&gt;Abraham Gimbao&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/mjose-portfolio"&gt;Marc Jose&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Install&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Not needed.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Configuration&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Create a file in json format with the following characteristics:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;{                                   &lt;/span&gt;
+&lt;span class="err"&gt;    &amp;quot;programs&amp;quot;: {                   #a list of programs&lt;/span&gt;
+&lt;span class="err"&gt;        &amp;quot;sleep&amp;quot;: {                  #the name of a program *Required*&lt;/span&gt;
+&lt;span class="err"&gt;            &amp;quot;cmd&amp;quot;: &amp;quot;sleep 1000&amp;quot;,    #the exact command to launch *Required*&lt;/span&gt;
+&lt;span class="err"&gt;            &amp;quot;cmdammount&amp;quot;: 10,       #the number of times you need to launch this process *Required*&lt;/span&gt;
+&lt;span class="err"&gt;            &amp;quot;autostart&amp;quot;: true,      #cmd started at launch True/False? *Required*&lt;/span&gt;
+&lt;span class="err"&gt;            &amp;quot;autorestart&amp;quot;: &amp;quot;never&amp;quot;, #restart this program on &amp;quot;never&amp;quot;, &amp;quot;always&amp;quot;, or on &amp;quot;unexpected&amp;quot; termination *Required*&lt;/span&gt;
+&lt;span class="err"&gt;            &amp;quot;starttime&amp;quot;: 5,         #amount of time to go by before the program is considered &amp;quot;succesfully started&amp;quot; *Required*&lt;/span&gt;
+&lt;span class="err"&gt;            &amp;quot;stoptime&amp;quot;: 10,         #amount of time to go by after sending quitsit to program before killing it completely with SIGKILL *Required*&lt;/span&gt;
+&lt;span class="err"&gt;            &amp;quot;restartretries&amp;quot;: 3,    #amount of times a program will be tried to be restarted or started at the beginning before giving up on it *Required*&lt;/span&gt;
+&lt;span class="err"&gt;            &amp;quot;quitsig&amp;quot;: &amp;quot;TERM&amp;quot;,      #signal that will be sent to the command to be gracefully exited (QUIT, TERM, INT, KILL) *Required*&lt;/span&gt;
+&lt;span class="err"&gt;            &amp;quot;exitcodes&amp;quot;: &amp;quot;None&amp;quot;,    #exitcodes that define an expected termination for use autorestart or None for all exitcodes being considered unexpected&lt;/span&gt;
+&lt;span class="err"&gt;            &amp;quot;workingdir&amp;quot;: &amp;quot;/tmp/&amp;quot;,  #working directory to be set for the command or None for same working dir as parent(taskmaster)&lt;/span&gt;
+&lt;span class="err"&gt;            &amp;quot;umask&amp;quot;: 0,             #umask to be set for the program or None (in decimal (integer)!)&lt;/span&gt;
+&lt;span class="err"&gt;            &amp;quot;stdout&amp;quot;: &amp;quot;None&amp;quot;,       #option to redirect stdout to file or to simple discard it with &amp;quot;discard&amp;quot; or None&lt;/span&gt;
+&lt;span class="err"&gt;            &amp;quot;stderr&amp;quot;: &amp;quot;None&amp;quot;,       #option to redirect stderr to file or to simple discard it with &amp;quot;discard&amp;quot; or None&lt;/span&gt;
+&lt;span class="err"&gt;            &amp;quot;env&amp;quot;: &amp;quot;None&amp;quot;           #extra env parameters to provide to the new process, &amp;quot;None&amp;quot; for no environment at all, or &amp;quot;default&amp;quot; for the same env as taskmaster&lt;/span&gt;
+&lt;span class="err"&gt;        }&lt;/span&gt;
+&lt;span class="err"&gt;    }&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Launching method&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;python3 taskmaster.py config_files/&amp;lt;yourconfig&amp;gt;.json&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Commands&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;help&lt;/code&gt;: List available commands with "help" or detailed help with "help cmd".&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;help &amp;lt;command&amp;gt;&lt;/code&gt;: Prints the description and the method of use of the command.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;start &amp;lt;program&amp;gt;&lt;/code&gt;: Starts desired program(s). Usage -&amp;gt; start &lt;program name(s)&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;stop &amp;lt;program&amp;gt;&lt;/code&gt;: Stops desired program(s). Usage -&amp;gt; stop &lt;program name(s)&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;restart &amp;lt;program&amp;gt;&lt;/code&gt;: Restarts desired program(s) that has already been launched. Usage -&amp;gt; restart &lt;program name(s)&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;reload&lt;/code&gt;: Reloads the whole configuration. Usage -&amp;gt; reload&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;display&lt;/code&gt;: Opens a window that shows the pre-loaded configuration and the status of the programs to be monitored.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Examples&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="alt text" src="http://localhost:8000/projects/resources/42-TaskMaster/images/start_taskmaster.gif"&gt;
+&lt;img alt="alt text" src="http://localhost:8000/projects/resources/42-TaskMaster/images/start_ls.gif"&gt;
+&lt;img alt="alt text" src="http://localhost:8000/projects/resources/42-TaskMaster/images/display_command.gif"&gt;
+&lt;img alt="alt text" src="http://localhost:8000/projects/resources/42-TaskMaster/images/display.gif"&gt;&lt;/p&gt;</content><category term="Python"></category><category term="Python"></category><category term="42"></category></entry></feed>
