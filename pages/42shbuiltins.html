@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Portfolio's Marc Jose Rubio | 42sh/builtins</title>
+    <link rel="shortcut icon" type="image/png" href="https://mjose-portfolio.github.io/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="https://mjose-portfolio.github.io/favicon.ico">
+    <link href="https://mjose-portfolio.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Portfolio's Marc Jose Rubio Full Atom Feed" />
+    <link rel="stylesheet" href="https://mjose-portfolio.github.io/theme/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="https://mjose-portfolio.github.io/theme/css/pygments.css" type="text/css" />
+    <meta name="generator" content="Pelican" />
+    <meta name="description" content="" />
+    <meta name="author" content="Marc Jose Rubio" />
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="https://mjose-portfolio.github.io/">Home</a></li>
+                <li><a href="https://mjose-portfolio.github.io/pages/about-me.html">About me</a></li>
+                <li><a href="https://github.com/mjose-portfolio">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/marc-jose-rubio-0b8420158/">LinkedIn</a></li>
+                <li><a href="https://mjose-portfolio.github.io/tags">Tags</a></li>
+                <li><a href="https://mjose-portfolio.github.io/authors">Authors</a></li>
+                <li><a href="https://mjose-portfolio.github.io/categories">Categories</a></li>
+                <li><a href="https://mjose-portfolio.github.io/archives">Archives</a></li>
+            </ul>
+        </nav>
+        <div class="header_box">
+            <h1><a href="https://mjose-portfolio.github.io/">Portfolio's Marc Jose Rubio</a></h1>
+        </div>
+    </header>
+    <div id="wrapper">
+        <div id="content">
+            <div class="page">
+                <h1>42sh/builtins</h1>
+                <h1 id="builtins">Builtins<a class="headerlink" href="#builtins" title="Permanent link"> </a></h1>
+<ul>
+<li><a href="#311-alias">3.1.1 alias</a></li>
+<li><a href="#312-bg">3.1.2 bg</a></li>
+<li><a href="#313-cd">3.1.3 cd</a></li>
+<li><a href="#3131-options">3.1.3.1 Options</a></li>
+<li><a href="#314-echo">3.1.4 echo</a></li>
+<li><a href="#315-env">3.1.5 env</a></li>
+<li><a href="#3151-options">3.1.5.1 Options</a></li>
+<li><a href="#316-exit--n-">3.1.6 exit [n]</a></li>
+<li><a href="#317-export">3.1.7 export</a></li>
+<li><a href="#3171-options">3.1.7.1 Options</a></li>
+<li><a href="#318-false">3.1.8 false</a></li>
+<li><a href="#319-fg">3.1.9 fg</a></li>
+<li><a href="#3110-hash">3.1.10 hash</a></li>
+<li><a href="#31101-options">3.1.10.1 Options</a></li>
+<li><a href="#3111-history">3.1.11 history</a></li>
+<li><a href="#31111-options">3.1.11.1 Options</a></li>
+<li><a href="#3112-jobs">3.1.12 jobs</a></li>
+<li><a href="#31121-options">3.1.12.1 Options</a></li>
+<li><a href="#3113-set">3.1.13 set</a></li>
+<li><a href="#3114-test">3.1.14 test</a></li>
+<li><a href="#31141-options">3.1.14.1 Options</a></li>
+<li><a href="#3115-true">3.1.15 true</a></li>
+<li><a href="#3116-type">3.1.16 type</a></li>
+<li><a href="#3117-unalias">3.1.17 unalias</a></li>
+<li><a href="#31171-options">3.1.17.1 Options</a></li>
+<li><a href="#3118-unset">3.1.18 unset</a></li>
+<li><a href="#3119-fc">3.1.19 fc</a></li>
+<li><a href="#31191-fc">3.1.19.1 Options</a></li>
+</ul>
+<h4 id="311-alias">3.1.1 alias<a class="headerlink" href="#311-alias" title="Permanent link"> </a></h4>
+<hr />
+<p>Without arguments, <code>alias</code> prints the list of aliases on the standard output. If arguments are supplied, an alias is defined for each name whose value is given. If no value is given, the name and value of the alias is printed.</p>
+<p><a href="#builtins">Return to top</a>.</p>
+<h4 id="312-bg">3.1.2 bg<a class="headerlink" href="#312-bg" title="Permanent link"> </a></h4>
+<hr />
+<p>Resume each suspended job in the background, as if it had been started with &amp;.</p>
+<p><a href="#builtins">Return to top</a>.</p>
+<h4 id="313-cd">3.1.3 cd<a class="headerlink" href="#313-cd" title="Permanent link"> </a></h4>
+<hr />
+<p>Change the current working directory to <code>directory</code>. If <code>directory</code> is not supplied, the value of the <code>HOME</code> shell variable is used.</p>
+<h5 id="3131-options">3.1.3.1 Options<a class="headerlink" href="#3131-options" title="Permanent link"> </a></h5>
+<p><code>-L</code>: symbolic links in directory are resolved after <code>cd</code> processes an instance of ‘<code>..</code>’ in directory.</p>
+<p><code>-P</code>: not follow symbolic links: symbolic links are resolved while <code>cd</code> is traversing <code>directory</code> and before processing an instance of ‘<code>..</code>’ in directory.</p>
+<p><a href="#builtins">Return to top</a>.</p>
+<h4 id="314-echo">3.1.4 echo<a class="headerlink" href="#314-echo" title="Permanent link"> </a></h4>
+<hr />
+<p>Outputs it's args to stdout, separated by spaces, followed by a newline. The return status is always 0.</p>
+<p><a href="#builtins">Return to top</a>.</p>
+<h4 id="315-env">3.1.5 env<a class="headerlink" href="#315-env" title="Permanent link"> </a></h4>
+<hr />
+<p>Set the environment for command invocation.</p>
+<h5 id="3151-options">3.1.5.1 Options<a class="headerlink" href="#3151-options" title="Permanent link"> </a></h5>
+<p><code>-i</code>: Invoke utility with exactly the environment specified by the arguments; the inherited environment shall be ignored completely.</p>
+<p><a href="#builtins">Return to top</a>.</p>
+<h4 id="316-exit-n">3.1.6 exit [n]<a class="headerlink" href="#316-exit-n" title="Permanent link"> </a></h4>
+<hr />
+<p>Shall cause the shell to exit with the exit status specified by the unsigned decimal integer n.</p>
+<p><a href="#builtins">Return to top</a>.</p>
+<h4 id="317-export">3.1.7 export<a class="headerlink" href="#317-export" title="Permanent link"> </a></h4>
+<hr />
+<p>Marks an environment variable to be exported with any newly forked child processes and thus it allows a child process to inherit all marked variables.</p>
+<h5 id="3171-options">3.1.7.1 Options<a class="headerlink" href="#3171-options" title="Permanent link"> </a></h5>
+<p><code>-p</code>: List of all names that are exported in the current shell.</p>
+<p><a href="#builtins">Return to top</a>.</p>
+<h4 id="318-false">3.1.8 false<a class="headerlink" href="#318-false" title="Permanent link"> </a></h4>
+<hr />
+<p>Do nothing, returning a non-zero (false) exit status.</p>
+<p><a href="#builtins">Return to top</a>.</p>
+<h4 id="319-fg">3.1.9 fg<a class="headerlink" href="#319-fg" title="Permanent link"> </a></h4>
+<hr />
+<p>Put each specified job in the background, or the current job if none is specified.</p>
+<p><a href="#builtins">Return to top</a>.</p>
+<h4 id="3110-hash">3.1.10 hash<a class="headerlink" href="#3110-hash" title="Permanent link"> </a></h4>
+<hr />
+<p>Determine and remember the full pathname of each commandname. If no arguments are given, display information about remembered command locations.</p>
+<h4 id="31101-options">3.1.10.1 Options<a class="headerlink" href="#31101-options" title="Permanent link"> </a></h4>
+<p><code>-r</code>: Forget all remembered locations.</p>
+<p><a href="#builtins">Return to top</a>.</p>
+<h4 id="3111-history">3.1.11 history<a class="headerlink" href="#3111-history" title="Permanent link"> </a></h4>
+<hr />
+<p>With no options, display the history list with line numbers.</p>
+<h5 id="31111-options">3.1.11.1 Options<a class="headerlink" href="#31111-options" title="Permanent link"> </a></h5>
+<p><code>-c</code>: Clear the history list.</p>
+<p><code>-d [offset]</code>: Delete the history entry at position <code>offset</code>. <code>offset</code> should be specified as it appears when the history is displayed.</p>
+<p><a href="#builtins">Return to top</a>.</p>
+<h4 id="3112-jobs">3.1.12 jobs<a class="headerlink" href="#3112-jobs" title="Permanent link"> </a></h4>
+<hr />
+<p>The first form lists the active jobs.</p>
+<h5 id="31121-options">3.1.12.1 Options<a class="headerlink" href="#31121-options" title="Permanent link"> </a></h5>
+<p><code>-p</code>: List only the process ID of the job’s process group leader.</p>
+<p><a href="#builtins">Return to top</a>.</p>
+<h4 id="3113-set">3.1.13 set<a class="headerlink" href="#3113-set" title="Permanent link"> </a></h4>
+<hr />
+<p>Change the value of a shell option and set the positional parameters, or display the names and values of shell variables.</p>
+<p><a href="#builtins">Return to top</a>.</p>
+<h4 id="3114-test">3.1.14 test<a class="headerlink" href="#3114-test" title="Permanent link"> </a></h4>
+<hr />
+<p>Evaluate a conditional expression.</p>
+<h5 id="31141-options">3.1.14.1 Options<a class="headerlink" href="#31141-options" title="Permanent link"> </a></h5>
+<p><code>-b [pathname]</code>: True if <code>pathname</code> resolves to an existing directory entry for a block special file. False if <code>pathname</code> cannot be resolved, or if <code>pathname</code> resolves to an existing directory entry for a file that is not a block special file.</p>
+<p><code>-c [pathname]</code>: True if <code>pathname</code> resolves to an existing directory entry for a character special file. False if <code>pathname</code> cannot be resolved, or if <code>pathname</code> resolves to an existing directory entry for a file that is not a character special file.</p>
+<p><code>-d [pathname]</code>: True if <code>pathname</code> resolves to an existing directory entry for a directory. False if <code>pathname</code> cannot be resolved, or if <code>pathname</code> resolves to an existing directory entry for a file that is not a directory.</p>
+<p><code>-e [pathname]</code>: True if <code>pathname</code> resolves to an existing directory entry. False if <code>pathname</code> cannot be resolved.</p>
+<p><code>-f [pathname]</code>: True if <code>pathname</code> resolves to an existing directory entry for a regular file. False if <code>pathname</code> cannot be resolved, or if <code>pathname</code> resolves to an existing directory entry for a file that is not a regular file.</p>
+<p><code>-g [pathname]</code>: True if <code>pathname</code> resolves to an existing directory entry for a file that has its set-group-ID flag set. False if <code>pathname</code> cannot be resolved, or if <code>pathname</code> resolves to an existing directory entry for a file that does not have its set-group-ID flag set.</p>
+<p><code>-L [pathname]</code>: True if <code>pathname</code> resolves to an existing directory entry for a symbolic link. False if <code>pathname</code> cannot be resolved, or if <code>pathname</code> resolves to an existing directory entry for a file that is not a symbolic link. If the final component of <code>pathname</code> is a symbolic link, that symbolic link is not followed.</p>
+<p><code>-p [pathname]</code>: True if <code>pathname</code> resolves to an existing directory entry for a FIFO. False if <code>pathname</code> cannot be resolved, or if <code>pathname</code> resolves to an existing directory entry for a file that is not a FIFO.</p>
+<p><code>-r [pathname]</code>: True if <code>pathname</code> resolves to an existing directory entry for a file for which permission to read from the file will be granted, as defined in <a href="https://pubs.opengroup.org/onlinepubs/9699919799//utilities/V3_chap01.html#tag_17_01_01_04">File Read, Write, and Creation</a>. False if <code>pathname</code> cannot be resolved, or if <code>pathname</code> resolves to an existing directory entry for a file for which permission to read from the file will not be granted.</p>
+<p><code>-S [pathname]</code>: True if <code>pathname</code> resolves to an existing directory entry for a socket. False if <code>pathname</code> cannot be resolved, or if <code>pathname</code> resolves to an existing directory entry for a file that is not a socket.</p>
+<p><code>-s [pathname]</code>: True if <code>pathname</code> resolves to an existing directory entry for a file that has a size greater than zero. False if <code>pathname</code> cannot be resolved, or if <code>pathname</code> resolves to an existing directory entry for a file that does not have a size greater than zero.</p>
+<p><code>-u [pathname]</code>: True if <code>pathname</code> resolves to an existing directory entry for a file that has its set-user-ID flag set. False if <code>pathname</code> cannot be resolved, or if <code>pathname</code> resolves to an existing directory entry for a file that does not have its set-user-ID flag set.</p>
+<p><code>-w [pathname]</code>: True if <code>pathname</code> resolves to an existing directory entry for a file for which permission to write to the file will be granted, as defined in <a href="https://pubs.opengroup.org/onlinepubs/9699919799//utilities/V3_chap01.html#tag_17_01_01_04">File Read, Write, and Creation</a>. False if <code>pathname</code> cannot be resolved, or if <code>pathname</code> resolves to an existing directory entry for a file for which permission to write to the file will not be granted.</p>
+<p><code>-x [pathname]</code>: True if <code>pathname</code> resolves to an existing directory entry for a file for which permission to execute the file (or search it, if it is a directory) will be granted, as defined in <a href="https://pubs.opengroup.org/onlinepubs/9699919799//utilities/V3_chap01.html#tag_17_01_01_04">File Read, Write, and Creation</a>. False if <code>pathname</code> cannot be resolved, or if <code>pathname</code> resolves to an existing directory entry for a file for which permission to execute (or search) the file will not be granted.</p>
+<p><code>-z [string]</code>: True if the length of string <code>string</code> is zero; otherwise, false.</p>
+<p><code>s1 = s2</code>: True if the strings <code>s1</code> and <code>s2</code> are identical; otherwise, false.</p>
+<p><code>s1 != s2</code>: True if the strings <code>s1</code> and <code>s2</code> are not identical; otherwise, false.</p>
+<p><code>n1 -eq n2</code>: True if the integers <code>n1</code> and <code>n2</code> are algebraically equal; otherwise, false.</p>
+<p><code>n1 -ne n2</code>: True if the integers <code>n1</code> and <code>n2</code> are not algebraically equal; otherwise, false.</p>
+<p><code>n1 -gt  n2</code>: True if the integer <code>n1</code> is algebraically greater than the integer <code>n2</code>; otherwise, false.</p>
+<p><code>n1 -ge n2</code>: True if the integer <code>n1</code> is algebraically greater than or equal to the integer <code>n2</code>; otherwise, false.</p>
+<p><code>n1 -lt n2</code>: True if the integer <code>n1</code> is algebraically less than the integer <code>n2</code>; otherwise, false.</p>
+<p><code>n1 -le n2</code>: True if the integer <code>n1</code> is algebraically less than or equal to the integer <code>n2</code>; otherwise, false.</p>
+<p><code>! [expression]</code>: True if <code>expression</code> is false. False if <code>expression</code> is true.</p>
+<p><a href="#builtins">Return to top</a>.</p>
+<h4 id="3115-true">3.1.15 true<a class="headerlink" href="#3115-true" title="Permanent link"> </a></h4>
+<hr />
+<p>Does nothing except return an exit status of 0, meaning "success". </p>
+<p><a href="#builtins">Return to top</a>.</p>
+<h4 id="3116-type">3.1.16 type<a class="headerlink" href="#3116-type" title="Permanent link"> </a></h4>
+<hr />
+<p>Describe a command. For each <em>name</em>, indicate how it would be interpreted if used as a command name.</p>
+<p><a href="#builtins">Return to top</a>.</p>
+<h4 id="3117-unalias">3.1.17 unalias<a class="headerlink" href="#3117-unalias" title="Permanent link"> </a></h4>
+<hr />
+<p>Remove each name from the list of aliases.</p>
+<h5 id="31171-options">3.1.17.1 Options<a class="headerlink" href="#31171-options" title="Permanent link"> </a></h5>
+<p><code>-a</code>: all aliases are removed.</p>
+<p><a href="#builtins">Return to top</a>.</p>
+<h4 id="3118-unset">3.1.18 unset<a class="headerlink" href="#3118-unset" title="Permanent link"> </a></h4>
+<hr />
+<p>Remove variable.</p>
+<p><a href="#builtins">Return to top</a>.</p>
+<h4 id="3119-fc">3.1.19 fc<a class="headerlink" href="#3119-fc" title="Permanent link"> </a></h4>
+<hr />
+<p>Process the command history list.</p>
+<h5 id="31191-options">3.1.19.1 Options<a class="headerlink" href="#31191-options" title="Permanent link"> </a></h5>
+<p><code>-e [editor]</code>: Use the editor named by <code>editor</code> to edit the commands. The <code>editor</code> string is a utility name, subject to search via the <code>PATH</code> variable. The value in the <code>FCEDIT</code> variable shall be used as a default when <strong>-e</strong> is not specified. If <code>FCEDIT</code> is null or unset, <code>ed</code> shall be used as the editor.</p>
+<p><code>-l</code>: List the commands rather than invoking an editor on them. The commands shall be written in the sequence indicated by the <em>first</em> and <em>last</em> operands, as affected by <strong>-r</strong>, with each command preceded by the command number.</p>
+<p><code>-n</code>: Suppress command numbers when listing with <code>-l</code>.</p>
+<p><code>-r</code>: Reverse the order of the commands listed (with <code>-l</code>) or edited (with neither <code>-l</code> nor <code>-s</code>).</p>
+<p><code>-s</code>: Re-execute the command without invoking an editor.</p>
+<p><a href="#builtins">Return to top</a>.</p>
+            </div>
+
+        </div>
+        <div class="clear"></div>
+    </div>
+</body>
+</html>

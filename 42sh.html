@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
+        <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Portfolio's Marc Jose Rubio</title>
+    <title>Portfolio's Marc Jose Rubio | 42sh</title>
     <link rel="shortcut icon" type="image/png" href="https://mjose-portfolio.github.io/favicon.png">
     <link rel="shortcut icon" type="image/x-icon" href="https://mjose-portfolio.github.io/favicon.ico">
     <link href="https://mjose-portfolio.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Portfolio's Marc Jose Rubio Full Atom Feed" />
+    <link href="https://mjose-portfolio.github.io/feeds/c.atom.xml" type="application/atom+xml" rel="alternate" title="Portfolio's Marc Jose Rubio Categories Atom Feed" />
     <link rel="stylesheet" href="https://mjose-portfolio.github.io/theme/css/main.css" type="text/css" />
     <link rel="stylesheet" href="https://mjose-portfolio.github.io/theme/css/pygments.css" type="text/css" />
     <meta name="generator" content="Pelican" />
     <meta name="description" content="" />
     <meta name="author" content="Marc Jose Rubio" />
+
+    <meta name="keywords" content="C,42" />
 </head>
 <body>
     <header>
         <nav>
             <ul>
-                <li class="selected"><a href="https://mjose-portfolio.github.io/">Home</a></li>
+                <li><a href="https://mjose-portfolio.github.io/">Home</a></li>
                 <li><a href="https://mjose-portfolio.github.io/pages/about-me.html">About me</a></li>
                 <li><a href="https://github.com/mjose-portfolio">GitHub</a></li>
                 <li><a href="https://www.linkedin.com/in/marc-jose-rubio-0b8420158/">LinkedIn</a></li>
@@ -32,85 +35,7 @@
         </div>
     </header>
     <div id="wrapper">
-        <div id="content">            <h4 class="date">Nov 29, 2019</h4>
-
-            <article class="post">
-                <h2 class="title">
-                    <a href="https://mjose-portfolio.github.io/TaskMaster.html" rel="bookmark" title="Permanent Link to &quot;TaskMaster&quot;">TaskMaster</a>
-                </h2>
-
-                
-                
-
-                <p>Basic task manager that reads from a config.json file and supervises a number of processes.
-We were restricted to our language of choice’s standard library. Except for the config file parsing.</p>
-<p>The script reads the tasks parameters from the json file, and executes some kind of user prompt to effectively manage these tasks.</p>
-<p>The only argument needed is a config file. All info about making your own config file is in exampleconfig.json.</p>
-<p><a href="https://github.com/mjose-portfolio/42-TaskMaster">Try it on Github!</a></p>
-<h2 id="project-partners">Project partners<a class="headerlink" href="#project-partners" title="Permanent link"> </a></h2>
-<ul>
-<li><a href="https://github.com/abguimba">Abraham Gimbao</a></li>
-<li><a href="https://github.com/mjose-portfolio">Marc Jose</a></li>
-</ul>
-<h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link"> </a></h2>
-<ul>
-<li>Not needed.</li>
-</ul>
-<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link"> </a></h2>
-<ul>
-<li>Create a file in json format with the following characteristics:</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="err">{                                   </span>
-    <span class="err">    &quot;programs&quot;: {                   #a list of programs</span>
-    <span class="err">        &quot;sleep&quot;: {                  #the name of a program *Required*</span>
-    <span class="err">            &quot;cmd&quot;: &quot;sleep 1000&quot;,    #the exact command to launch *Required*</span>
-    <span class="err">            &quot;cmdammount&quot;: 10,       #the number of times you need to launch this process *Required*</span>
-    <span class="err">            &quot;autostart&quot;: true,      #cmd started at launch True/False? *Required*</span>
-    <span class="err">            &quot;autorestart&quot;: &quot;never&quot;, #restart this program on &quot;never&quot;, &quot;always&quot;, or on &quot;unexpected&quot; termination *Required*</span>
-    <span class="err">            &quot;starttime&quot;: 5,         #amount of time to go by before the program is considered &quot;succesfully started&quot; *Required*</span>
-    <span class="err">            &quot;stoptime&quot;: 10,         #amount of time to go by after sending quitsit to program before killing it completely with SIGKILL *Required*</span>
-    <span class="err">            &quot;restartretries&quot;: 3,    #amount of times a program will be tried to be restarted or started at the beginning before giving up on it *Required*</span>
-    <span class="err">            &quot;quitsig&quot;: &quot;TERM&quot;,      #signal that will be sent to the command to be gracefully exited (QUIT, TERM, INT, KILL) *Required*</span>
-    <span class="err">            &quot;exitcodes&quot;: &quot;None&quot;,    #exitcodes that define an expected termination for use autorestart or None for all exitcodes being considered unexpected</span>
-    <span class="err">            &quot;workingdir&quot;: &quot;/tmp/&quot;,  #working directory to be set for the command or None for same working dir as parent(taskmaster)</span>
-    <span class="err">            &quot;umask&quot;: 0,             #umask to be set for the program or None (in decimal (integer)!)</span>
-    <span class="err">            &quot;stdout&quot;: &quot;None&quot;,       #option to redirect stdout to file or to simple discard it with &quot;discard&quot; or None</span>
-    <span class="err">            &quot;stderr&quot;: &quot;None&quot;,       #option to redirect stderr to file or to simple discard it with &quot;discard&quot; or None</span>
-    <span class="err">            &quot;env&quot;: &quot;None&quot;           #extra env parameters to provide to the new process, &quot;None&quot; for no environment at all, or &quot;default&quot; for the same env as taskmaster</span>
-    <span class="err">        }</span>
-    <span class="err">    }</span>
-    <span class="err">}</span>
-    </pre></div>
-
-<h2 id="launching-method">Launching method<a class="headerlink" href="#launching-method" title="Permanent link"> </a></h2>
-<ul>
-<li><code>python3 taskmaster.py config_files/&lt;yourconfig&gt;.json</code></li>
-</ul>
-<h2 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link"> </a></h2>
-<ul>
-<li><code>help</code>: List available commands with "help" or detailed help with "help cmd".</li>
-<li><code>help &lt;command&gt;</code>: Prints the description and the method of use of the command.</li>
-<li><code>start &lt;program&gt;</code>: Starts desired program(s). Usage -&gt; start <program name(s)></li>
-<li><code>stop &lt;program&gt;</code>: Stops desired program(s). Usage -&gt; stop <program name(s)></li>
-<li><code>restart &lt;program&gt;</code>: Restarts desired program(s) that has already been launched. Usage -&gt; restart <program name(s)></li>
-<li><code>reload</code>: Reloads the whole configuration. Usage -&gt; reload</li>
-<li><code>display</code>: Opens a window that shows the pre-loaded configuration and the status of the programs to be monitored.</li>
-</ul>
-<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link"> </a></h2>
-<p><img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/42-TaskMaster/images/start_taskmaster.gif" />
-<img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/42-TaskMaster/images/start_ls.gif" />
-<img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/42-TaskMaster/images/display_command.gif" />
-<img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/42-TaskMaster/images/display.gif" /></p>
-                <div class="clear"></div>
-
-                <div class="info">
-                    <a href="https://mjose-portfolio.github.io/TaskMaster.html">posted at 23:14</a>
-                    &nbsp;&middot;&nbsp;<a href="https://mjose-portfolio.github.io/category/python.html" rel="tag">Python</a>
-                    &nbsp;&middot;
-                    &nbsp;<a href="https://mjose-portfolio.github.io/tag/python.html" class="tags">Python</a>
-                    &nbsp;<a href="https://mjose-portfolio.github.io/tag/42.html" class="tags">42</a>
-                </div>
-            </article>            <h4 class="date">Nov 29, 2018</h4>
+        <div id="content">            <h4 class="date">Nov 29, 2018</h4>
 
             <article class="post">
                 <h2 class="title">
@@ -354,7 +279,6 @@ _: Last parameter used in a command.
                     &nbsp;<a href="https://mjose-portfolio.github.io/tag/42.html" class="tags">42</a>
                 </div>
             </article>
-
         </div>
         <div class="clear"></div>
     </div>

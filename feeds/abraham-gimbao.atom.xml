@@ -4,47 +4,46 @@ We were restricted to our language of choice’s standard library. Except for th
 &lt;p&gt;The script reads the tasks parameters from the json file, and executes some kind of user prompt to effectively manage these tasks.&lt;/p&gt;
 &lt;p&gt;The only argument needed is a config file. All info about making your own config file is in exampleconfig.json.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://github.com/mjose-portfolio/42-TaskMaster"&gt;Try it on Github!&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;Project partners&lt;/h2&gt;
+&lt;h2 id="project-partners"&gt;Project partners&lt;a class="headerlink" href="#project-partners" title="Permanent link"&gt; &lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://github.com/abguimba"&gt;Abraham Gimbao&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/mjose-portfolio"&gt;Marc Jose&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Install&lt;/h2&gt;
+&lt;h2 id="install"&gt;Install&lt;a class="headerlink" href="#install" title="Permanent link"&gt; &lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Not needed.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Configuration&lt;/h2&gt;
+&lt;h2 id="configuration"&gt;Configuration&lt;a class="headerlink" href="#configuration" title="Permanent link"&gt; &lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Create a file in json format with the following characteristics:&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;{                                   &lt;/span&gt;
-&lt;span class="err"&gt;    &amp;quot;programs&amp;quot;: {                   #a list of programs&lt;/span&gt;
-&lt;span class="err"&gt;        &amp;quot;sleep&amp;quot;: {                  #the name of a program *Required*&lt;/span&gt;
-&lt;span class="err"&gt;            &amp;quot;cmd&amp;quot;: &amp;quot;sleep 1000&amp;quot;,    #the exact command to launch *Required*&lt;/span&gt;
-&lt;span class="err"&gt;            &amp;quot;cmdammount&amp;quot;: 10,       #the number of times you need to launch this process *Required*&lt;/span&gt;
-&lt;span class="err"&gt;            &amp;quot;autostart&amp;quot;: true,      #cmd started at launch True/False? *Required*&lt;/span&gt;
-&lt;span class="err"&gt;            &amp;quot;autorestart&amp;quot;: &amp;quot;never&amp;quot;, #restart this program on &amp;quot;never&amp;quot;, &amp;quot;always&amp;quot;, or on &amp;quot;unexpected&amp;quot; termination *Required*&lt;/span&gt;
-&lt;span class="err"&gt;            &amp;quot;starttime&amp;quot;: 5,         #amount of time to go by before the program is considered &amp;quot;succesfully started&amp;quot; *Required*&lt;/span&gt;
-&lt;span class="err"&gt;            &amp;quot;stoptime&amp;quot;: 10,         #amount of time to go by after sending quitsit to program before killing it completely with SIGKILL *Required*&lt;/span&gt;
-&lt;span class="err"&gt;            &amp;quot;restartretries&amp;quot;: 3,    #amount of times a program will be tried to be restarted or started at the beginning before giving up on it *Required*&lt;/span&gt;
-&lt;span class="err"&gt;            &amp;quot;quitsig&amp;quot;: &amp;quot;TERM&amp;quot;,      #signal that will be sent to the command to be gracefully exited (QUIT, TERM, INT, KILL) *Required*&lt;/span&gt;
-&lt;span class="err"&gt;            &amp;quot;exitcodes&amp;quot;: &amp;quot;None&amp;quot;,    #exitcodes that define an expected termination for use autorestart or None for all exitcodes being considered unexpected&lt;/span&gt;
-&lt;span class="err"&gt;            &amp;quot;workingdir&amp;quot;: &amp;quot;/tmp/&amp;quot;,  #working directory to be set for the command or None for same working dir as parent(taskmaster)&lt;/span&gt;
-&lt;span class="err"&gt;            &amp;quot;umask&amp;quot;: 0,             #umask to be set for the program or None (in decimal (integer)!)&lt;/span&gt;
-&lt;span class="err"&gt;            &amp;quot;stdout&amp;quot;: &amp;quot;None&amp;quot;,       #option to redirect stdout to file or to simple discard it with &amp;quot;discard&amp;quot; or None&lt;/span&gt;
-&lt;span class="err"&gt;            &amp;quot;stderr&amp;quot;: &amp;quot;None&amp;quot;,       #option to redirect stderr to file or to simple discard it with &amp;quot;discard&amp;quot; or None&lt;/span&gt;
-&lt;span class="err"&gt;            &amp;quot;env&amp;quot;: &amp;quot;None&amp;quot;           #extra env parameters to provide to the new process, &amp;quot;None&amp;quot; for no environment at all, or &amp;quot;default&amp;quot; for the same env as taskmaster&lt;/span&gt;
-&lt;span class="err"&gt;        }&lt;/span&gt;
-&lt;span class="err"&gt;    }&lt;/span&gt;
-&lt;span class="err"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;pre&gt;&lt;code&gt;{
+    &amp;quot;programs&amp;quot;: {                   #a list of programs
+        &amp;quot;sleep&amp;quot;: {                  #the name of a program *Required*
+            &amp;quot;cmd&amp;quot;: &amp;quot;sleep 1000&amp;quot;,    #the exact command to launch *Required*
+            &amp;quot;cmdammount&amp;quot;: 10,       #the number of times you need to launch this process *Required*
+            &amp;quot;autostart&amp;quot;: true,      #cmd started at launch True/False? *Required*
+            &amp;quot;autorestart&amp;quot;: &amp;quot;never&amp;quot;, #restart this program on &amp;quot;never&amp;quot;, &amp;quot;always&amp;quot;, or on &amp;quot;unexpected&amp;quot; termination *Required*
+            &amp;quot;starttime&amp;quot;: 5,         #amount of time to go by before the program is considered &amp;quot;succesfully started&amp;quot; *Required*
+            &amp;quot;stoptime&amp;quot;: 10,         #amount of time to go by after sending quitsit to program before killing it completely with SIGKILL *Required*
+            &amp;quot;restartretries&amp;quot;: 3,    #amount of times a program will be tried to be restarted or started at the beginning before giving up on it *Required*
+            &amp;quot;quitsig&amp;quot;: &amp;quot;TERM&amp;quot;,      #signal that will be sent to the command to be gracefully exited (QUIT, TERM, INT, KILL) *Required*
+            &amp;quot;exitcodes&amp;quot;: &amp;quot;None&amp;quot;,    #exitcodes that define an expected termination for use autorestart or None for all exitcodes being considered unexpected
+            &amp;quot;workingdir&amp;quot;: &amp;quot;/tmp/&amp;quot;,  #working directory to be set for the command or None for same working dir as parent(taskmaster)
+            &amp;quot;umask&amp;quot;: 0,             #umask to be set for the program or None (in decimal (integer)!)
+            &amp;quot;stdout&amp;quot;: &amp;quot;None&amp;quot;,       #option to redirect stdout to file or to simple discard it with &amp;quot;discard&amp;quot; or None
+            &amp;quot;stderr&amp;quot;: &amp;quot;None&amp;quot;,       #option to redirect stderr to file or to simple discard it with &amp;quot;discard&amp;quot; or None
+            &amp;quot;env&amp;quot;: &amp;quot;None&amp;quot;           #extra env parameters to provide to the new process, &amp;quot;None&amp;quot; for no environment at all, or &amp;quot;default&amp;quot; for the same env as taskmaster
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
 
-
-&lt;h2&gt;Launching method&lt;/h2&gt;
+&lt;h2 id="launching-method"&gt;Launching method&lt;a class="headerlink" href="#launching-method" title="Permanent link"&gt; &lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;python3 taskmaster.py config_files/&amp;lt;yourconfig&amp;gt;.json&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Commands&lt;/h2&gt;
+&lt;h2 id="commands"&gt;Commands&lt;a class="headerlink" href="#commands" title="Permanent link"&gt; &lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;help&lt;/code&gt;: List available commands with "help" or detailed help with "help cmd".&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;help &amp;lt;command&amp;gt;&lt;/code&gt;: Prints the description and the method of use of the command.&lt;/li&gt;
@@ -54,8 +53,231 @@ We were restricted to our language of choice’s standard library. Except for th
 &lt;li&gt;&lt;code&gt;reload&lt;/code&gt;: Reloads the whole configuration. Usage -&amp;gt; reload&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;display&lt;/code&gt;: Opens a window that shows the pre-loaded configuration and the status of the programs to be monitored.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Examples&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/42-TaskMaster/images/start_taskmaster.gif"&gt;
-&lt;img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/42-TaskMaster/images/start_ls.gif"&gt;
-&lt;img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/42-TaskMaster/images/display_command.gif"&gt;
-&lt;img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/42-TaskMaster/images/display.gif"&gt;&lt;/p&gt;</content><category term="Python"></category><category term="Python"></category><category term="42"></category></entry></feed>
+&lt;h2 id="examples"&gt;Examples&lt;a class="headerlink" href="#examples" title="Permanent link"&gt; &lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/42-TaskMaster/images/start_taskmaster.gif" /&gt;
+&lt;img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/42-TaskMaster/images/start_ls.gif" /&gt;
+&lt;img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/42-TaskMaster/images/display_command.gif" /&gt;
+&lt;img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/42-TaskMaster/images/display.gif" /&gt;&lt;/p&gt;</content><category term="Python"></category><category term="Python"></category><category term="42"></category></entry><entry><title>42sh</title><link href="https://mjose-portfolio.github.io/42sh.html" rel="alternate"></link><published>2018-11-29T23:14:00+01:00</published><updated>2018-11-29T23:21:00+01:00</updated><author><name>Abraham Gimbao</name></author><id>tag:mjose-portfolio.github.io,2018-11-29:/42sh.html</id><summary type="html">&lt;p&gt;This project consists of creating a complete shell and uses the work done on &lt;a href="https://github.com/mjose-portfolio/42-21sh#21sh"&gt;21sh&lt;/a&gt; and minishell projects.&lt;/p&gt;</summary><content type="html">&lt;p&gt;This project consists of creating a complete shell and uses the work done on &lt;a href="https://github.com/mjose-portfolio/42-21sh#21sh"&gt;21sh&lt;/a&gt; and minishell projects. We build our own shell, including a job control and shell script. This project involves a large variety of standard UNIX (and POSIX) functionalities.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/mjose-portfolio/42-42sh"&gt;Try it on Github!&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="1-project-partners"&gt;1. Project Partners&lt;a class="headerlink" href="#1-project-partners" title="Permanent link"&gt; &lt;/a&gt;&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/abguimba"&gt;Abraham Gimbao&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/alsomvil42"&gt;Alexandre Somville&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/BrendanSiche"&gt;Brendan Siche&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/mjose-portfolio"&gt;Marc Jose&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="2-install"&gt;2. Install&lt;a class="headerlink" href="#2-install" title="Permanent link"&gt; &lt;/a&gt;&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;make&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/42-42sh/images/make.gif" /&gt;&lt;/p&gt;
+&lt;h3 id="21-make-options"&gt;2.1. Make Options&lt;a class="headerlink" href="#21-make-options" title="Permanent link"&gt; &lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;make&lt;/code&gt;: Compiles the files and creates the executable 42sh&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;make clean&lt;/code&gt;: Remove binary files.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;make fclean&lt;/code&gt;: Deletes the binary files and the 42sh executable file.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;make re&lt;/code&gt;: Deletes the binary files and the 42sh executable file and recompiles them.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="3-features"&gt;3. Features&lt;a class="headerlink" href="#3-features" title="Permanent link"&gt; &lt;/a&gt;&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;h3 id="31-builtins"&gt;3.1 Builtins&lt;a class="headerlink" href="#31-builtins" title="Permanent link"&gt; &lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#311-alias"&gt;3.1.1 alias&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#312-bg"&gt;3.1.2 bg&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#313-cd"&gt;3.1.3 cd&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#314-echo"&gt;3.1.4 echo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#315-env"&gt;3.1.5 env&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#316-exit--n-"&gt;3.1.6 exit&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#317-export"&gt;3.1.7 export&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#318-false"&gt;3.1.8 false&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#319-fg"&gt;3.1.9 fg&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#3110-hash"&gt;3.1.10 hash&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#3111-history"&gt;3.1.11 history&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#3112-jobs"&gt;3.1.12 jobs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#3113-set"&gt;3.1.13 set&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#3114-test"&gt;3.1.14 test&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#3115-true"&gt;3.1.15 true&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#3116-type"&gt;3.1.16 type&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#3117-unalias"&gt;3.1.17 unalias&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#3118-unset"&gt;3.1.18 unset&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#3119-fc"&gt;3.1.19 fc&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="32-prompt"&gt;3.2 Prompt&lt;a class="headerlink" href="#32-prompt" title="Permanent link"&gt; &lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The prompt is displayed as follows:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;["user"]&amp;lt;"current directory"&amp;gt;42sh $/&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The current directory is updated live, each time you change directory, of course, the information is collected from the environment variable &lt;code&gt;PWD&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 id="33-execution-of-commands"&gt;3.3 Execution of Commands&lt;a class="headerlink" href="#33-execution-of-commands" title="Permanent link"&gt; &lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The command shall be searched for using the PATH environment variable.&lt;/p&gt;
+&lt;p&gt;It is possible to specify the paths where the command to execute resides (in case you want to execute a command that does not reside in any directory of the PATH variable, or the variable is not defined).&lt;/p&gt;
+&lt;p&gt;The parameters of each command are taken into account.&lt;/p&gt;
+&lt;h3 id="34-redirections"&gt;3.4 Redirections&lt;a class="headerlink" href="#34-redirections" title="Permanent link"&gt; &lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://mjose-portfolio.github.io/pages/42shredirections.html#341-redirecting-input"&gt;3.4.1 Redirecting Input&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://mjose-portfolio.github.io/pages/42shredirections.html#342-redirecting-output"&gt;3.4.2 Redirecting Output&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://mjose-portfolio.github.io/pages/42shredirections.html#343-here-document"&gt;3.4.3 Here-Document&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://mjose-portfolio.github.io/pages/42shredirections.html#344-duplicating-an-input-file-descriptor"&gt;3.4.4 Duplicating an Input File Descriptor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://mjose-portfolio.github.io/pages/42shredirections.html#345-duplicating-an-output-file-descriptor"&gt;3.4.5 Duplicating an Output File Descriptor&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="35-pipelines"&gt;3.5 Pipelines&lt;a class="headerlink" href="#35-pipelines" title="Permanent link"&gt; &lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The format for a pipeline is:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;command1 [ | command2 ...]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The standard output of &lt;code&gt;command1&lt;/code&gt; shall be connected to the standard input of &lt;code&gt;command2&lt;/code&gt;. The standard input, standard output, or both of a command shall be considered to be assigned by the pipeline before any redirection specified by redirection operators that are part of the command.&lt;/p&gt;
+&lt;h3 id="36-operand"&gt;3.6 &lt;code&gt;;&lt;/code&gt; Operand&lt;a class="headerlink" href="#36-operand" title="Permanent link"&gt; &lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;it is possible to separate commands using the operand &lt;code&gt;;&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;command1 ; command2 ...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="37-management-of-internal-variables"&gt;3.7 Management Of Internal Variables&lt;a class="headerlink" href="#37-management-of-internal-variables" title="Permanent link"&gt; &lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Creation of internal variables according to the syntax:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;name=value
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Export of internal variables to the environment, via built-in &lt;a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#317-export"&gt;export&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;List the internal variables of the shell via the built-in &lt;a href="({filename}/pages/42-42sh/builtins.md#3113-set)"&gt;set&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Removal of internal and environmental variables, via the built-in &lt;a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#3118-unset"&gt;unset&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Creation of environment variables for a single command, example :&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;HOME=/tmp cd
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Simple expansion of parameters according to the syntax:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;${name}
+$name
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Management of special parameters:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;$: PID of the current process.
+?: Last command exit code.
+0: Shell name.
+!: PID of the last process launched in backround.
+_: Last parameter used in a command.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="38-job-control-management"&gt;3.8 Job Control Management&lt;a class="headerlink" href="#38-job-control-management" title="Permanent link"&gt; &lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The builtins that allow to interact with the Job Control are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#312-bg"&gt;bg&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#319-fg"&gt;fg&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#3112-jobs"&gt;jobs&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="39-inhibitors"&gt;3.9 Inhibitors&lt;a class="headerlink" href="#39-inhibitors" title="Permanent link"&gt; &lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Single-quotes: &lt;code&gt;'&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Enclosing characters in single-quotes ( &lt;code&gt;''&lt;/code&gt; ) shall preserve the literal value of each character within the single-quotes. A single-quote cannot occur within single-quotes.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Double-quotes:&lt;code&gt;"&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Enclosing characters in double-quotes ( &lt;code&gt;""&lt;/code&gt; ) shall preserve the literal value of all characters within the double-quotes, with the exception of the characters backquote, &lt;dollar-sign&gt;, and &lt;backslash&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Escape Character (Backslash): &lt;code&gt;\&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A &lt;backslash&gt; that is not quoted shall preserve the literal value of the following character, with the exception of a &lt;newline&gt;. If a &lt;newline&gt; follows the &lt;backslash&gt;, the shell shall interpret this as line continuation. The &lt;backslash&gt; and &lt;newline&gt; shall be removed before splitting the input into tokens. Since the escaped &lt;newline&gt; is removed entirely from the input and is not replaced by any white space, it cannot serve as a token separator.&lt;/p&gt;
+&lt;h3 id="310-parameter-expansions"&gt;3.10 Parameter Expansions&lt;a class="headerlink" href="#310-parameter-expansions" title="Permanent link"&gt; &lt;/a&gt;&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;${parameter:-[word]}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Use Default Values&lt;/strong&gt;. If &lt;em&gt;parameter&lt;/em&gt; is unset or null, the expansion of &lt;em&gt;word&lt;/em&gt; (or an empty string if &lt;em&gt;word&lt;/em&gt; is omitted) shall be substituted; otherwise, the value of &lt;em&gt;parameter&lt;/em&gt; shall be substituted.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;${parameter:=[word]}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Assign Default Values&lt;/strong&gt;. If &lt;em&gt;parameter&lt;/em&gt; is unset or null, the expansion of &lt;em&gt;word&lt;/em&gt; (or an empty string if &lt;em&gt;word&lt;/em&gt; is omitted) shall be assigned to &lt;em&gt;parameter&lt;/em&gt;. In all cases, the final value of &lt;em&gt;parameter&lt;/em&gt; shall be substituted. Only variables, not positional parameters or special parameters, can be assigned in this way.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;${parameter:?[word]}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Indicate Error if Null or Unset&lt;/strong&gt;. If &lt;em&gt;parameter&lt;/em&gt; is unset or null, the expansion of &lt;em&gt;word&lt;/em&gt; (or a message indicating it is unset if &lt;em&gt;word&lt;/em&gt; is omitted) shall be written to standard error and the shell exits with a non-zero exit status. Otherwise, the value of &lt;em&gt;parameter&lt;/em&gt; shall be substituted. An interactive shell need not exit.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;${parameter:+[word]}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Use Alternative Value&lt;/strong&gt;. If &lt;em&gt;parameter&lt;/em&gt; is unset or null, null shall be substituted; otherwise, the expansion of &lt;em&gt;word&lt;/em&gt; (or an empty string if &lt;em&gt;word&lt;/em&gt; is omitted) shall be substituted.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;${#parameter}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;String Length&lt;/strong&gt;. The length in characters of the value of &lt;em&gt;parameter&lt;/em&gt; shall be substituted. If &lt;em&gt;parameter&lt;/em&gt; is &lt;code&gt;'*'&lt;/code&gt; or &lt;code&gt;'@'&lt;/code&gt;, the result of the expansion is unspecified. If &lt;em&gt;parameter&lt;/em&gt; is unset and &lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799//utilities/V3_chap02.html#set"&gt;&lt;em&gt;set&lt;/em&gt;&lt;/a&gt; &lt;strong&gt;-u&lt;/strong&gt; is in effect, the expansion shall fail.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;${parameter%[word]}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Remove Smallest Suffix Pattern&lt;/strong&gt;. The &lt;em&gt;word&lt;/em&gt; shall be expanded to produce a pattern. The parameter expansion shall then result in &lt;em&gt;parameter&lt;/em&gt;, with the smallest portion of the suffix matched by the &lt;em&gt;pattern&lt;/em&gt; deleted. If present, &lt;em&gt;word&lt;/em&gt; shall not begin with an unquoted &lt;code&gt;'%'&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;${parameter%%[word]}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Remove Largest Suffix Pattern&lt;/strong&gt;. The &lt;em&gt;word&lt;/em&gt; shall be expanded to produce a pattern. The parameter expansion shall then result in &lt;em&gt;parameter&lt;/em&gt;, with the largest portion of the suffix matched by the &lt;em&gt;pattern&lt;/em&gt; deleted.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;${parameter#[word]}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Remove Smallest Prefix Pattern&lt;/strong&gt;. The &lt;em&gt;word&lt;/em&gt; shall be expanded to produce a pattern. The parameter expansion shall then result in &lt;em&gt;parameter&lt;/em&gt;, with the smallest portion of the prefix matched by the &lt;em&gt;pattern&lt;/em&gt; deleted. If present, &lt;em&gt;word&lt;/em&gt; shall not begin with an unquoted &lt;code&gt;'#'&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;${parameter##[word]}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Remove Largest Prefix Pattern&lt;/strong&gt;. The &lt;em&gt;word&lt;/em&gt; shall be expanded to produce a pattern. The parameter expansion shall then result in &lt;em&gt;parameter&lt;/em&gt;, with the largest portion of the prefix matched by the &lt;em&gt;pattern&lt;/em&gt; deleted.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;~
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;HOME path of the current user.&lt;/strong&gt; Is replaced by the HOME path of the current user&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;~[user name]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;HOME path of the user name.&lt;/strong&gt;  The tilde-prefix is replaced with the home directory associated with the specified user name.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;~+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;PWD value&lt;/strong&gt;. the value of the [shell variable] &lt;code&gt;PWD&lt;/code&gt; replaces the tilde-prefix.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;~-
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;OLDPWD value&lt;/strong&gt;. the value of the [shell variable] &lt;code&gt;OLDPWD&lt;/code&gt; replaces the tilde-prefix.&lt;/p&gt;
+&lt;h3 id="311-history-management"&gt;3.11 History Management&lt;a class="headerlink" href="#311-history-management" title="Permanent link"&gt; &lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Executed commands are automatically saved in the &lt;code&gt;$HOME/.42hist&lt;/code&gt; file, so that they can be used from other sessions.&lt;/p&gt;
+&lt;p&gt;Incremental search in the history with the key combination &lt;code&gt;CTRL-R&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The builtin that allow to interact with the Job Control is:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#3119-fc"&gt;fc&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It is also possible to navigate through the history with the &lt;code&gt;up and down arrow keys&lt;/code&gt;.&lt;/p&gt;
+&lt;h4 id="3111-history-expansions"&gt;3.11.1 History Expansions&lt;a class="headerlink" href="#3111-history-expansions" title="Permanent link"&gt; &lt;/a&gt;&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;!
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Start a history substitution, except when followed by a space, tab, the end of the line, &lt;code&gt;=&lt;/code&gt; or &lt;code&gt;(&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;!!
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Refer to the previous command. This is a synonym for &lt;code&gt;!-1&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;![word]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Refer to the most recent command preceding the current position in the history list starting with &lt;code&gt;word&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;![number]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Refer to command line &lt;code&gt;number&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;!-[numer]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Refer to the command &lt;code&gt;n&lt;/code&gt; lines back.&lt;/p&gt;
+&lt;h3 id="312-contextual-dynamic-completion"&gt;3.12 Contextual Dynamic Completion&lt;a class="headerlink" href="#312-contextual-dynamic-completion" title="Permanent link"&gt; &lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;It is possible to autocomplete variables, file commands, by pressing the 'TAB key', whether or not the command has been typed.&lt;/p&gt;
+&lt;h3 id="313-command-line"&gt;3.13 Command line&lt;a class="headerlink" href="#313-command-line" title="Permanent link"&gt; &lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The command line features are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Edit the line where the cursor is located.&lt;/li&gt;
+&lt;li&gt;Move the cursor left and right to be able to edit the line at a specific location.&lt;/li&gt;
+&lt;li&gt;Use up and down arrows to navigate through the command history able to edit if we feel like it.&lt;/li&gt;
+&lt;li&gt;Cut, copy, and/or paste all or part of a line whit cmd+f1 cmd+f2 cmd+f3&lt;/li&gt;
+&lt;li&gt;Move directly by word towards the left or the right using shift+LEFT and shift+RIGHT.&lt;/li&gt;
+&lt;li&gt;Go directly to the beginning or the end of a line by pressing fn+left and fn+right.&lt;/li&gt;
+&lt;li&gt;Write AND edit a command over a few lines.&lt;/li&gt;
+&lt;/ul&gt;</content><category term="C"></category><category term="C"></category><category term="42"></category></entry></feed>
