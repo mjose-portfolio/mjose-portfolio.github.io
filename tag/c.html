@@ -33,7 +33,7 @@
         </div>
     </header>
     <div id="wrapper">
-        <div id="content">            <h4 class="date">Nov 29, 2018</h4>
+        <div id="content">            <h4 class="date">May 05, 2019</h4>
 
             <article class="post">
                 <h2 class="title">
@@ -250,7 +250,7 @@ _: Last parameter used in a command.
 </code></pre>
 
 <p>Refer to command line <code>number</code>.</p>
-<pre><code>!-[numer]
+<pre><code>!-[number]
 </code></pre>
 
 <p>Refer to the command <code>n</code> lines back.</p>
@@ -270,11 +270,146 @@ _: Last parameter used in a command.
                 <div class="clear"></div>
 
                 <div class="info">
-                    <a href="https://mjose-portfolio.github.io/42sh.html">posted at 23:14</a>
+                    <a href="https://mjose-portfolio.github.io/42sh.html">posted at 02:00</a>
                     &nbsp;&middot;&nbsp;<a href="https://mjose-portfolio.github.io/category/c.html" rel="tag">C</a>
                     &nbsp;&middot;
                     &nbsp;<a href="https://mjose-portfolio.github.io/tag/c.html" class="tags selected">C</a>
-                    &nbsp;<a href="https://mjose-portfolio.github.io/tag/42.html" class="tags">42</a>
+                    &nbsp;<a href="https://mjose-portfolio.github.io/tag/bash.html" class="tags">bash</a>
+                    &nbsp;<a href="https://mjose-portfolio.github.io/tag/zsh.html" class="tags">zsh</a>
+                    &nbsp;<a href="https://mjose-portfolio.github.io/tag/shell.html" class="tags">shell</a>
+                    &nbsp;<a href="https://mjose-portfolio.github.io/tag/42born2code.html" class="tags">42born2code</a>
+                    &nbsp;<a href="https://mjose-portfolio.github.io/tag/unix.html" class="tags">unix</a>
+                    &nbsp;<a href="https://mjose-portfolio.github.io/tag/unix-shell.html" class="tags">unix-shell</a>
+                </div>
+            </article>            <h4 class="date">Apr 16, 2019</h4>
+
+            <article class="post">
+                <h2 class="title">
+                    <a href="https://mjose-portfolio.github.io/21sh.html" rel="bookmark" title="Permanent Link to &quot;21sh&quot;">21sh</a>
+                </h2>
+
+                
+                
+
+                <p>This project consists of creating a complete shell and uses the work done on <a href="https://github.com/mjose-portfolio/42-Minishell#minishell">minishell</a> project. We build our own shell. This project involves a large variety of standard UNIX (and POSIX) functionalities.</p>
+<p><a href="https://github.com/mjose-portfolio/42-21sh">Try it on Github!</a></p>
+<h2 id="1-project-partners">1. Project Partners<a class="headerlink" href="#1-project-partners" title="Permanent link"> </a></h2>
+<hr />
+<ul>
+<li><a href="https://github.com/BrendanSiche">Brendan Siche</a></li>
+<li><a href="https://github.com/mjose-portfolio">Marc Jose</a></li>
+</ul>
+<h2 id="2-install">2. Install<a class="headerlink" href="#2-install" title="Permanent link"> </a></h2>
+<hr />
+<ul>
+<li><code>make</code></li>
+</ul>
+<p><img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/42-21sh/images/make.gif" /></p>
+<h3 id="21-make-options">2.1. Make Options<a class="headerlink" href="#21-make-options" title="Permanent link"> </a></h3>
+<ul>
+<li><code>make</code>: Compiles the files and creates the executable <code>21sh</code>.</li>
+<li><code>make clean</code>: Remove binary files.</li>
+<li><code>make fclean</code>: Deletes the binary files and the <code>21sh</code> executable file.</li>
+<li><code>make re</code>: Deletes the binary files and the <code>21sh</code> executable file and recompiles them.</li>
+</ul>
+<h2 id="3-features">3. Features<a class="headerlink" href="#3-features" title="Permanent link"> </a></h2>
+<hr />
+<h3 id="31-builtins">3.1 Builtins<a class="headerlink" href="#31-builtins" title="Permanent link"> </a></h3>
+<ul>
+<li><a href="https://mjose-portfolio.github.io/pages/21shbuiltins.html#311-cd">3.1.1 cd</a></li>
+<li><a href="https://mjose-portfolio.github.io/pages/21shbuiltins.html#312-echo">3.1.2 echo</a></li>
+<li><a href="https://mjose-portfolio.github.io/pages/21shbuiltins.html#313-env">3.1.3 env</a></li>
+<li><a href="https://mjose-portfolio.github.io/pages/21shbuiltins.html#314-exit--n-">3.1.4 exit</a></li>
+<li><a href="https://mjose-portfolio.github.io/pages/21shbuiltins.html#315-setenv">3.1.5 setenv</a></li>
+<li><a href="https://mjose-portfolio.github.io/pages/21shbuiltins.html#316-unsetenv">3.1.6 unsetenv</a></li>
+</ul>
+<h3 id="32-prompt">3.2 Prompt<a class="headerlink" href="#32-prompt" title="Permanent link"> </a></h3>
+<p>The prompt is displayed as follows:</p>
+<ul>
+<li><code>["user"]&lt;"current directory"&gt;21sh $/&gt;</code></li>
+</ul>
+<p>The current directory is updated live, each time you change directory, of course, the information is collected from the environment variable <code>PWD</code>.</p>
+<h3 id="33-execution-of-commands">3.3 Execution of Commands<a class="headerlink" href="#33-execution-of-commands" title="Permanent link"> </a></h3>
+<p>The command shall be searched for using the PATH environment variable.</p>
+<p>It is possible to specify the paths where the command to execute resides (in case you want to execute a command that does not reside in any directory of the PATH variable, or the variable is not defined).</p>
+<p>The parameters of each command are taken into account.</p>
+<h3 id="34-redirections">3.4 Redirections<a class="headerlink" href="#34-redirections" title="Permanent link"> </a></h3>
+<ul>
+<li><a href="https://mjose-portfolio.github.io/pages/21shredirections.html#341-redirecting-input">3.4.1 Redirecting Input</a></li>
+<li><a href="https://mjose-portfolio.github.io/pages/21shredirections.html#342-redirecting-output">3.4.2 Redirecting Output</a></li>
+<li><a href="https://mjose-portfolio.github.io/pages/21shredirections.html#343-here-document">3.4.3 Here-Document</a></li>
+<li><a href="https://mjose-portfolio.github.io/pages/21shredirections.html#344-duplicating-an-input-file-descriptor">3.4.4 Duplicating an Input File Descriptor</a></li>
+<li><a href="https://mjose-portfolio.github.io/pages/21shredirections.html#345-duplicating-an-output-file-descriptor">3.4.5 Duplicating an Output File Descriptor</a></li>
+</ul>
+<h3 id="35-pipelines">3.5 Pipelines<a class="headerlink" href="#35-pipelines" title="Permanent link"> </a></h3>
+<p>The format for a pipeline is:</p>
+<pre><code>command1 [ | command2 ...]
+</code></pre>
+
+<p>The standard output of <code>command1</code> shall be connected to the standard input of <code>command2</code>. The standard input, standard output, or both of a command shall be considered to be assigned by the pipeline before any redirection specified by redirection operators that are part of the command.</p>
+<h3 id="36-operand">3.6 <code>;</code> Operand<a class="headerlink" href="#36-operand" title="Permanent link"> </a></h3>
+<p>it is possible to separate commands using the operand <code>;</code>.</p>
+<pre><code>command1 ; command2 ...
+</code></pre>
+
+<h3 id="37-management-of-internal-variables">3.7 Management Of Internal Variables<a class="headerlink" href="#37-management-of-internal-variables" title="Permanent link"> </a></h3>
+<ul>
+<li>List the internal variables of the shell via the built-in <a href="https://mjose-portfolio.github.io/pages/21shbuiltins.html#313-env">env</a>.</li>
+<li>Removal of internal and environmental variables, via the built-in <a href="https://mjose-portfolio.github.io/pages/21shbuiltins.html#316-unsetenv">unsetenv</a>.</li>
+<li>Creation of environment variables for a single command via the built-in <a href="https://mjose-portfolio.github.io/pages/21shbuiltins.html#316-setenv">setenv</a>.</li>
+</ul>
+<h3 id="38-inhibitors">3.8 Inhibitors<a class="headerlink" href="#38-inhibitors" title="Permanent link"> </a></h3>
+<ul>
+<li>Single-quotes: <code>'</code></li>
+</ul>
+<p>Enclosing characters in single-quotes ( <code>''</code> ) shall preserve the literal value of each character within the single-quotes. A single-quote cannot occur within single-quotes.</p>
+<ul>
+<li>Double-quotes:<code>"</code></li>
+</ul>
+<p>Enclosing characters in double-quotes ( <code>""</code> ) shall preserve the literal value of all characters within the double-quotes, with the exception of the characters backquote, <dollar-sign>, and <backslash>.</p>
+<h3 id="39-parameter-expansions">3.9 Parameter Expansions<a class="headerlink" href="#39-parameter-expansions" title="Permanent link"> </a></h3>
+<pre><code>~
+</code></pre>
+
+<p><strong>HOME path of the current user.</strong> Is replaced by the HOME path of the current user</p>
+<pre><code>~[user name]
+</code></pre>
+
+<p><strong>HOME path of the user name.</strong>  The tilde-prefix is replaced with the home directory associated with the specified user name.</p>
+<pre><code>~+
+</code></pre>
+
+<p><strong>PWD value</strong>. the value of the [shell variable] <code>PWD</code> replaces the tilde-prefix.</p>
+<pre><code>~-
+</code></pre>
+
+<p><strong>OLDPWD value</strong>. the value of the [shell variable] <code>OLDPWD</code> replaces the tilde-prefix.</p>
+<h3 id="310-contextual-dynamic-completion">3.10 Contextual Dynamic Completion<a class="headerlink" href="#310-contextual-dynamic-completion" title="Permanent link"> </a></h3>
+<p>It is possible to autocomplete variables, file commands, by pressing the 'TAB key', whether or not the command has been typed.</p>
+<h3 id="311-command-line">3.11 Command line<a class="headerlink" href="#311-command-line" title="Permanent link"> </a></h3>
+<p>The command line features are:</p>
+<ul>
+<li>Edit the line where the cursor is located.</li>
+<li>Move the cursor left and right to be able to edit the line at a specific location.</li>
+<li>Use up and down arrows to navigate through the command history able to edit if we feel like it.</li>
+<li>Cut, copy, and/or paste all or part of a line whit cmd+f1 cmd+f2 cmd+f3</li>
+<li>Move directly by word towards the left or the right using shift+LEFT and shift+RIGHT.</li>
+<li>Go directly to the beginning or the end of a line by pressing fn+left and fn+right.</li>
+<li>Write AND edit a command over a few lines.</li>
+</ul>
+                <div class="clear"></div>
+
+                <div class="info">
+                    <a href="https://mjose-portfolio.github.io/21sh.html">posted at 05:30</a>
+                    &nbsp;&middot;&nbsp;<a href="https://mjose-portfolio.github.io/category/c.html" rel="tag">C</a>
+                    &nbsp;&middot;
+                    &nbsp;<a href="https://mjose-portfolio.github.io/tag/c.html" class="tags selected">C</a>
+                    &nbsp;<a href="https://mjose-portfolio.github.io/tag/bash.html" class="tags">bash</a>
+                    &nbsp;<a href="https://mjose-portfolio.github.io/tag/zsh.html" class="tags">zsh</a>
+                    &nbsp;<a href="https://mjose-portfolio.github.io/tag/shell.html" class="tags">shell</a>
+                    &nbsp;<a href="https://mjose-portfolio.github.io/tag/42born2code.html" class="tags">42born2code</a>
+                    &nbsp;<a href="https://mjose-portfolio.github.io/tag/unix.html" class="tags">unix</a>
+                    &nbsp;<a href="https://mjose-portfolio.github.io/tag/unix-shell.html" class="tags">unix-shell</a>
                 </div>
             </article>
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Portfolio's Marc Jose Rubio - Brendan Siche</title><link href="https://mjose-portfolio.github.io/" rel="alternate"></link><link href="https://mjose-portfolio.github.io/feeds/brendan-siche.atom.xml" rel="self"></link><id>https://mjose-portfolio.github.io/</id><updated>2018-11-29T23:21:00+01:00</updated><entry><title>42sh</title><link href="https://mjose-portfolio.github.io/42sh.html" rel="alternate"></link><published>2018-11-29T23:14:00+01:00</published><updated>2018-11-29T23:21:00+01:00</updated><author><name>Abraham Gimbao</name></author><id>tag:mjose-portfolio.github.io,2018-11-29:/42sh.html</id><summary type="html">&lt;p&gt;This project consists of creating a complete shell and uses the work done on &lt;a href="https://github.com/mjose-portfolio/42-21sh#21sh"&gt;21sh&lt;/a&gt; and minishell projects.&lt;/p&gt;</summary><content type="html">&lt;p&gt;This project consists of creating a complete shell and uses the work done on &lt;a href="https://github.com/mjose-portfolio/42-21sh#21sh"&gt;21sh&lt;/a&gt; and minishell projects. We build our own shell, including a job control and shell script. This project involves a large variety of standard UNIX (and POSIX) functionalities.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Portfolio's Marc Jose Rubio - Brendan Siche</title><link href="https://mjose-portfolio.github.io/" rel="alternate"></link><link href="https://mjose-portfolio.github.io/feeds/brendan-siche.atom.xml" rel="self"></link><id>https://mjose-portfolio.github.io/</id><updated>2019-05-05T02:00:00+02:00</updated><entry><title>42sh</title><link href="https://mjose-portfolio.github.io/42sh.html" rel="alternate"></link><published>2019-05-05T02:00:00+02:00</published><updated>2019-05-05T02:00:00+02:00</updated><author><name>Abraham Gimbao</name></author><id>tag:mjose-portfolio.github.io,2019-05-05:/42sh.html</id><summary type="html">&lt;p&gt;This project consists of creating a complete shell and uses the work done on &lt;a href="https://github.com/mjose-portfolio/42-21sh#21sh"&gt;21sh&lt;/a&gt; and minishell projects.&lt;/p&gt;</summary><content type="html">&lt;p&gt;This project consists of creating a complete shell and uses the work done on &lt;a href="https://github.com/mjose-portfolio/42-21sh#21sh"&gt;21sh&lt;/a&gt; and minishell projects. We build our own shell, including a job control and shell script. This project involves a large variety of standard UNIX (and POSIX) functionalities.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://github.com/mjose-portfolio/42-42sh"&gt;Try it on Github!&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id="1-project-partners"&gt;1. Project Partners&lt;a class="headerlink" href="#1-project-partners" title="Permanent link"&gt; &lt;/a&gt;&lt;/h2&gt;
 &lt;hr /&gt;
@@ -206,7 +206,7 @@ _: Last parameter used in a command.
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Refer to command line &lt;code&gt;number&lt;/code&gt;.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;!-[numer]
+&lt;pre&gt;&lt;code&gt;!-[number]
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Refer to the command &lt;code&gt;n&lt;/code&gt; lines back.&lt;/p&gt;
@@ -222,4 +222,109 @@ _: Last parameter used in a command.
 &lt;li&gt;Move directly by word towards the left or the right using shift+LEFT and shift+RIGHT.&lt;/li&gt;
 &lt;li&gt;Go directly to the beginning or the end of a line by pressing fn+left and fn+right.&lt;/li&gt;
 &lt;li&gt;Write AND edit a command over a few lines.&lt;/li&gt;
-&lt;/ul&gt;</content><category term="C"></category><category term="C"></category><category term="42"></category></entry></feed>
+&lt;/ul&gt;</content><category term="C"></category><category term="C"></category><category term="bash"></category><category term="zsh"></category><category term="shell"></category><category term="42born2code"></category><category term="unix"></category><category term="unix-shell"></category></entry><entry><title>21sh</title><link href="https://mjose-portfolio.github.io/21sh.html" rel="alternate"></link><published>2019-04-16T05:30:00+02:00</published><updated>2019-04-16T05:30:00+02:00</updated><author><name>Brendan Siche</name></author><id>tag:mjose-portfolio.github.io,2019-04-16:/21sh.html</id><summary type="html">&lt;p&gt;This project consists of creating a complete shell and uses the work done on &lt;a href="https://github.com/mjose-portfolio/42-Minishell#minishell"&gt;minishell&lt;/a&gt; project. We build our own shell. This project involves a large variety of standard UNIX (and POSIX) functionalities.&lt;/p&gt;</summary><content type="html">&lt;p&gt;This project consists of creating a complete shell and uses the work done on &lt;a href="https://github.com/mjose-portfolio/42-Minishell#minishell"&gt;minishell&lt;/a&gt; project. We build our own shell. This project involves a large variety of standard UNIX (and POSIX) functionalities.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/mjose-portfolio/42-21sh"&gt;Try it on Github!&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="1-project-partners"&gt;1. Project Partners&lt;a class="headerlink" href="#1-project-partners" title="Permanent link"&gt; &lt;/a&gt;&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/BrendanSiche"&gt;Brendan Siche&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/mjose-portfolio"&gt;Marc Jose&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="2-install"&gt;2. Install&lt;a class="headerlink" href="#2-install" title="Permanent link"&gt; &lt;/a&gt;&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;make&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/42-21sh/images/make.gif" /&gt;&lt;/p&gt;
+&lt;h3 id="21-make-options"&gt;2.1. Make Options&lt;a class="headerlink" href="#21-make-options" title="Permanent link"&gt; &lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;make&lt;/code&gt;: Compiles the files and creates the executable &lt;code&gt;21sh&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;make clean&lt;/code&gt;: Remove binary files.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;make fclean&lt;/code&gt;: Deletes the binary files and the &lt;code&gt;21sh&lt;/code&gt; executable file.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;make re&lt;/code&gt;: Deletes the binary files and the &lt;code&gt;21sh&lt;/code&gt; executable file and recompiles them.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="3-features"&gt;3. Features&lt;a class="headerlink" href="#3-features" title="Permanent link"&gt; &lt;/a&gt;&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;h3 id="31-builtins"&gt;3.1 Builtins&lt;a class="headerlink" href="#31-builtins" title="Permanent link"&gt; &lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://mjose-portfolio.github.io/pages/21shbuiltins.html#311-cd"&gt;3.1.1 cd&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://mjose-portfolio.github.io/pages/21shbuiltins.html#312-echo"&gt;3.1.2 echo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://mjose-portfolio.github.io/pages/21shbuiltins.html#313-env"&gt;3.1.3 env&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://mjose-portfolio.github.io/pages/21shbuiltins.html#314-exit--n-"&gt;3.1.4 exit&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://mjose-portfolio.github.io/pages/21shbuiltins.html#315-setenv"&gt;3.1.5 setenv&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://mjose-portfolio.github.io/pages/21shbuiltins.html#316-unsetenv"&gt;3.1.6 unsetenv&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="32-prompt"&gt;3.2 Prompt&lt;a class="headerlink" href="#32-prompt" title="Permanent link"&gt; &lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The prompt is displayed as follows:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;["user"]&amp;lt;"current directory"&amp;gt;21sh $/&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The current directory is updated live, each time you change directory, of course, the information is collected from the environment variable &lt;code&gt;PWD&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 id="33-execution-of-commands"&gt;3.3 Execution of Commands&lt;a class="headerlink" href="#33-execution-of-commands" title="Permanent link"&gt; &lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The command shall be searched for using the PATH environment variable.&lt;/p&gt;
+&lt;p&gt;It is possible to specify the paths where the command to execute resides (in case you want to execute a command that does not reside in any directory of the PATH variable, or the variable is not defined).&lt;/p&gt;
+&lt;p&gt;The parameters of each command are taken into account.&lt;/p&gt;
+&lt;h3 id="34-redirections"&gt;3.4 Redirections&lt;a class="headerlink" href="#34-redirections" title="Permanent link"&gt; &lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://mjose-portfolio.github.io/pages/21shredirections.html#341-redirecting-input"&gt;3.4.1 Redirecting Input&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://mjose-portfolio.github.io/pages/21shredirections.html#342-redirecting-output"&gt;3.4.2 Redirecting Output&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://mjose-portfolio.github.io/pages/21shredirections.html#343-here-document"&gt;3.4.3 Here-Document&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://mjose-portfolio.github.io/pages/21shredirections.html#344-duplicating-an-input-file-descriptor"&gt;3.4.4 Duplicating an Input File Descriptor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://mjose-portfolio.github.io/pages/21shredirections.html#345-duplicating-an-output-file-descriptor"&gt;3.4.5 Duplicating an Output File Descriptor&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="35-pipelines"&gt;3.5 Pipelines&lt;a class="headerlink" href="#35-pipelines" title="Permanent link"&gt; &lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The format for a pipeline is:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;command1 [ | command2 ...]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The standard output of &lt;code&gt;command1&lt;/code&gt; shall be connected to the standard input of &lt;code&gt;command2&lt;/code&gt;. The standard input, standard output, or both of a command shall be considered to be assigned by the pipeline before any redirection specified by redirection operators that are part of the command.&lt;/p&gt;
+&lt;h3 id="36-operand"&gt;3.6 &lt;code&gt;;&lt;/code&gt; Operand&lt;a class="headerlink" href="#36-operand" title="Permanent link"&gt; &lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;it is possible to separate commands using the operand &lt;code&gt;;&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;command1 ; command2 ...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="37-management-of-internal-variables"&gt;3.7 Management Of Internal Variables&lt;a class="headerlink" href="#37-management-of-internal-variables" title="Permanent link"&gt; &lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;List the internal variables of the shell via the built-in &lt;a href="https://mjose-portfolio.github.io/pages/21shbuiltins.html#313-env"&gt;env&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Removal of internal and environmental variables, via the built-in &lt;a href="https://mjose-portfolio.github.io/pages/21shbuiltins.html#316-unsetenv"&gt;unsetenv&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Creation of environment variables for a single command via the built-in &lt;a href="https://mjose-portfolio.github.io/pages/21shbuiltins.html#316-setenv"&gt;setenv&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="38-inhibitors"&gt;3.8 Inhibitors&lt;a class="headerlink" href="#38-inhibitors" title="Permanent link"&gt; &lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Single-quotes: &lt;code&gt;'&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Enclosing characters in single-quotes ( &lt;code&gt;''&lt;/code&gt; ) shall preserve the literal value of each character within the single-quotes. A single-quote cannot occur within single-quotes.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Double-quotes:&lt;code&gt;"&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Enclosing characters in double-quotes ( &lt;code&gt;""&lt;/code&gt; ) shall preserve the literal value of all characters within the double-quotes, with the exception of the characters backquote, &lt;dollar-sign&gt;, and &lt;backslash&gt;.&lt;/p&gt;
+&lt;h3 id="39-parameter-expansions"&gt;3.9 Parameter Expansions&lt;a class="headerlink" href="#39-parameter-expansions" title="Permanent link"&gt; &lt;/a&gt;&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;~
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;HOME path of the current user.&lt;/strong&gt; Is replaced by the HOME path of the current user&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;~[user name]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;HOME path of the user name.&lt;/strong&gt;  The tilde-prefix is replaced with the home directory associated with the specified user name.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;~+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;PWD value&lt;/strong&gt;. the value of the [shell variable] &lt;code&gt;PWD&lt;/code&gt; replaces the tilde-prefix.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;~-
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;OLDPWD value&lt;/strong&gt;. the value of the [shell variable] &lt;code&gt;OLDPWD&lt;/code&gt; replaces the tilde-prefix.&lt;/p&gt;
+&lt;h3 id="310-contextual-dynamic-completion"&gt;3.10 Contextual Dynamic Completion&lt;a class="headerlink" href="#310-contextual-dynamic-completion" title="Permanent link"&gt; &lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;It is possible to autocomplete variables, file commands, by pressing the 'TAB key', whether or not the command has been typed.&lt;/p&gt;
+&lt;h3 id="311-command-line"&gt;3.11 Command line&lt;a class="headerlink" href="#311-command-line" title="Permanent link"&gt; &lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The command line features are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Edit the line where the cursor is located.&lt;/li&gt;
+&lt;li&gt;Move the cursor left and right to be able to edit the line at a specific location.&lt;/li&gt;
+&lt;li&gt;Use up and down arrows to navigate through the command history able to edit if we feel like it.&lt;/li&gt;
+&lt;li&gt;Cut, copy, and/or paste all or part of a line whit cmd+f1 cmd+f2 cmd+f3&lt;/li&gt;
+&lt;li&gt;Move directly by word towards the left or the right using shift+LEFT and shift+RIGHT.&lt;/li&gt;
+&lt;li&gt;Go directly to the beginning or the end of a line by pressing fn+left and fn+right.&lt;/li&gt;
+&lt;li&gt;Write AND edit a command over a few lines.&lt;/li&gt;
+&lt;/ul&gt;</content><category term="C"></category><category term="C"></category><category term="bash"></category><category term="zsh"></category><category term="shell"></category><category term="42born2code"></category><category term="unix"></category><category term="unix-shell"></category></entry></feed>
