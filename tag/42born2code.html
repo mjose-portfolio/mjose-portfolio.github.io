@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Portfolio's Marc Jose Rubio</title>
+    <title>Portfolio's Marc Jose Rubio | articles tagged "42born2code"</title>
     <link rel="shortcut icon" type="image/png" href="https://mjose-portfolio.github.io/favicon.png">
     <link rel="shortcut icon" type="image/x-icon" href="https://mjose-portfolio.github.io/favicon.ico">
     <link href="https://mjose-portfolio.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Portfolio's Marc Jose Rubio Full Atom Feed" />
@@ -17,7 +17,8 @@
     <header>
         <nav>
             <ul>
-                <li class="selected"><a href="https://mjose-portfolio.github.io/">Home</a></li>
+                <li class="ephemeral selected"><a href="https://mjose-portfolio.github.io/tag/42born2code.html">42born2code</a></li>
+                <li><a href="https://mjose-portfolio.github.io/">Home</a></li>
                 <li><a href="https://mjose-portfolio.github.io/pages/about-me.html">About me</a></li>
                 <li><a href="https://github.com/mjose-portfolio">GitHub</a></li>
                 <li><a href="https://www.linkedin.com/in/marc-jose-rubio-0b8420158/">LinkedIn</a></li>
@@ -60,27 +61,27 @@ We were restricted to our language of choice’s standard library. Except for th
 <ul>
 <li>Create a file in json format with the following characteristics:</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="err">{                                   </span>
-    <span class="err">    &quot;programs&quot;: {                   #a list of programs</span>
-    <span class="err">        &quot;sleep&quot;: {                  #the name of a program *Required*</span>
-    <span class="err">            &quot;cmd&quot;: &quot;sleep 1000&quot;,    #the exact command to launch *Required*</span>
-    <span class="err">            &quot;cmdammount&quot;: 10,       #the number of times you need to launch this process *Required*</span>
-    <span class="err">            &quot;autostart&quot;: true,      #cmd started at launch True/False? *Required*</span>
-    <span class="err">            &quot;autorestart&quot;: &quot;never&quot;, #restart this program on &quot;never&quot;, &quot;always&quot;, or on &quot;unexpected&quot; termination *Required*</span>
-    <span class="err">            &quot;starttime&quot;: 5,         #amount of time to go by before the program is considered &quot;succesfully started&quot; *Required*</span>
-    <span class="err">            &quot;stoptime&quot;: 10,         #amount of time to go by after sending quitsit to program before killing it completely with SIGKILL *Required*</span>
-    <span class="err">            &quot;restartretries&quot;: 3,    #amount of times a program will be tried to be restarted or started at the beginning before giving up on it *Required*</span>
-    <span class="err">            &quot;quitsig&quot;: &quot;TERM&quot;,      #signal that will be sent to the command to be gracefully exited (QUIT, TERM, INT, KILL) *Required*</span>
-    <span class="err">            &quot;exitcodes&quot;: &quot;None&quot;,    #exitcodes that define an expected termination for use autorestart or None for all exitcodes being considered unexpected</span>
-    <span class="err">            &quot;workingdir&quot;: &quot;/tmp/&quot;,  #working directory to be set for the command or None for same working dir as parent(taskmaster)</span>
-    <span class="err">            &quot;umask&quot;: 0,             #umask to be set for the program or None (in decimal (integer)!)</span>
-    <span class="err">            &quot;stdout&quot;: &quot;None&quot;,       #option to redirect stdout to file or to simple discard it with &quot;discard&quot; or None</span>
-    <span class="err">            &quot;stderr&quot;: &quot;None&quot;,       #option to redirect stderr to file or to simple discard it with &quot;discard&quot; or None</span>
-    <span class="err">            &quot;env&quot;: &quot;None&quot;           #extra env parameters to provide to the new process, &quot;None&quot; for no environment at all, or &quot;default&quot; for the same env as taskmaster</span>
-    <span class="err">        }</span>
-    <span class="err">    }</span>
-    <span class="err">}</span>
-    </pre></div>
+<pre><code>{
+    &quot;programs&quot;: {                   #a list of programs
+        &quot;sleep&quot;: {                  #the name of a program *Required*
+            &quot;cmd&quot;: &quot;sleep 1000&quot;,    #the exact command to launch *Required*
+            &quot;cmdammount&quot;: 10,       #the number of times you need to launch this process *Required*
+            &quot;autostart&quot;: true,      #cmd started at launch True/False? *Required*
+            &quot;autorestart&quot;: &quot;never&quot;, #restart this program on &quot;never&quot;, &quot;always&quot;, or on &quot;unexpected&quot; termination *Required*
+            &quot;starttime&quot;: 5,         #amount of time to go by before the program is considered &quot;succesfully started&quot; *Required*
+            &quot;stoptime&quot;: 10,         #amount of time to go by after sending quitsit to program before killing it completely with SIGKILL *Required*
+            &quot;restartretries&quot;: 3,    #amount of times a program will be tried to be restarted or started at the beginning before giving up on it *Required*
+            &quot;quitsig&quot;: &quot;TERM&quot;,      #signal that will be sent to the command to be gracefully exited (QUIT, TERM, INT, KILL) *Required*
+            &quot;exitcodes&quot;: &quot;None&quot;,    #exitcodes that define an expected termination for use autorestart or None for all exitcodes being considered unexpected
+            &quot;workingdir&quot;: &quot;/tmp/&quot;,  #working directory to be set for the command or None for same working dir as parent(taskmaster)
+            &quot;umask&quot;: 0,             #umask to be set for the program or None (in decimal (integer)!)
+            &quot;stdout&quot;: &quot;None&quot;,       #option to redirect stdout to file or to simple discard it with &quot;discard&quot; or None
+            &quot;stderr&quot;: &quot;None&quot;,       #option to redirect stderr to file or to simple discard it with &quot;discard&quot; or None
+            &quot;env&quot;: &quot;None&quot;           #extra env parameters to provide to the new process, &quot;None&quot; for no environment at all, or &quot;default&quot; for the same env as taskmaster
+        }
+    }
+}
+</code></pre>
 
 <h2 id="launching-method">Launching method<a class="headerlink" href="#launching-method" title="Permanent link"> </a></h2>
 <ul>
@@ -108,7 +109,7 @@ We were restricted to our language of choice’s standard library. Except for th
                     &nbsp;&middot;&nbsp;<a href="https://mjose-portfolio.github.io/category/python.html" rel="tag">Python</a>
                     &nbsp;&middot;
                     &nbsp;<a href="https://mjose-portfolio.github.io/tag/python.html" class="tags">Python</a>
-                    &nbsp;<a href="https://mjose-portfolio.github.io/tag/42born2code.html" class="tags">42born2code</a>
+                    &nbsp;<a href="https://mjose-portfolio.github.io/tag/42born2code.html" class="tags selected">42born2code</a>
                     &nbsp;<a href="https://mjose-portfolio.github.io/tag/unix.html" class="tags">unix</a>
                 </div>
             </article>            <h4 class="date">May 05, 2019</h4>
@@ -355,7 +356,7 @@ _: Last parameter used in a command.
                     &nbsp;<a href="https://mjose-portfolio.github.io/tag/bash.html" class="tags">bash</a>
                     &nbsp;<a href="https://mjose-portfolio.github.io/tag/zsh.html" class="tags">zsh</a>
                     &nbsp;<a href="https://mjose-portfolio.github.io/tag/shell.html" class="tags">shell</a>
-                    &nbsp;<a href="https://mjose-portfolio.github.io/tag/42born2code.html" class="tags">42born2code</a>
+                    &nbsp;<a href="https://mjose-portfolio.github.io/tag/42born2code.html" class="tags selected">42born2code</a>
                     &nbsp;<a href="https://mjose-portfolio.github.io/tag/unix.html" class="tags">unix</a>
                     &nbsp;<a href="https://mjose-portfolio.github.io/tag/unix-shell.html" class="tags">unix-shell</a>
                 </div>
@@ -485,7 +486,7 @@ _: Last parameter used in a command.
                     &nbsp;<a href="https://mjose-portfolio.github.io/tag/bash.html" class="tags">bash</a>
                     &nbsp;<a href="https://mjose-portfolio.github.io/tag/zsh.html" class="tags">zsh</a>
                     &nbsp;<a href="https://mjose-portfolio.github.io/tag/shell.html" class="tags">shell</a>
-                    &nbsp;<a href="https://mjose-portfolio.github.io/tag/42born2code.html" class="tags">42born2code</a>
+                    &nbsp;<a href="https://mjose-portfolio.github.io/tag/42born2code.html" class="tags selected">42born2code</a>
                     &nbsp;<a href="https://mjose-portfolio.github.io/tag/unix.html" class="tags">unix</a>
                     &nbsp;<a href="https://mjose-portfolio.github.io/tag/unix-shell.html" class="tags">unix-shell</a>
                 </div>
@@ -561,7 +562,7 @@ _: Last parameter used in a command.
                     &nbsp;<a href="https://mjose-portfolio.github.io/tag/bash.html" class="tags">bash</a>
                     &nbsp;<a href="https://mjose-portfolio.github.io/tag/zsh.html" class="tags">zsh</a>
                     &nbsp;<a href="https://mjose-portfolio.github.io/tag/shell.html" class="tags">shell</a>
-                    &nbsp;<a href="https://mjose-portfolio.github.io/tag/42born2code.html" class="tags">42born2code</a>
+                    &nbsp;<a href="https://mjose-portfolio.github.io/tag/42born2code.html" class="tags selected">42born2code</a>
                     &nbsp;<a href="https://mjose-portfolio.github.io/tag/unix.html" class="tags">unix</a>
                     &nbsp;<a href="https://mjose-portfolio.github.io/tag/unix-shell.html" class="tags">unix-shell</a>
                 </div>
@@ -616,7 +617,7 @@ _: Last parameter used in a command.
                     &nbsp;&middot;
                     &nbsp;<a href="https://mjose-portfolio.github.io/tag/c.html" class="tags">C</a>
                     &nbsp;<a href="https://mjose-portfolio.github.io/tag/shell.html" class="tags">shell</a>
-                    &nbsp;<a href="https://mjose-portfolio.github.io/tag/42born2code.html" class="tags">42born2code</a>
+                    &nbsp;<a href="https://mjose-portfolio.github.io/tag/42born2code.html" class="tags selected">42born2code</a>
                     &nbsp;<a href="https://mjose-portfolio.github.io/tag/unix.html" class="tags">unix</a>
                     &nbsp;<a href="https://mjose-portfolio.github.io/tag/unix-shell.html" class="tags">unix-shell</a>
                     &nbsp;<a href="https://mjose-portfolio.github.io/tag/unix-command.html" class="tags">unix-command</a>

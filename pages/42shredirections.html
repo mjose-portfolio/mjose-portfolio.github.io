@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Portfolio's Marc Jose Rubio | 42sh/redirections</title>
+    <link rel="shortcut icon" type="image/png" href="https://mjose-portfolio.github.io/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="https://mjose-portfolio.github.io/favicon.ico">
+    <link href="https://mjose-portfolio.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Portfolio's Marc Jose Rubio Full Atom Feed" />
+    <link rel="stylesheet" href="https://mjose-portfolio.github.io/theme/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="https://mjose-portfolio.github.io/theme/css/pygments.css" type="text/css" />
+    <meta name="generator" content="Pelican" />
+    <meta name="description" content="" />
+    <meta name="author" content="Marc Jose Rubio" />
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="https://mjose-portfolio.github.io/">Home</a></li>
+                <li><a href="https://mjose-portfolio.github.io/pages/about-me.html">About me</a></li>
+                <li><a href="https://github.com/mjose-portfolio">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/marc-jose-rubio-0b8420158/">LinkedIn</a></li>
+                <li><a href="https://mjose-portfolio.github.io/tags">Tags</a></li>
+                <li><a href="https://mjose-portfolio.github.io/authors">Authors</a></li>
+                <li><a href="https://mjose-portfolio.github.io/categories">Categories</a></li>
+                <li><a href="https://mjose-portfolio.github.io/archives">Archives</a></li>
+            </ul>
+        </nav>
+        <div class="header_box">
+            <h1><a href="https://mjose-portfolio.github.io/">Portfolio's Marc Jose Rubio</a></h1>
+        </div>
+    </header>
+    <div id="wrapper">
+        <div id="content">
+            <div class="page">
+                <h1>42sh/redirections</h1>
+                <h1 id="34-redirections">3.4 Redirections<a class="headerlink" href="#34-redirections" title="Permanent link"> </a></h1>
+<ul>
+<li><a href="#341-redirecting-input">3.4.1 Redirecting Input</a></li>
+<li><a href="#342-redirecting-output">3.4.2 Redirecting Output</a></li>
+<li><a href="#343-here-document">3.4.3 Here-Document</a></li>
+<li><a href="#344-duplicating-an-input-file-descriptor">3.4.4 Duplicating an Input File Descriptor</a></li>
+<li><a href="#345-duplicating-an-output-file-descriptor">3.4.5 Duplicating an Output File Descriptor</a></li>
+</ul>
+<h2 id="341-redirecting-input">3.4.1 Redirecting Input<a class="headerlink" href="#341-redirecting-input" title="Permanent link"> </a></h2>
+<p>Input redirection shall cause the file whose name results from the expansion of <code>word</code> to be opened for reading on the designated file descriptor, or standard input if the file descriptor is not specified.</p>
+<p>The format for redirecting input is:</p>
+<pre><code>[n]&lt;word
+</code></pre>
+
+<p>Where the optional <code>n</code> represents the file descriptor number. If the number is omitted, the redirection shall refer to standard input (file descriptor 0).</p>
+<p><a href="#34-redirections">Return to top</a></p>
+<h2 id="342-redirecting-output">3.4.2 Redirecting Output<a class="headerlink" href="#342-redirecting-output" title="Permanent link"> </a></h2>
+<p>The two general formats for redirecting output are:</p>
+<pre><code>[n]&gt;word
+</code></pre>
+
+<p>Where the optional <em>n</em> represents the file descriptor number. If the number is omitted, the redirection shall refer to standard output (file descriptor 1).</p>
+<p><a href="#34-redirections">Return to top</a></p>
+<h2 id="343-here-document">3.4.3 Here-Document<a class="headerlink" href="#343-here-document" title="Permanent link"> </a></h2>
+<p>The here-document shall be treated as a single word that begins after the next <newline> and continues until there is a line containing only the delimiter and a <newline>, with no <blank> characters in between. Then the next here-document starts, if there is one. The format is as follows:</p>
+<pre><code>[n]&lt;&lt;word
+    here-document
+delimiter
+</code></pre>
+
+<p>Where the optional <code>n</code> represents the file descriptor number. If the number is omitted, the here-document refers to standard input (file descriptor 0). It is unspecified whether the file descriptor is opened as a regular file, a special file, or a pipe. Portable applications cannot rely on the file descriptor being seekable.</p>
+<p><a href="#34-redirections">Return to top</a></p>
+<h2 id="344-duplicating-an-input-file-descriptor">3.4.4 Duplicating an Input File Descriptor<a class="headerlink" href="#344-duplicating-an-input-file-descriptor" title="Permanent link"> </a></h2>
+<p>The redirection operator:</p>
+<pre><code>[n]&lt;&amp;word
+</code></pre>
+
+<p>shall duplicate one input file descriptor from another, or shall close one. If <code>word</code> evaluates to one or more digits, the file descriptor denoted by <code>n</code>, or standard input if <code>n</code> is not specified, shall be made to be a copy of the file descriptor denoted by <code>word</code>; if the digits in <code>word</code> do not represent a file descriptor already open for input, a redirection error shall result.</p>
+<p>If <code>word</code> evaluates to <code>-</code>, file descriptor <code>n</code>, or standard input if <code>n</code> is not specified, shall be closed.</p>
+<p><a href="#34-redirections">Return to top</a></p>
+<h2 id="345-duplicating-an-output-file-descriptor">3.4.5 Duplicating an Output File Descriptor<a class="headerlink" href="#345-duplicating-an-output-file-descriptor" title="Permanent link"> </a></h2>
+<p>The redirection operator:</p>
+<pre><code>[n]&gt;&amp;word
+</code></pre>
+
+<p>shall duplicate one output file descriptor from another, or shall close one. If <code>word</code> evaluates to one or more digits, the file descriptor denoted by <code>n</code>, or standard output if <code>n</code> is not specified, shall be made to be a copy of the file descriptor denoted by <code>word</code>; if the digits in <code>word</code> do not represent a file descriptor already open for output, a redirection error shall result.</p>
+<p>If 'word' evaluates to <code>-</code>, file descriptor <code>n</code>, or standard output if <code>n</code> is not specified, is closed.</p>
+<p><a href="#34-redirections">Return to top</a></p>
+            </div>
+
+        </div>
+        <div class="clear"></div>
+    </div>
+</body>
+</html>

@@ -4,11 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Portfolio's Marc Jose Rubio | articles tagged "42"</title>
-    <link rel="shortcut icon" type="image/png" href="http://localhost:8000/favicon.png">
-    <link rel="shortcut icon" type="image/x-icon" href="http://localhost:8000/favicon.ico">
-    <link href="http://localhost:8000/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Portfolio's Marc Jose Rubio Full Atom Feed" />
-    <link rel="stylesheet" href="http://localhost:8000/theme/css/main.css" type="text/css" />
-    <link rel="stylesheet" href="http://localhost:8000/theme/css/pygments.css" type="text/css" />
+    <link rel="shortcut icon" type="image/png" href="https://mjose-portfolio.github.io/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="https://mjose-portfolio.github.io/favicon.ico">
+    <link href="https://mjose-portfolio.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Portfolio's Marc Jose Rubio Full Atom Feed" />
+    <link rel="stylesheet" href="https://mjose-portfolio.github.io/theme/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="https://mjose-portfolio.github.io/theme/css/pygments.css" type="text/css" />
     <meta name="generator" content="Pelican" />
     <meta name="description" content="" />
     <meta name="author" content="Marc Jose Rubio" />
@@ -17,19 +17,19 @@
     <header>
         <nav>
             <ul>
-                <li class="ephemeral selected"><a href="http://localhost:8000/tag/42.html">42</a></li>
-                <li><a href="http://localhost:8000/">Home</a></li>
-                <li><a href="http://localhost:8000/pages/about-me.html">About me</a></li>
+                <li class="ephemeral selected"><a href="https://mjose-portfolio.github.io/tag/42.html">42</a></li>
+                <li><a href="https://mjose-portfolio.github.io/">Home</a></li>
+                <li><a href="https://mjose-portfolio.github.io/pages/about-me.html">About me</a></li>
                 <li><a href="https://github.com/mjose-portfolio">GitHub</a></li>
                 <li><a href="https://www.linkedin.com/in/marc-jose-rubio-0b8420158/">LinkedIn</a></li>
-                <li><a href="http://localhost:8000/tags">Tags</a></li>
-                <li><a href="http://localhost:8000/authors">Authors</a></li>
-                <li><a href="http://localhost:8000/categories">Categories</a></li>
-                <li><a href="http://localhost:8000/archives">Archives</a></li>
+                <li><a href="https://mjose-portfolio.github.io/tags">Tags</a></li>
+                <li><a href="https://mjose-portfolio.github.io/authors">Authors</a></li>
+                <li><a href="https://mjose-portfolio.github.io/categories">Categories</a></li>
+                <li><a href="https://mjose-portfolio.github.io/archives">Archives</a></li>
             </ul>
         </nav>
         <div class="header_box">
-            <h1><a href="http://localhost:8000/">Portfolio's Marc Jose Rubio</a></h1>
+            <h1><a href="https://mjose-portfolio.github.io/">Portfolio's Marc Jose Rubio</a></h1>
         </div>
     </header>
     <div id="wrapper">
@@ -37,7 +37,7 @@
 
             <article class="post">
                 <h2 class="title">
-                    <a href="http://localhost:8000/TaskMaster.html" rel="bookmark" title="Permanent Link to &quot;TaskMaster&quot;">TaskMaster</a>
+                    <a href="https://mjose-portfolio.github.io/TaskMaster.html" rel="bookmark" title="Permanent Link to &quot;TaskMaster&quot;">TaskMaster</a>
                 </h2>
 
                 
@@ -48,47 +48,46 @@ We were restricted to our language of choice’s standard library. Except for th
 <p>The script reads the tasks parameters from the json file, and executes some kind of user prompt to effectively manage these tasks.</p>
 <p>The only argument needed is a config file. All info about making your own config file is in exampleconfig.json.</p>
 <p><a href="https://github.com/mjose-portfolio/42-TaskMaster">Try it on Github!</a></p>
-<h2>Project partners</h2>
+<h2 id="project-partners">Project partners<a class="headerlink" href="#project-partners" title="Permanent link"> </a></h2>
 <ul>
 <li><a href="https://github.com/abguimba">Abraham Gimbao</a></li>
 <li><a href="https://github.com/mjose-portfolio">Marc Jose</a></li>
 </ul>
-<h2>Install</h2>
+<h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link"> </a></h2>
 <ul>
 <li>Not needed.</li>
 </ul>
-<h2>Configuration</h2>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link"> </a></h2>
 <ul>
 <li>Create a file in json format with the following characteristics:</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="err">{                                   </span>
-<span class="err">    &quot;programs&quot;: {                   #a list of programs</span>
-<span class="err">        &quot;sleep&quot;: {                  #the name of a program *Required*</span>
-<span class="err">            &quot;cmd&quot;: &quot;sleep 1000&quot;,    #the exact command to launch *Required*</span>
-<span class="err">            &quot;cmdammount&quot;: 10,       #the number of times you need to launch this process *Required*</span>
-<span class="err">            &quot;autostart&quot;: true,      #cmd started at launch True/False? *Required*</span>
-<span class="err">            &quot;autorestart&quot;: &quot;never&quot;, #restart this program on &quot;never&quot;, &quot;always&quot;, or on &quot;unexpected&quot; termination *Required*</span>
-<span class="err">            &quot;starttime&quot;: 5,         #amount of time to go by before the program is considered &quot;succesfully started&quot; *Required*</span>
-<span class="err">            &quot;stoptime&quot;: 10,         #amount of time to go by after sending quitsit to program before killing it completely with SIGKILL *Required*</span>
-<span class="err">            &quot;restartretries&quot;: 3,    #amount of times a program will be tried to be restarted or started at the beginning before giving up on it *Required*</span>
-<span class="err">            &quot;quitsig&quot;: &quot;TERM&quot;,      #signal that will be sent to the command to be gracefully exited (QUIT, TERM, INT, KILL) *Required*</span>
-<span class="err">            &quot;exitcodes&quot;: &quot;None&quot;,    #exitcodes that define an expected termination for use autorestart or None for all exitcodes being considered unexpected</span>
-<span class="err">            &quot;workingdir&quot;: &quot;/tmp/&quot;,  #working directory to be set for the command or None for same working dir as parent(taskmaster)</span>
-<span class="err">            &quot;umask&quot;: 0,             #umask to be set for the program or None (in decimal (integer)!)</span>
-<span class="err">            &quot;stdout&quot;: &quot;None&quot;,       #option to redirect stdout to file or to simple discard it with &quot;discard&quot; or None</span>
-<span class="err">            &quot;stderr&quot;: &quot;None&quot;,       #option to redirect stderr to file or to simple discard it with &quot;discard&quot; or None</span>
-<span class="err">            &quot;env&quot;: &quot;None&quot;           #extra env parameters to provide to the new process, &quot;None&quot; for no environment at all, or &quot;default&quot; for the same env as taskmaster</span>
-<span class="err">        }</span>
-<span class="err">    }</span>
-<span class="err">}</span>
-</pre></div>
+<pre><code>{
+    &quot;programs&quot;: {                   #a list of programs
+        &quot;sleep&quot;: {                  #the name of a program *Required*
+            &quot;cmd&quot;: &quot;sleep 1000&quot;,    #the exact command to launch *Required*
+            &quot;cmdammount&quot;: 10,       #the number of times you need to launch this process *Required*
+            &quot;autostart&quot;: true,      #cmd started at launch True/False? *Required*
+            &quot;autorestart&quot;: &quot;never&quot;, #restart this program on &quot;never&quot;, &quot;always&quot;, or on &quot;unexpected&quot; termination *Required*
+            &quot;starttime&quot;: 5,         #amount of time to go by before the program is considered &quot;succesfully started&quot; *Required*
+            &quot;stoptime&quot;: 10,         #amount of time to go by after sending quitsit to program before killing it completely with SIGKILL *Required*
+            &quot;restartretries&quot;: 3,    #amount of times a program will be tried to be restarted or started at the beginning before giving up on it *Required*
+            &quot;quitsig&quot;: &quot;TERM&quot;,      #signal that will be sent to the command to be gracefully exited (QUIT, TERM, INT, KILL) *Required*
+            &quot;exitcodes&quot;: &quot;None&quot;,    #exitcodes that define an expected termination for use autorestart or None for all exitcodes being considered unexpected
+            &quot;workingdir&quot;: &quot;/tmp/&quot;,  #working directory to be set for the command or None for same working dir as parent(taskmaster)
+            &quot;umask&quot;: 0,             #umask to be set for the program or None (in decimal (integer)!)
+            &quot;stdout&quot;: &quot;None&quot;,       #option to redirect stdout to file or to simple discard it with &quot;discard&quot; or None
+            &quot;stderr&quot;: &quot;None&quot;,       #option to redirect stderr to file or to simple discard it with &quot;discard&quot; or None
+            &quot;env&quot;: &quot;None&quot;           #extra env parameters to provide to the new process, &quot;None&quot; for no environment at all, or &quot;default&quot; for the same env as taskmaster
+        }
+    }
+}
+</code></pre>
 
-
-<h2>Launching method</h2>
+<h2 id="launching-method">Launching method<a class="headerlink" href="#launching-method" title="Permanent link"> </a></h2>
 <ul>
 <li><code>python3 taskmaster.py config_files/&lt;yourconfig&gt;.json</code></li>
 </ul>
-<h2>Commands</h2>
+<h2 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link"> </a></h2>
 <ul>
 <li><code>help</code>: List available commands with "help" or detailed help with "help cmd".</li>
 <li><code>help &lt;command&gt;</code>: Prints the description and the method of use of the command.</li>
@@ -98,19 +97,262 @@ We were restricted to our language of choice’s standard library. Except for th
 <li><code>reload</code>: Reloads the whole configuration. Usage -&gt; reload</li>
 <li><code>display</code>: Opens a window that shows the pre-loaded configuration and the status of the programs to be monitored.</li>
 </ul>
-<h2>Examples</h2>
-<p><img alt="alt text" src="http://localhost:8000/projects/resources/42-TaskMaster/images/start_taskmaster.gif">
-<img alt="alt text" src="http://localhost:8000/projects/resources/42-TaskMaster/images/start_ls.gif">
-<img alt="alt text" src="http://localhost:8000/projects/resources/42-TaskMaster/images/display_command.gif">
-<img alt="alt text" src="http://localhost:8000/projects/resources/42-TaskMaster/images/display.gif"></p>
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link"> </a></h2>
+<p><img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/42-TaskMaster/images/start_taskmaster.gif" />
+<img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/42-TaskMaster/images/start_ls.gif" />
+<img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/42-TaskMaster/images/display_command.gif" />
+<img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/42-TaskMaster/images/display.gif" /></p>
                 <div class="clear"></div>
 
                 <div class="info">
-                    <a href="http://localhost:8000/TaskMaster.html">posted at 23:14</a>
-                    &nbsp;&middot;&nbsp;<a href="http://localhost:8000/category/python.html" rel="tag">Python</a>
+                    <a href="https://mjose-portfolio.github.io/TaskMaster.html">posted at 23:14</a>
+                    &nbsp;&middot;&nbsp;<a href="https://mjose-portfolio.github.io/category/python.html" rel="tag">Python</a>
                     &nbsp;&middot;
-                    &nbsp;<a href="http://localhost:8000/tag/python.html" class="tags">Python</a>
-                    &nbsp;<a href="http://localhost:8000/tag/42.html" class="tags selected">42</a>
+                    &nbsp;<a href="https://mjose-portfolio.github.io/tag/python.html" class="tags">Python</a>
+                    &nbsp;<a href="https://mjose-portfolio.github.io/tag/42.html" class="tags selected">42</a>
+                </div>
+            </article>            <h4 class="date">Nov 29, 2018</h4>
+
+            <article class="post">
+                <h2 class="title">
+                    <a href="https://mjose-portfolio.github.io/42sh.html" rel="bookmark" title="Permanent Link to &quot;42sh&quot;">42sh</a>
+                </h2>
+
+                
+                
+
+                <p>This project consists of creating a complete shell and uses the work done on <a href="https://github.com/mjose-portfolio/42-21sh#21sh">21sh</a> and minishell projects. We build our own shell, including a job control and shell script. This project involves a large variety of standard UNIX (and POSIX) functionalities.</p>
+<p><a href="https://github.com/mjose-portfolio/42-42sh">Try it on Github!</a></p>
+<h2 id="1-project-partners">1. Project Partners<a class="headerlink" href="#1-project-partners" title="Permanent link"> </a></h2>
+<hr />
+<ul>
+<li><a href="https://github.com/abguimba">Abraham Gimbao</a></li>
+<li><a href="https://github.com/alsomvil42">Alexandre Somville</a></li>
+<li><a href="https://github.com/BrendanSiche">Brendan Siche</a></li>
+<li><a href="https://github.com/mjose-portfolio">Marc Jose</a></li>
+</ul>
+<h2 id="2-install">2. Install<a class="headerlink" href="#2-install" title="Permanent link"> </a></h2>
+<hr />
+<ul>
+<li><code>make</code></li>
+</ul>
+<p><img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/42-42sh/images/make.gif" /></p>
+<h3 id="21-make-options">2.1. Make Options<a class="headerlink" href="#21-make-options" title="Permanent link"> </a></h3>
+<ul>
+<li><code>make</code>: Compiles the files and creates the executable 42sh</li>
+<li><code>make clean</code>: Remove binary files.</li>
+<li><code>make fclean</code>: Deletes the binary files and the 42sh executable file.</li>
+<li><code>make re</code>: Deletes the binary files and the 42sh executable file and recompiles them.</li>
+</ul>
+<h2 id="3-features">3. Features<a class="headerlink" href="#3-features" title="Permanent link"> </a></h2>
+<hr />
+<h3 id="31-builtins">3.1 Builtins<a class="headerlink" href="#31-builtins" title="Permanent link"> </a></h3>
+<ul>
+<li><a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#311-alias">3.1.1 alias</a></li>
+<li><a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#312-bg">3.1.2 bg</a></li>
+<li><a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#313-cd">3.1.3 cd</a></li>
+<li><a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#314-echo">3.1.4 echo</a></li>
+<li><a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#315-env">3.1.5 env</a></li>
+<li><a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#316-exit--n-">3.1.6 exit</a></li>
+<li><a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#317-export">3.1.7 export</a></li>
+<li><a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#318-false">3.1.8 false</a></li>
+<li><a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#319-fg">3.1.9 fg</a></li>
+<li><a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#3110-hash">3.1.10 hash</a></li>
+<li><a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#3111-history">3.1.11 history</a></li>
+<li><a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#3112-jobs">3.1.12 jobs</a></li>
+<li><a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#3113-set">3.1.13 set</a></li>
+<li><a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#3114-test">3.1.14 test</a></li>
+<li><a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#3115-true">3.1.15 true</a></li>
+<li><a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#3116-type">3.1.16 type</a></li>
+<li><a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#3117-unalias">3.1.17 unalias</a></li>
+<li><a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#3118-unset">3.1.18 unset</a></li>
+<li><a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#3119-fc">3.1.19 fc</a></li>
+</ul>
+<h3 id="32-prompt">3.2 Prompt<a class="headerlink" href="#32-prompt" title="Permanent link"> </a></h3>
+<p>The prompt is displayed as follows:</p>
+<ul>
+<li><code>["user"]&lt;"current directory"&gt;42sh $/&gt;</code></li>
+</ul>
+<p>The current directory is updated live, each time you change directory, of course, the information is collected from the environment variable <code>PWD</code>.</p>
+<h3 id="33-execution-of-commands">3.3 Execution of Commands<a class="headerlink" href="#33-execution-of-commands" title="Permanent link"> </a></h3>
+<p>The command shall be searched for using the PATH environment variable.</p>
+<p>It is possible to specify the paths where the command to execute resides (in case you want to execute a command that does not reside in any directory of the PATH variable, or the variable is not defined).</p>
+<p>The parameters of each command are taken into account.</p>
+<h3 id="34-redirections">3.4 Redirections<a class="headerlink" href="#34-redirections" title="Permanent link"> </a></h3>
+<ul>
+<li><a href="https://mjose-portfolio.github.io/pages/42shredirections.html#341-redirecting-input">3.4.1 Redirecting Input</a></li>
+<li><a href="https://mjose-portfolio.github.io/pages/42shredirections.html#342-redirecting-output">3.4.2 Redirecting Output</a></li>
+<li><a href="https://mjose-portfolio.github.io/pages/42shredirections.html#343-here-document">3.4.3 Here-Document</a></li>
+<li><a href="https://mjose-portfolio.github.io/pages/42shredirections.html#344-duplicating-an-input-file-descriptor">3.4.4 Duplicating an Input File Descriptor</a></li>
+<li><a href="https://mjose-portfolio.github.io/pages/42shredirections.html#345-duplicating-an-output-file-descriptor">3.4.5 Duplicating an Output File Descriptor</a></li>
+</ul>
+<h3 id="35-pipelines">3.5 Pipelines<a class="headerlink" href="#35-pipelines" title="Permanent link"> </a></h3>
+<p>The format for a pipeline is:</p>
+<pre><code>command1 [ | command2 ...]
+</code></pre>
+
+<p>The standard output of <code>command1</code> shall be connected to the standard input of <code>command2</code>. The standard input, standard output, or both of a command shall be considered to be assigned by the pipeline before any redirection specified by redirection operators that are part of the command.</p>
+<h3 id="36-operand">3.6 <code>;</code> Operand<a class="headerlink" href="#36-operand" title="Permanent link"> </a></h3>
+<p>it is possible to separate commands using the operand <code>;</code>.</p>
+<pre><code>command1 ; command2 ...
+</code></pre>
+
+<h3 id="37-management-of-internal-variables">3.7 Management Of Internal Variables<a class="headerlink" href="#37-management-of-internal-variables" title="Permanent link"> </a></h3>
+<ul>
+<li>Creation of internal variables according to the syntax:</li>
+</ul>
+<pre><code>name=value
+</code></pre>
+
+<ul>
+<li>Export of internal variables to the environment, via built-in <a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#317-export">export</a>.</li>
+<li>List the internal variables of the shell via the built-in <a href="({filename}/pages/42-42sh/builtins.md#3113-set)">set</a>.</li>
+<li>Removal of internal and environmental variables, via the built-in <a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#3118-unset">unset</a>.</li>
+<li>Creation of environment variables for a single command, example :</li>
+</ul>
+<pre><code>HOME=/tmp cd
+</code></pre>
+
+<ul>
+<li>Simple expansion of parameters according to the syntax:</li>
+</ul>
+<pre><code>${name}
+$name
+</code></pre>
+
+<ul>
+<li>Management of special parameters:</li>
+</ul>
+<pre><code>$: PID of the current process.
+?: Last command exit code.
+0: Shell name.
+!: PID of the last process launched in backround.
+_: Last parameter used in a command.
+</code></pre>
+
+<h3 id="38-job-control-management">3.8 Job Control Management<a class="headerlink" href="#38-job-control-management" title="Permanent link"> </a></h3>
+<p>The builtins that allow to interact with the Job Control are:</p>
+<ul>
+<li><a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#312-bg">bg</a></li>
+<li><a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#319-fg">fg</a></li>
+<li><a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#3112-jobs">jobs</a></li>
+</ul>
+<h3 id="39-inhibitors">3.9 Inhibitors<a class="headerlink" href="#39-inhibitors" title="Permanent link"> </a></h3>
+<ul>
+<li>Single-quotes: <code>'</code></li>
+</ul>
+<p>Enclosing characters in single-quotes ( <code>''</code> ) shall preserve the literal value of each character within the single-quotes. A single-quote cannot occur within single-quotes.</p>
+<ul>
+<li>Double-quotes:<code>"</code></li>
+</ul>
+<p>Enclosing characters in double-quotes ( <code>""</code> ) shall preserve the literal value of all characters within the double-quotes, with the exception of the characters backquote, <dollar-sign>, and <backslash>.</p>
+<ul>
+<li>Escape Character (Backslash): <code>\</code></li>
+</ul>
+<p>A <backslash> that is not quoted shall preserve the literal value of the following character, with the exception of a <newline>. If a <newline> follows the <backslash>, the shell shall interpret this as line continuation. The <backslash> and <newline> shall be removed before splitting the input into tokens. Since the escaped <newline> is removed entirely from the input and is not replaced by any white space, it cannot serve as a token separator.</p>
+<h3 id="310-parameter-expansions">3.10 Parameter Expansions<a class="headerlink" href="#310-parameter-expansions" title="Permanent link"> </a></h3>
+<pre><code>${parameter:-[word]}
+</code></pre>
+
+<p><strong>Use Default Values</strong>. If <em>parameter</em> is unset or null, the expansion of <em>word</em> (or an empty string if <em>word</em> is omitted) shall be substituted; otherwise, the value of <em>parameter</em> shall be substituted.</p>
+<pre><code>${parameter:=[word]}
+</code></pre>
+
+<p><strong>Assign Default Values</strong>. If <em>parameter</em> is unset or null, the expansion of <em>word</em> (or an empty string if <em>word</em> is omitted) shall be assigned to <em>parameter</em>. In all cases, the final value of <em>parameter</em> shall be substituted. Only variables, not positional parameters or special parameters, can be assigned in this way.</p>
+<pre><code>${parameter:?[word]}
+</code></pre>
+
+<p><strong>Indicate Error if Null or Unset</strong>. If <em>parameter</em> is unset or null, the expansion of <em>word</em> (or a message indicating it is unset if <em>word</em> is omitted) shall be written to standard error and the shell exits with a non-zero exit status. Otherwise, the value of <em>parameter</em> shall be substituted. An interactive shell need not exit.</p>
+<pre><code>${parameter:+[word]}
+</code></pre>
+
+<p><strong>Use Alternative Value</strong>. If <em>parameter</em> is unset or null, null shall be substituted; otherwise, the expansion of <em>word</em> (or an empty string if <em>word</em> is omitted) shall be substituted.</p>
+<pre><code>${#parameter}
+</code></pre>
+
+<p><strong>String Length</strong>. The length in characters of the value of <em>parameter</em> shall be substituted. If <em>parameter</em> is <code>'*'</code> or <code>'@'</code>, the result of the expansion is unspecified. If <em>parameter</em> is unset and <a href="https://pubs.opengroup.org/onlinepubs/9699919799//utilities/V3_chap02.html#set"><em>set</em></a> <strong>-u</strong> is in effect, the expansion shall fail.</p>
+<pre><code>${parameter%[word]}
+</code></pre>
+
+<p><strong>Remove Smallest Suffix Pattern</strong>. The <em>word</em> shall be expanded to produce a pattern. The parameter expansion shall then result in <em>parameter</em>, with the smallest portion of the suffix matched by the <em>pattern</em> deleted. If present, <em>word</em> shall not begin with an unquoted <code>'%'</code>.</p>
+<pre><code>${parameter%%[word]}
+</code></pre>
+
+<p><strong>Remove Largest Suffix Pattern</strong>. The <em>word</em> shall be expanded to produce a pattern. The parameter expansion shall then result in <em>parameter</em>, with the largest portion of the suffix matched by the <em>pattern</em> deleted.</p>
+<pre><code>${parameter#[word]}
+</code></pre>
+
+<p><strong>Remove Smallest Prefix Pattern</strong>. The <em>word</em> shall be expanded to produce a pattern. The parameter expansion shall then result in <em>parameter</em>, with the smallest portion of the prefix matched by the <em>pattern</em> deleted. If present, <em>word</em> shall not begin with an unquoted <code>'#'</code>.</p>
+<pre><code>${parameter##[word]}
+</code></pre>
+
+<p><strong>Remove Largest Prefix Pattern</strong>. The <em>word</em> shall be expanded to produce a pattern. The parameter expansion shall then result in <em>parameter</em>, with the largest portion of the prefix matched by the <em>pattern</em> deleted.</p>
+<pre><code>~
+</code></pre>
+
+<p><strong>HOME path of the current user.</strong> Is replaced by the HOME path of the current user</p>
+<pre><code>~[user name]
+</code></pre>
+
+<p><strong>HOME path of the user name.</strong>  The tilde-prefix is replaced with the home directory associated with the specified user name.</p>
+<pre><code>~+
+</code></pre>
+
+<p><strong>PWD value</strong>. the value of the [shell variable] <code>PWD</code> replaces the tilde-prefix.</p>
+<pre><code>~-
+</code></pre>
+
+<p><strong>OLDPWD value</strong>. the value of the [shell variable] <code>OLDPWD</code> replaces the tilde-prefix.</p>
+<h3 id="311-history-management">3.11 History Management<a class="headerlink" href="#311-history-management" title="Permanent link"> </a></h3>
+<p>Executed commands are automatically saved in the <code>$HOME/.42hist</code> file, so that they can be used from other sessions.</p>
+<p>Incremental search in the history with the key combination <code>CTRL-R</code>.</p>
+<p>The builtin that allow to interact with the Job Control is:</p>
+<ul>
+<li><a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#3119-fc">fc</a></li>
+</ul>
+<p>It is also possible to navigate through the history with the <code>up and down arrow keys</code>.</p>
+<h4 id="3111-history-expansions">3.11.1 History Expansions<a class="headerlink" href="#3111-history-expansions" title="Permanent link"> </a></h4>
+<pre><code>!
+</code></pre>
+
+<p>Start a history substitution, except when followed by a space, tab, the end of the line, <code>=</code> or <code>(</code>.</p>
+<pre><code>!!
+</code></pre>
+
+<p>Refer to the previous command. This is a synonym for <code>!-1</code>.</p>
+<pre><code>![word]
+</code></pre>
+
+<p>Refer to the most recent command preceding the current position in the history list starting with <code>word</code>.</p>
+<pre><code>![number]
+</code></pre>
+
+<p>Refer to command line <code>number</code>.</p>
+<pre><code>!-[numer]
+</code></pre>
+
+<p>Refer to the command <code>n</code> lines back.</p>
+<h3 id="312-contextual-dynamic-completion">3.12 Contextual Dynamic Completion<a class="headerlink" href="#312-contextual-dynamic-completion" title="Permanent link"> </a></h3>
+<p>It is possible to autocomplete variables, file commands, by pressing the 'TAB key', whether or not the command has been typed.</p>
+<h3 id="313-command-line">3.13 Command line<a class="headerlink" href="#313-command-line" title="Permanent link"> </a></h3>
+<p>The command line features are:</p>
+<ul>
+<li>Edit the line where the cursor is located.</li>
+<li>Move the cursor left and right to be able to edit the line at a specific location.</li>
+<li>Use up and down arrows to navigate through the command history able to edit if we feel like it.</li>
+<li>Cut, copy, and/or paste all or part of a line whit cmd+f1 cmd+f2 cmd+f3</li>
+<li>Move directly by word towards the left or the right using shift+LEFT and shift+RIGHT.</li>
+<li>Go directly to the beginning or the end of a line by pressing fn+left and fn+right.</li>
+<li>Write AND edit a command over a few lines.</li>
+</ul>
+                <div class="clear"></div>
+
+                <div class="info">
+                    <a href="https://mjose-portfolio.github.io/42sh.html">posted at 23:14</a>
+                    &nbsp;&middot;&nbsp;<a href="https://mjose-portfolio.github.io/category/c.html" rel="tag">C</a>
+                    &nbsp;&middot;
+                    &nbsp;<a href="https://mjose-portfolio.github.io/tag/c.html" class="tags">C</a>
+                    &nbsp;<a href="https://mjose-portfolio.github.io/tag/42.html" class="tags selected">42</a>
                 </div>
             </article>
 
