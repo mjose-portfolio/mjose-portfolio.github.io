@@ -327,7 +327,8 @@ _: Last parameter used in a command.
 &lt;li&gt;Move directly by word towards the left or the right using shift+LEFT and shift+RIGHT.&lt;/li&gt;
 &lt;li&gt;Go directly to the beginning or the end of a line by pressing fn+left and fn+right.&lt;/li&gt;
 &lt;li&gt;Write AND edit a command over a few lines.&lt;/li&gt;
-&lt;/ul&gt;</content><category term="C"></category><category term="C"></category><category term="bash"></category><category term="zsh"></category><category term="shell"></category><category term="42born2code"></category><category term="unix"></category><category term="unix-shell"></category></entry><entry><title>Minishell</title><link href="https://mjose-portfolio.github.io/Minishell.html" rel="alternate"></link><published>2018-11-30T01:30:00+01:00</published><updated>2018-11-30T01:30:00+01:00</updated><author><name>Marc Jose</name></author><id>tag:mjose-portfolio.github.io,2018-11-30:/Minishell.html</id><summary type="html">&lt;p&gt;First step in the creation of a shell. This project consists in a mini-shell capable of reading and evaluating simple user commands. Trivial lexical analysis and parsing of the command. Searching for the corresponding binary on the machine and execute it, or execute the relevant code in the case of a “built-in” command in the shell.&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="https://github.com/mjose-portfolio/42-minishell"&gt;Try it on Github!&lt;/a&gt;&lt;/p&gt;
+&lt;/ul&gt;</content><category term="C"></category><category term="C"></category><category term="bash"></category><category term="zsh"></category><category term="shell"></category><category term="42born2code"></category><category term="unix"></category><category term="unix-shell"></category></entry><entry><title>Minishell</title><link href="https://mjose-portfolio.github.io/Minishell.html" rel="alternate"></link><published>2018-11-30T01:30:00+01:00</published><updated>2018-11-30T01:30:00+01:00</updated><author><name>Marc Jose</name></author><id>tag:mjose-portfolio.github.io,2018-11-30:/Minishell.html</id><summary type="html">&lt;p&gt;First step in the creation of a shell. This project consists in a mini-shell capable of reading and evaluating simple user commands. Trivial lexical analysis and parsing of the command. Searching for the corresponding binary on the machine and execute it, or execute the relevant code in the case of a “built-in” command in the shell.&lt;/p&gt;</summary><content type="html">&lt;p&gt;First step in the creation of a shell. This project consists in a mini-shell capable of reading and evaluating simple user commands. Trivial lexical analysis and parsing of the command. Searching for the corresponding binary on the machine and execute it, or execute the relevant code in the case of a “built-in” command in the shell.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/mjose-portfolio/42-minishell"&gt;Try it on Github!&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id="1-project-partners"&gt;1. Project Partners&lt;a class="headerlink" href="#1-project-partners" title="Permanent link"&gt; &lt;/a&gt;&lt;/h2&gt;
 &lt;hr /&gt;
 &lt;ul&gt;
@@ -377,4 +378,36 @@ _: Last parameter used in a command.
 &lt;pre&gt;&lt;code&gt;~
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;strong&gt;HOME path of the current user.&lt;/strong&gt; Is replaced by the HOME path of the current user.&lt;/p&gt;</content><category term="C"></category><category term="C"></category><category term="bash"></category><category term="zsh"></category><category term="shell"></category><category term="42born2code"></category><category term="unix"></category><category term="unix-shell"></category></entry></feed>
+&lt;p&gt;&lt;strong&gt;HOME path of the current user.&lt;/strong&gt; Is replaced by the HOME path of the current user.&lt;/p&gt;</content><category term="C"></category><category term="C"></category><category term="bash"></category><category term="zsh"></category><category term="shell"></category><category term="42born2code"></category><category term="unix"></category><category term="unix-shell"></category></entry><entry><title>Ft_ls</title><link href="https://mjose-portfolio.github.io/Ft_ls.html" rel="alternate"></link><published>2018-08-13T12:15:00+02:00</published><updated>2018-08-13T12:15:00+02:00</updated><author><name>Marc Jose</name></author><id>tag:mjose-portfolio.github.io,2018-08-13:/Ft_ls.html</id><summary type="html">&lt;p&gt;First project of the security and systems branch. It's about recoding the &lt;code&gt;ls&lt;/code&gt; command and some of its options.&lt;/p&gt;</summary><content type="html">&lt;p&gt;First project of the security and systems branch. It's about recoding the &lt;code&gt;ls&lt;/code&gt; command and some of its options.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/mjose-portfolio/42-ft_ls"&gt;Try it on Github!&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="1-project-partners"&gt;1. Project Partners&lt;a class="headerlink" href="#1-project-partners" title="Permanent link"&gt; &lt;/a&gt;&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/mjose-portfolio"&gt;Marc Jose&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="2-install"&gt;2. Install&lt;a class="headerlink" href="#2-install" title="Permanent link"&gt; &lt;/a&gt;&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;make&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/42-Ft_ls/images/make.gif" /&gt;&lt;/p&gt;
+&lt;h3 id="21-make-options"&gt;2.1. Make Options&lt;a class="headerlink" href="#21-make-options" title="Permanent link"&gt; &lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;make&lt;/code&gt;: Compiles the files and creates the executable &lt;code&gt;ft_ls&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;make clean&lt;/code&gt;: Remove binary files.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;make fclean&lt;/code&gt;: Deletes the binary files and the &lt;code&gt;ft_ls&lt;/code&gt; executable file.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;make re&lt;/code&gt;: Deletes the binary files and the &lt;code&gt;ft_ls&lt;/code&gt; executable file and recompiles them.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="3-options"&gt;3. Options&lt;a class="headerlink" href="#3-options" title="Permanent link"&gt; &lt;/a&gt;&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;-A&lt;/code&gt;: List all entries except for &lt;code&gt;.&lt;/code&gt; and &lt;code&gt;..&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-a&lt;/code&gt;: Include directory entries whose names begin with a dot (&lt;code&gt;.&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-G&lt;/code&gt;: Enable colorized output.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-g&lt;/code&gt;: Display the group name in the long (&lt;code&gt;-l&lt;/code&gt;) format output (the owner name is suppressed).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-l&lt;/code&gt;: List in long format. A total sum for all the file sizes is output on a line before the long listing.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-o&lt;/code&gt;: List in long format, but omit the group id.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-R&lt;/code&gt;: Recursively list subdirectories encountered.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-r&lt;/code&gt;: Reverse the order of the sort to get reverse lexicographical order or the oldest entries first.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-t&lt;/code&gt;: Sort by time modified (most recently modified first) before sorting the operands by lexicographical order.&lt;/li&gt;
+&lt;/ul&gt;</content><category term="C"></category><category term="C"></category><category term="shell"></category><category term="42born2code"></category><category term="unix"></category><category term="unix-shell"></category><category term="unix-command"></category></entry></feed>
