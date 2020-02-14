@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Portfolio's Marc Jose Rubio | articles in the "Docker" category</title>
+    <link rel="shortcut icon" type="image/png" href="https://mjose-portfolio.github.io/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="https://mjose-portfolio.github.io/favicon.ico">
+    <link href="https://mjose-portfolio.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Portfolio's Marc Jose Rubio Full Atom Feed" />
+    <link href="https://mjose-portfolio.github.io/feeds/docker.atom.xml" type="application/atom+xml" rel="alternate" title="Portfolio's Marc Jose Rubio Categories Atom Feed" />
+    <link rel="stylesheet" href="https://mjose-portfolio.github.io/theme/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="https://mjose-portfolio.github.io/theme/css/pygments.css" type="text/css" />
+    <meta name="generator" content="Pelican" />
+    <meta name="description" content="" />
+    <meta name="author" content="Marc Jose Rubio" />
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-156021964-1");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+
+                <li class="ephemeral selected"><a href="https://mjose-portfolio.github.io/category/docker.html">Docker</a></li>
+                <li><a href="https://mjose-portfolio.github.io/pages/about-me.html">About me</a></li>
+                <li><a href="https://github.com/mjose-portfolio">GitHub</a></li>
+                <li><a href="https://hub.docker.com/u/mjoseportfolio/">Dockerhub</a></li>
+                <li><a href="https://www.linkedin.com/in/marc-jose-rubio-0b8420158/">LinkedIn</a></li>
+                <li><a href="mailto:marc.jose.portfolio@gmail.com">Mail</a></li>
+                <li><a href="https://mjose-portfolio.github.io/MarcJoseRubio.En.pdf">CV(en)</a></li>
+                <li><a href="https://mjose-portfolio.github.io/MarcJoseRubio.Fr.pdf">CV(fr)</a></li>
+                <li><a href="https://mjose-portfolio.github.io/MarcJoseRubio.Esp.pdf">CV(esp)</a></li>
+                <li><a href="https://mjose-portfolio.github.io/archives">Archives</a></li>
+            </ul>
+        </nav>
+        <div class="header_box">
+            <h1><a href="https://mjose-portfolio.github.io/">Portfolio's Marc Jose Rubio</a></h1>
+        </div>
+    </header>
+    <div id="wrapper">
+        <div id="content">            <h4 class="date">Feb 14, 2020</h4>
+
+            <article class="post">
+                <h2 class="title">
+                    <a href="https://mjose-portfolio.github.io/Docker Ubuntu Base Image.html" rel="bookmark" title="Permanent Link to &quot;Docker Ubuntu Base Image&quot;">Docker Ubuntu Base Image</a>
+                </h2>
+
+                
+                
+
+                <!-- /#posts-list 
+                <p><img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/Docker-ubuntu-base_image/images/Ubuntu_Logo.png" /></p>
+<p>Ubuntu base image for docker container.</p>
+<p><img alt="Docker" src="https://github.com/mjose-portfolio/docker-ubuntu-base_image/workflows/Docker/badge.svg" /><img alt="Docker Cloud Build Status" src="https://img.shields.io/docker/cloud/build/mjoseportfolio/ubuntu-bi?logo=Docker" /><img alt="Docker Cloud Automated build" src="https://img.shields.io/docker/cloud/automated/mjoseportfolio/ubuntu-bi?logo=docker" /></p>
+<p>The docker-ubuntu-base_image base on ubuntu with runit to be able to run different process inside the container. It is using default tools already include in runit for logs, cron, etc (svlogd, crond, pstree, sv,chpst). it support tags (16.04, 17.04, 18.04 and 19.04)</p>
+<p>This image will be use to builds others image for other projects. It will be build periodical to make sure that any security update is include with the last version from ubuntu repository.</p>
+<h2 id="using-docker-ubuntu-base_image-as-base-image">Using docker-ubuntu-base_image as base image<a class="headerlink" href="#using-docker-ubuntu-base_image-as-base-image" title="Permanent link"> </a></h2>
+<h3 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link"> </a></h3>
+<p>The image is called <code>mjoseportfolio/ubuntu-bi</code>, and is available on the Docker registry.</p>
+<pre><code class="dockerfile">FROM mjoseportfolio/ubuntu-bi
+
+# Use baseimage-docker's init system.
+CMD [&quot;/sbin/my_init&quot;]
+
+# ...put your own build instructions here...
+</code></pre>
+
+<h3 id="using-different-ubuntu-release">Using different ubuntu release<a class="headerlink" href="#using-different-ubuntu-release" title="Permanent link"> </a></h3>
+<p>The docker-baseimage is base on ubuntu image , you can define what version of ubuntu you want to used by using tags</p>
+<pre><code class="dockerfile">  # for Ubuntu Disco Dingo
+  FROM  quantumobject/docker-baseimage:version-19.04
+</code></pre>
+
+<pre><code class="dockerfile">  # for ubuntu Bionic Beaver
+  FROM quantumobject/docker-baseimage:version-18.04
+</code></pre>
+
+<pre><code class="dockerfile">  # for ubuntu Zesty Zapus
+  FROM quantumobject/docker-baseimage:version-17.04
+</code></pre>
+
+<h3 id="_1"><a class="headerlink" href="#_1" title="Permanent link"> </a></h3>
+<pre><code class="dockerfile">  # for ubuntu Xenial Xerus
+  FROM quantumobject/docker-baseimage:version-16.04
+</code></pre>
+
+<h3 id="_2"><a class="headerlink" href="#_2" title="Permanent link"> </a></h3>
+<h3 id="adding-additional-daemons">Adding additional daemons<a class="headerlink" href="#adding-additional-daemons" title="Permanent link"> </a></h3>
+<p>You can add additional daemons (e.g. your own app) to the image by creating runit entries. You only have to write a small shell script which runs your daemon, and runit will keep it up and running for you, restarting it when it crashes, etc.</p>
+<p>The shell script must be called <code>run</code>, must be executable, and is to be placed in the directory <code>/etc/service/&lt;NAME&gt;</code>.</p>
+<p>Here's an example showing you how a memcached server runit entry can be made.</p>
+<pre><code class="shell">#!/bin/sh
+### In memcached.sh (make sure this file is chmod +x):
+# `chpst -u memcache` runs the given command as the user `memcache`.
+# If you omit that part, the command will be run as root.
+exec 2&gt;&amp;1 chpst -u memcache /usr/bin/memcached
+
+### In Dockerfile:
+RUN mkdir /etc/service/memcached
+ADD memcached.sh /etc/service/memcached/run
+RUN chmod +x /etc/service/memcached/run
+</code></pre>
+
+<p>Note that the shell script must run the daemon <strong>without letting it daemonize/fork it</strong>. Usually, daemons provide a command line flag or a config file option for that.</p>
+<h3 id="running-scripts-during-container-startup">Running scripts during container startup<a class="headerlink" href="#running-scripts-during-container-startup" title="Permanent link"> </a></h3>
+<p>The docker-baseimage init system, <code>/sbin/my_init</code>, runs the following scripts during startup, in the following order:</p>
+<ul>
+<li>All executable scripts in <code>/etc/my_init.d</code>, if this directory exists. The scripts are run in lexicographic order.</li>
+<li>The script <code>/etc/rc.local</code>, if this file exists.</li>
+</ul>
+<p>All scripts must exit correctly, e.g. with exit code 0. If any script exits with a non-zero exit code, the booting will fail.</p>
+<p>The following example shows how you can add a startup script. This script simply logs the time of boot to the file /tmp/boottime.txt.</p>
+<pre><code class="shell">#!/bin/sh
+### In logtime.sh (make sure this file is chmod +x):
+date &gt; /tmp/boottime.txt
+
+### In Dockerfile:
+RUN mkdir -p /etc/my_init.d
+ADD logtime.sh /etc/my_init.d/logtime.sh
+</code></pre>
+
+<h3 id="environment-variables">Environment variables<a class="headerlink" href="#environment-variables" title="Permanent link"> </a></h3>
+<p>If you use <code>/sbin/my_init</code> as the main container command, then any environment variables set with <code>docker run --env</code> or with the <code>ENV</code> command in the Dockerfile, will be picked up by <code>my_init</code>. These variables will also be passed to all child processes, including <code>/etc/my_init.d</code> startup scripts, Runit and Runit-managed services. There are however a few caveats you should be aware of:</p>
+<ul>
+<li>Environment variables on Unix are inherited on a per-process basis. This means that it is generally not possible for a child process to change the environment variables of other processes.</li>
+<li>Because of the aforementioned point, there is no good central place for defining environment variables for all applications and services. Debian has the <code>/etc/environment</code> file but it only works in some situations.</li>
+<li>Some services change environment variables for child processes. Nginx is one such example: it removes all environment variables unless you explicitly instruct it to retain them through the <code>env</code> configuration option. If you host any applications on Nginx </li>
+</ul>
+<p><code>my_init</code> provides a solution for all these caveats.</p>
+<h4 id="centrally-defining-your-own-environment-variables">Centrally defining your own environment variables<a class="headerlink" href="#centrally-defining-your-own-environment-variables" title="Permanent link"> </a></h4>
+<p>During startup, before running any startup scripts, <code>my_init</code> imports environment variables from the directory <code>/etc/container_environment</code>. This directory contains files who are named after the environment variable names. The file contents contain the environment variable values. This directory is therefore a good place to centrally define your own environment variables, which will be inherited by all startup scripts and Runit services.</p>
+<p>For example, here's how you can define an environment variable from your Dockerfile:</p>
+<pre><code class="dockerfile">RUN echo Apachai Hopachai &gt; /etc/container_environment/MY_NAME
+</code></pre>
+
+<p>You can verify that it works, as follows:</p>
+<pre><code class="bash">$ docker run -t -i &lt;YOUR_NAME_IMAGE&gt; /sbin/my_init -- bash -l
+...
+*** Running bash -l...
+# echo $MY_NAME
+Apachai Hopachai
+</code></pre>
+
+<p>If you've looked carefully, you'll notice that the 'echo' command actually prints a newline. Why does $MY_NAME not contain a newline then? It's because <code>my_init</code> strips the trailing newline, if any. If you intended on the value having a newline, you should add <em>another</em> newline, like this:</p>
+<pre><code class="dockerfile">RUN echo -e &quot;Apachai Hopachai\n&quot; &gt; /etc/container_environment/MY_NAME
+</code></pre>
+
+<h4 id="environment-variable-dumps">Environment variable dumps<a class="headerlink" href="#environment-variable-dumps" title="Permanent link"> </a></h4>
+<p>While the previously mentioned mechanism is good for centrally defining environment variables, it by itself does not prevent services (e.g. Nginx) from changing and resetting environment variables from child processes. However, the <code>my_init</code> mechanism does make it easy for you to query what the original environment variables are.</p>
+<p>During startup, right after importing environment variables from <code>/etc/container_environment</code>, <code>my_init</code> will dump all its environment variables (that is, all variables imported from <code>container_environment</code>, as well as all variables it picked up from <code>docker run --env</code>) to the following locations, in the following formats:</p>
+<ul>
+<li><code>/etc/container_environment</code></li>
+<li><code>/etc/container_environment.sh</code> - a dump of the environment variables in Bash format. You can source the file directly from a Bash shell script.</li>
+<li><code>/etc/container_environment.json</code> - a dump of the environment variables in JSON format.</li>
+</ul>
+<p>The multiple formats makes it easy for you to query the original environment variables no matter which language your scripts/apps are written in.</p>
+<p>Here is an example shell session showing you how the dumps look like:</p>
+<p><img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/Docker-ubuntu-base_image/images/dumps.gif" /></p>
+<h4 id="modifying-environment-variables">Modifying environment variables<a class="headerlink" href="#modifying-environment-variables" title="Permanent link"> </a></h4>
+<p>It is even possible to modify the environment variables in <code>my_init</code> (and therefore the environment variables in all child processes that are spawned after that point in time), by altering the files in <code>/etc/container_environment</code>. After each time <code>my_init</code> runs a startup script, it resets its own environment variables to the state in <code>/etc/container_environment</code>, and re-dumps the new environment variables to <code>container_environment.sh</code> and <code>container_environment.json</code>.</p>
+<p>But note that:</p>
+<ul>
+<li>modifying <code>container_environment.sh</code> and <code>container_environment.json</code> has no effect.</li>
+<li>Runit services cannot modify the environment like that. <code>my_init</code> only activates changes in <code>/etc/container_environment</code> when running startup scripts.</li>
+</ul>
+<h4 id="security">Security<a class="headerlink" href="#security" title="Permanent link"> </a></h4>
+<p>Because environment variables can potentially contain sensitive information, <code>/etc/container_environment</code> and its Bash and JSON dumps are by default owned by root, and accessible only by the <code>docker_env</code> group (so that any user added this group will have these variables automatically loaded).</p>
+<p>If you are sure that your environment variables don't contain sensitive data, then you can also relax the permissions on that directory and those files by making them world-readable:</p>
+<pre><code class="dockerfile">RUN chmod 755 /etc/container_environment
+RUN chmod 644 /etc/container_environment.sh /etc/container_environment.json
+</code></pre>
+
+<h2 id="container-administration">Container administration<a class="headerlink" href="#container-administration" title="Permanent link"> </a></h2>
+<p>One of the ideas behind Docker is that containers should be stateless, easily restartable, and behave like a black box. However, you may occasionally encounter situations where you want to login to a container, or to run a command inside a container, for development, inspection and debugging purposes. This section describes how you can administer the container for those purposes.</p>
+<h3 id="running-a-one-shot-command-in-a-new-container">Running a one-shot command in a new container<a class="headerlink" href="#running-a-one-shot-command-in-a-new-container" title="Permanent link"> </a></h3>
+<p>Normally, when you want to create a new container in order to run a single command inside it, and immediately exit after the command exits, you invoke Docker like this:</p>
+<pre><code class="bash">docker run YOUR_IMAGE COMMAND ARGUMENTS...
+</code></pre>
+
+<p>However the downside of this approach is that the init system is not started. That is, while invoking <code>COMMAND</code>, important daemons such as cron and syslog are not running. Also, orphaned child processes are not properly reaped, because <code>COMMAND</code> is PID 1.</p>
+<p>Baseimage-docker provides a facility to run a single one-shot command, while solving all of the aforementioned problems. Run a single command in the following manner:</p>
+<pre><code class="shell">docker run YOUR_IMAGE /sbin/my_init -- COMMAND ARGUMENTS ...
+</code></pre>
+
+<p>This will perform the following:</p>
+<ul>
+<li>Runs all system startup files, such as /etc/my_init.d/* and /etc/rc.local.</li>
+<li>Starts all runit services.</li>
+<li>Runs the specified command.</li>
+<li>When the specified command exits, stops all runit services.</li>
+</ul>
+<p>For example:</p>
+<p><img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/Docker-ubuntu-base_image/images/standard_ls_example.gif" /></p>
+<p>Perhaps you don't want to run the startup files. You can customize all this by passing arguments to <code>my_init</code>. Invoke <code>docker run YOUR_IMAGE /sbin/my_init --help</code> for more information.</p>
+<p>The following example runs <code>ls</code> without running the startup files, while running all runit services:</p>
+<p><img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/Docker-ubuntu-base_image/images/skip_ls_example.gif" /></p>
+<h3 id="running-a-command-in-an-existing-running-container">Running a command in an existing, running container<a class="headerlink" href="#running-a-command-in-an-existing-running-container" title="Permanent link"> </a></h3>
+<p>Running bash shell , or running a command inside it, via 'docker exec' </p>
+<p>To run the container's bash shell :</p>
+<pre><code class="shell">docker exec -it YOUR-CONTAINER-ID /bin/bash
+</code></pre>
+
+<p>You can lookup <code>YOUR-CONTAINER-ID</code> by running <code>docker ps</code>.</p>
+<p>You can also tell it to run a command, and then exit:</p>
+<pre><code class="shell">docker exec -it YOUR-CONTAINER-ID echo hello world
+</code></pre>
+
+<p>This image has been adapted from the source code from <a href="https://www.quantumobject.org">www.quantumobject.org</a></p> -->
+                <p>Ubuntu base image for docker containers.</p>
+                <div>
+                    <a href="https://mjose-portfolio.github.io/Docker Ubuntu Base Image.html">Click here to read more</a>
+                </div>
+                <div>
+                    <a href="https://github.com/mjose-portfolio/docker-ubuntu-base_image">Try it on Github!</a>
+                </div>
+
+                <div class="clear"></div>
+
+                <div class="info">
+                    <a href="https://mjose-portfolio.github.io/Docker Ubuntu Base Image.html">posted at 08:06</a>
+                    &nbsp;&middot;&nbsp;<a href="https://mjose-portfolio.github.io/category/docker.html" rel="tag">Docker</a>
+                    &nbsp;&middot;
+                    &nbsp;<a href="https://mjose-portfolio.github.io/tag/docker.html" class="tags">docker</a>
+                    &nbsp;<a href="https://mjose-portfolio.github.io/tag/linux.html" class="tags">linux</a>
+                    &nbsp;<a href="https://mjose-portfolio.github.io/tag/unix.html" class="tags">unix</a>
+                    &nbsp;<a href="https://mjose-portfolio.github.io/tag/ubuntu.html" class="tags">ubuntu</a>
+                    &nbsp;<a href="https://mjose-portfolio.github.io/tag/base-image.html" class="tags">base image</a>
+                </div>
+            </article>
+
+        </div>
+        <div class="clear"></div>
+    </div>
+</body>
+</html>

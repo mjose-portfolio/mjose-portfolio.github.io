@@ -12,15 +12,6 @@
     <meta name="generator" content="Pelican" />
     <meta name="description" content="" />
     <meta name="author" content="Marc Jose Rubio" />
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-156021964-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-156021964-1');
-    </script>
     <script type="text/javascript">
     var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
     document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -35,9 +26,9 @@
     <header>
         <nav>
             <ul>
-                <li class="selected"><a href="https://mjose-portfolio.github.io/">Home</a></li>
                 <li><a href="https://mjose-portfolio.github.io/pages/about-me.html">About me</a></li>
                 <li><a href="https://github.com/mjose-portfolio">GitHub</a></li>
+                <li><a href="https://hub.docker.com/u/mjoseportfolio/">Dockerhub</a></li>
                 <li><a href="https://www.linkedin.com/in/marc-jose-rubio-0b8420158/">LinkedIn</a></li>
                 <li><a href="mailto:marc.jose.portfolio@gmail.com">Mail</a></li>
                 <li><a href="https://mjose-portfolio.github.io/MarcJoseRubio.En.pdf">CV(en)</a></li>
@@ -51,7 +42,210 @@
         </div>
     </header>
     <div id="wrapper">
-        <div id="content">            <h4 class="date">Dec 01, 2019</h4>
+        <div id="content">            <h4 class="date">Feb 14, 2020</h4>
+
+            <article class="post">
+                <h2 class="title">
+                    <a href="https://mjose-portfolio.github.io/Docker Ubuntu Base Image.html" rel="bookmark" title="Permanent Link to &quot;Docker Ubuntu Base Image&quot;">Docker Ubuntu Base Image</a>
+                </h2>
+
+                
+                
+
+                <!-- /#posts-list 
+                <p><img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/Docker-ubuntu-base_image/images/Ubuntu_Logo.png"></p>
+<p>Ubuntu base image for docker container.</p>
+<p><img alt="Docker" src="https://github.com/mjose-portfolio/docker-ubuntu-base_image/workflows/Docker/badge.svg"><img alt="Docker Cloud Build Status" src="https://img.shields.io/docker/cloud/build/mjoseportfolio/ubuntu-bi?logo=Docker"><img alt="Docker Cloud Automated build" src="https://img.shields.io/docker/cloud/automated/mjoseportfolio/ubuntu-bi?logo=docker"></p>
+<p>The docker-ubuntu-base_image base on ubuntu with runit to be able to run different process inside the container. It is using default tools already include in runit for logs, cron, etc (svlogd, crond, pstree, sv,chpst). it support tags (16.04, 17.04, 18.04 and 19.04)</p>
+<p>This image will be use to builds others image for other projects. It will be build periodical to make sure that any security update is include with the last version from ubuntu repository.</p>
+<h2>Using docker-ubuntu-base_image as base image</h2>
+<h3>Getting started</h3>
+<p>The image is called <code>mjoseportfolio/ubuntu-bi</code>, and is available on the Docker registry.</p>
+<div class="highlight"><pre><span></span><span class="k">FROM</span> <span class="s">mjoseportfolio/ubuntu-bi</span>
+
+<span class="c"># Use baseimage-docker&#39;s init system.</span>
+<span class="k">CMD</span> <span class="p">[</span><span class="s2">&quot;/sbin/my_init&quot;</span><span class="p">]</span>
+
+<span class="c"># ...put your own build instructions here...</span>
+</pre></div>
+
+
+<h3>Using different ubuntu release</h3>
+<p>The docker-baseimage is base on ubuntu image , you can define what version of ubuntu you want to used by using tags</p>
+<div class="highlight"><pre><span></span>  # <span class="k">for</span> Ubuntu Disco Dingo
+  FROM  quantumobject/docker-baseimage:version-19.04
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>  # <span class="k">for</span> ubuntu Bionic Beaver
+  FROM quantumobject/docker-baseimage:version-18.04
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>  # <span class="k">for</span> ubuntu Zesty Zapus
+  FROM quantumobject/docker-baseimage:version-17.04
+</pre></div>
+
+
+<h3></h3>
+<div class="highlight"><pre><span></span>  # <span class="k">for</span> ubuntu Xenial Xerus
+  FROM quantumobject/docker-baseimage:version-16.04
+</pre></div>
+
+
+<h3></h3>
+<h3>Adding additional daemons</h3>
+<p>You can add additional daemons (e.g. your own app) to the image by creating runit entries. You only have to write a small shell script which runs your daemon, and runit will keep it up and running for you, restarting it when it crashes, etc.</p>
+<p>The shell script must be called <code>run</code>, must be executable, and is to be placed in the directory <code>/etc/service/&lt;NAME&gt;</code>.</p>
+<p>Here's an example showing you how a memcached server runit entry can be made.</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+<span class="c1">### In memcached.sh (make sure this file is chmod +x):</span>
+<span class="c1"># `chpst -u memcache` runs the given command as the user `memcache`.</span>
+<span class="c1"># If you omit that part, the command will be run as root.</span>
+<span class="nb">exec</span> <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> chpst -u memcache /usr/bin/memcached
+
+<span class="c1">### In Dockerfile:</span>
+RUN mkdir /etc/service/memcached
+ADD memcached.sh /etc/service/memcached/run
+RUN chmod +x /etc/service/memcached/run
+</pre></div>
+
+
+<p>Note that the shell script must run the daemon <strong>without letting it daemonize/fork it</strong>. Usually, daemons provide a command line flag or a config file option for that.</p>
+<h3>Running scripts during container startup</h3>
+<p>The docker-baseimage init system, <code>/sbin/my_init</code>, runs the following scripts during startup, in the following order:</p>
+<ul>
+<li>All executable scripts in <code>/etc/my_init.d</code>, if this directory exists. The scripts are run in lexicographic order.</li>
+<li>The script <code>/etc/rc.local</code>, if this file exists.</li>
+</ul>
+<p>All scripts must exit correctly, e.g. with exit code 0. If any script exits with a non-zero exit code, the booting will fail.</p>
+<p>The following example shows how you can add a startup script. This script simply logs the time of boot to the file /tmp/boottime.txt.</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+<span class="c1">### In logtime.sh (make sure this file is chmod +x):</span>
+date &gt; /tmp/boottime.txt
+
+<span class="c1">### In Dockerfile:</span>
+RUN mkdir -p /etc/my_init.d
+ADD logtime.sh /etc/my_init.d/logtime.sh
+</pre></div>
+
+
+<h3>Environment variables</h3>
+<p>If you use <code>/sbin/my_init</code> as the main container command, then any environment variables set with <code>docker run --env</code> or with the <code>ENV</code> command in the Dockerfile, will be picked up by <code>my_init</code>. These variables will also be passed to all child processes, including <code>/etc/my_init.d</code> startup scripts, Runit and Runit-managed services. There are however a few caveats you should be aware of:</p>
+<ul>
+<li>Environment variables on Unix are inherited on a per-process basis. This means that it is generally not possible for a child process to change the environment variables of other processes.</li>
+<li>Because of the aforementioned point, there is no good central place for defining environment variables for all applications and services. Debian has the <code>/etc/environment</code> file but it only works in some situations.</li>
+<li>Some services change environment variables for child processes. Nginx is one such example: it removes all environment variables unless you explicitly instruct it to retain them through the <code>env</code> configuration option. If you host any applications on Nginx </li>
+</ul>
+<p><code>my_init</code> provides a solution for all these caveats.</p>
+<h4>Centrally defining your own environment variables</h4>
+<p>During startup, before running any startup scripts, <code>my_init</code> imports environment variables from the directory <code>/etc/container_environment</code>. This directory contains files who are named after the environment variable names. The file contents contain the environment variable values. This directory is therefore a good place to centrally define your own environment variables, which will be inherited by all startup scripts and Runit services.</p>
+<p>For example, here's how you can define an environment variable from your Dockerfile:</p>
+<div class="highlight"><pre><span></span><span class="k">RUN</span> <span class="nb">echo</span> Apachai Hopachai &gt; /etc/container_environment/MY_NAME
+</pre></div>
+
+
+<p>You can verify that it works, as follows:</p>
+<div class="highlight"><pre><span></span>$ docker run -t -i &lt;YOUR_NAME_IMAGE&gt; /sbin/my_init -- bash -l
+...
+*** Running bash -l...
+<span class="c1"># echo $MY_NAME</span>
+Apachai Hopachai
+</pre></div>
+
+
+<p>If you've looked carefully, you'll notice that the 'echo' command actually prints a newline. Why does $MY_NAME not contain a newline then? It's because <code>my_init</code> strips the trailing newline, if any. If you intended on the value having a newline, you should add <em>another</em> newline, like this:</p>
+<div class="highlight"><pre><span></span><span class="k">RUN</span> <span class="nb">echo</span> -e <span class="s2">&quot;Apachai Hopachai\n&quot;</span> &gt; /etc/container_environment/MY_NAME
+</pre></div>
+
+
+<h4>Environment variable dumps</h4>
+<p>While the previously mentioned mechanism is good for centrally defining environment variables, it by itself does not prevent services (e.g. Nginx) from changing and resetting environment variables from child processes. However, the <code>my_init</code> mechanism does make it easy for you to query what the original environment variables are.</p>
+<p>During startup, right after importing environment variables from <code>/etc/container_environment</code>, <code>my_init</code> will dump all its environment variables (that is, all variables imported from <code>container_environment</code>, as well as all variables it picked up from <code>docker run --env</code>) to the following locations, in the following formats:</p>
+<ul>
+<li><code>/etc/container_environment</code></li>
+<li><code>/etc/container_environment.sh</code> - a dump of the environment variables in Bash format. You can source the file directly from a Bash shell script.</li>
+<li><code>/etc/container_environment.json</code> - a dump of the environment variables in JSON format.</li>
+</ul>
+<p>The multiple formats makes it easy for you to query the original environment variables no matter which language your scripts/apps are written in.</p>
+<p>Here is an example shell session showing you how the dumps look like:</p>
+<p><img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/Docker-ubuntu-base_image/images/dumps.gif"></p>
+<h4>Modifying environment variables</h4>
+<p>It is even possible to modify the environment variables in <code>my_init</code> (and therefore the environment variables in all child processes that are spawned after that point in time), by altering the files in <code>/etc/container_environment</code>. After each time <code>my_init</code> runs a startup script, it resets its own environment variables to the state in <code>/etc/container_environment</code>, and re-dumps the new environment variables to <code>container_environment.sh</code> and <code>container_environment.json</code>.</p>
+<p>But note that:</p>
+<ul>
+<li>modifying <code>container_environment.sh</code> and <code>container_environment.json</code> has no effect.</li>
+<li>Runit services cannot modify the environment like that. <code>my_init</code> only activates changes in <code>/etc/container_environment</code> when running startup scripts.</li>
+</ul>
+<h4>Security</h4>
+<p>Because environment variables can potentially contain sensitive information, <code>/etc/container_environment</code> and its Bash and JSON dumps are by default owned by root, and accessible only by the <code>docker_env</code> group (so that any user added this group will have these variables automatically loaded).</p>
+<p>If you are sure that your environment variables don't contain sensitive data, then you can also relax the permissions on that directory and those files by making them world-readable:</p>
+<div class="highlight"><pre><span></span><span class="k">RUN</span> chmod <span class="m">755</span> /etc/container_environment
+<span class="k">RUN</span> chmod <span class="m">644</span> /etc/container_environment.sh /etc/container_environment.json
+</pre></div>
+
+
+<h2>Container administration</h2>
+<p>One of the ideas behind Docker is that containers should be stateless, easily restartable, and behave like a black box. However, you may occasionally encounter situations where you want to login to a container, or to run a command inside a container, for development, inspection and debugging purposes. This section describes how you can administer the container for those purposes.</p>
+<h3>Running a one-shot command in a new container</h3>
+<p>Normally, when you want to create a new container in order to run a single command inside it, and immediately exit after the command exits, you invoke Docker like this:</p>
+<div class="highlight"><pre><span></span>docker run YOUR_IMAGE COMMAND ARGUMENTS...
+</pre></div>
+
+
+<p>However the downside of this approach is that the init system is not started. That is, while invoking <code>COMMAND</code>, important daemons such as cron and syslog are not running. Also, orphaned child processes are not properly reaped, because <code>COMMAND</code> is PID 1.</p>
+<p>Baseimage-docker provides a facility to run a single one-shot command, while solving all of the aforementioned problems. Run a single command in the following manner:</p>
+<div class="highlight"><pre><span></span>docker run YOUR_IMAGE /sbin/my_init -- COMMAND ARGUMENTS ...
+</pre></div>
+
+
+<p>This will perform the following:</p>
+<ul>
+<li>Runs all system startup files, such as /etc/my_init.d/* and /etc/rc.local.</li>
+<li>Starts all runit services.</li>
+<li>Runs the specified command.</li>
+<li>When the specified command exits, stops all runit services.</li>
+</ul>
+<p>For example:</p>
+<p><img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/Docker-ubuntu-base_image/images/standard_ls_example.gif"></p>
+<p>Perhaps you don't want to run the startup files. You can customize all this by passing arguments to <code>my_init</code>. Invoke <code>docker run YOUR_IMAGE /sbin/my_init --help</code> for more information.</p>
+<p>The following example runs <code>ls</code> without running the startup files, while running all runit services:</p>
+<p><img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/Docker-ubuntu-base_image/images/skip_ls_example.gif"></p>
+<h3>Running a command in an existing, running container</h3>
+<p>Running bash shell , or running a command inside it, via 'docker exec' </p>
+<p>To run the container's bash shell :</p>
+<div class="highlight"><pre><span></span>docker <span class="nb">exec</span> -it YOUR-CONTAINER-ID /bin/bash
+</pre></div>
+
+
+<p>You can lookup <code>YOUR-CONTAINER-ID</code> by running <code>docker ps</code>.</p>
+<p>You can also tell it to run a command, and then exit:</p>
+<div class="highlight"><pre><span></span>docker <span class="nb">exec</span> -it YOUR-CONTAINER-ID <span class="nb">echo</span> hello world
+</pre></div>
+
+
+<p>This image has been adapted from the source code from <a href="https://www.quantumobject.org">www.quantumobject.org</a></p> -->
+                <p>Ubuntu base image for docker containers.</p>
+                <div>
+                    <a href="https://mjose-portfolio.github.io/Docker Ubuntu Base Image.html">Click here to read more</a>
+                </div>
+                <div>
+                    <a href="https://github.com/mjose-portfolio/docker-ubuntu-base_image">Try it on Github!</a>
+                </div>
+
+                <div class="clear"></div>
+
+                <div class="info">
+                    <a href="https://mjose-portfolio.github.io/Docker Ubuntu Base Image.html">posted at 08:06</a>
+                    &nbsp;&middot;&nbsp;<a href="https://mjose-portfolio.github.io/category/docker.html" rel="tag">Docker</a>
+                    &nbsp;&middot;
+                    &nbsp;<a href="https://mjose-portfolio.github.io/tag/docker.html" class="tags">docker</a>
+                    &nbsp;<a href="https://mjose-portfolio.github.io/tag/linux.html" class="tags">linux</a>
+                    &nbsp;<a href="https://mjose-portfolio.github.io/tag/unix.html" class="tags">unix</a>
+                    &nbsp;<a href="https://mjose-portfolio.github.io/tag/ubuntu.html" class="tags">ubuntu</a>
+                    &nbsp;<a href="https://mjose-portfolio.github.io/tag/base-image.html" class="tags">base image</a>
+                </div>
+            </article>            <h4 class="date">Dec 01, 2019</h4>
 
             <article class="post">
                 <h2 class="title">
@@ -67,46 +261,47 @@ We were restricted to our language of choice’s standard library. Except for th
 <p>The script reads the tasks parameters from the json file, and executes some kind of user prompt to effectively manage these tasks.</p>
 <p>The only argument needed is a config file. All info about making your own config file is in exampleconfig.json.</p>
 <p><a href="https://github.com/mjose-portfolio/42-TaskMaster">Try it on Github!</a></p>
-<h2 id="project-partners">Project partners<a class="headerlink" href="#project-partners" title="Permanent link"> </a></h2>
+<h2>Project partners</h2>
 <ul>
 <li><a href="https://github.com/abguimba">Abraham Gimbao</a></li>
 <li><a href="https://github.com/mjose-portfolio">Marc Jose</a></li>
 </ul>
-<h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link"> </a></h2>
+<h2>Install</h2>
 <ul>
 <li>Not needed.</li>
 </ul>
-<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link"> </a></h2>
+<h2>Configuration</h2>
 <ul>
 <li>Create a file in json format with the following characteristics:</li>
 </ul>
-<pre><code>{
-    &quot;programs&quot;: {                   #a list of programs
-        &quot;sleep&quot;: {                  #the name of a program *Required*
-            &quot;cmd&quot;: &quot;sleep 1000&quot;,    #the exact command to launch *Required*
-            &quot;cmdammount&quot;: 10,       #the number of times you need to launch this process *Required*
-            &quot;autostart&quot;: true,      #cmd started at launch True/False? *Required*
-            &quot;autorestart&quot;: &quot;never&quot;, #restart this program on &quot;never&quot;, &quot;always&quot;, or on &quot;unexpected&quot; termination *Required*
-            &quot;starttime&quot;: 5,         #amount of time to go by before the program is considered &quot;succesfully started&quot; *Required*
-            &quot;stoptime&quot;: 10,         #amount of time to go by after sending quitsit to program before killing it completely with SIGKILL *Required*
-            &quot;restartretries&quot;: 3,    #amount of times a program will be tried to be restarted or started at the beginning before giving up on it *Required*
-            &quot;quitsig&quot;: &quot;TERM&quot;,      #signal that will be sent to the command to be gracefully exited (QUIT, TERM, INT, KILL) *Required*
-            &quot;exitcodes&quot;: &quot;None&quot;,    #exitcodes that define an expected termination for use autorestart or None for all exitcodes being considered unexpected
-            &quot;workingdir&quot;: &quot;/tmp/&quot;,  #working directory to be set for the command or None for same working dir as parent(taskmaster)
-            &quot;umask&quot;: 0,             #umask to be set for the program or None (in decimal (integer)!)
-            &quot;stdout&quot;: &quot;None&quot;,       #option to redirect stdout to file or to simple discard it with &quot;discard&quot; or None
-            &quot;stderr&quot;: &quot;None&quot;,       #option to redirect stderr to file or to simple discard it with &quot;discard&quot; or None
-            &quot;env&quot;: &quot;None&quot;           #extra env parameters to provide to the new process, &quot;None&quot; for no environment at all, or &quot;default&quot; for the same env as taskmaster
-        }
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><span class="err">{</span>
+<span class="err">    &quot;programs&quot;: {                   #a list of programs</span>
+<span class="err">        &quot;sleep&quot;: {                  #the name of a program *Required*</span>
+<span class="err">            &quot;cmd&quot;: &quot;sleep 1000&quot;,    #the exact command to launch *Required*</span>
+<span class="err">            &quot;cmdammount&quot;: 10,       #the number of times you need to launch this process *Required*</span>
+<span class="err">            &quot;autostart&quot;: true,      #cmd started at launch True/False? *Required*</span>
+<span class="err">            &quot;autorestart&quot;: &quot;never&quot;, #restart this program on &quot;never&quot;, &quot;always&quot;, or on &quot;unexpected&quot; termination *Required*</span>
+<span class="err">            &quot;starttime&quot;: 5,         #amount of time to go by before the program is considered &quot;succesfully started&quot; *Required*</span>
+<span class="err">            &quot;stoptime&quot;: 10,         #amount of time to go by after sending quitsit to program before killing it completely with SIGKILL *Required*</span>
+<span class="err">            &quot;restartretries&quot;: 3,    #amount of times a program will be tried to be restarted or started at the beginning before giving up on it *Required*</span>
+<span class="err">            &quot;quitsig&quot;: &quot;TERM&quot;,      #signal that will be sent to the command to be gracefully exited (QUIT, TERM, INT, KILL) *Required*</span>
+<span class="err">            &quot;exitcodes&quot;: &quot;None&quot;,    #exitcodes that define an expected termination for use autorestart or None for all exitcodes being considered unexpected</span>
+<span class="err">            &quot;workingdir&quot;: &quot;/tmp/&quot;,  #working directory to be set for the command or None for same working dir as parent(taskmaster)</span>
+<span class="err">            &quot;umask&quot;: 0,             #umask to be set for the program or None (in decimal (integer)!)</span>
+<span class="err">            &quot;stdout&quot;: &quot;None&quot;,       #option to redirect stdout to file or to simple discard it with &quot;discard&quot; or None</span>
+<span class="err">            &quot;stderr&quot;: &quot;None&quot;,       #option to redirect stderr to file or to simple discard it with &quot;discard&quot; or None</span>
+<span class="err">            &quot;env&quot;: &quot;None&quot;           #extra env parameters to provide to the new process, &quot;None&quot; for no environment at all, or &quot;default&quot; for the same env as taskmaster</span>
+<span class="err">        }</span>
+<span class="err">    }</span>
+<span class="err">}</span>
+</pre></div>
 
-<h2 id="launching-method">Launching method<a class="headerlink" href="#launching-method" title="Permanent link"> </a></h2>
+
+<h2>Launching method</h2>
 <ul>
 <li><code>python3 taskmaster.py config_files/&lt;yourconfig&gt;.json</code></li>
 </ul>
-<h2 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link"> </a></h2>
+<h2>Commands</h2>
 <ul>
 <li><code>help</code>: List available commands with "help" or detailed help with "help cmd".</li>
 <li><code>help &lt;command&gt;</code>: Prints the description and the method of use of the command.</li>
@@ -116,11 +311,11 @@ We were restricted to our language of choice’s standard library. Except for th
 <li><code>reload</code>: Reloads the whole configuration. Usage -&gt; reload</li>
 <li><code>display</code>: Opens a window that shows the pre-loaded configuration and the status of the programs to be monitored.</li>
 </ul>
-<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link"> </a></h2>
-<p><img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/42-TaskMaster/images/start_taskmaster.gif" />
-<img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/42-TaskMaster/images/start_ls.gif" />
-<img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/42-TaskMaster/images/display_command.gif" />
-<img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/42-TaskMaster/images/display.gif" /></p> -->
+<h2>Examples</h2>
+<p><img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/42-TaskMaster/images/start_taskmaster.gif">
+<img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/42-TaskMaster/images/start_ls.gif">
+<img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/42-TaskMaster/images/display_command.gif">
+<img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/42-TaskMaster/images/display.gif"></p> -->
                 <p>Basic task manager that reads from a config.json file and supervises a number of processes.</p>
                 <div>
                     <a href="https://mjose-portfolio.github.io/TaskMaster.html">Click here to read more</a>
@@ -152,30 +347,30 @@ We were restricted to our language of choice’s standard library. Except for th
                 <!-- /#posts-list 
                 <p>This project consists of creating a complete shell and uses the work done on <a href="https://mjose-portfolio.github.io/21sh.html">21sh</a> and <a href="https://mjose-portfolio.github.io/Minishell.html">minishell</a> projects. We build our own shell, including a job control and shell script. This project involves a large variety of standard UNIX (and POSIX) functionalities.</p>
 <p><a href="https://github.com/mjose-portfolio/42-42sh">Try it on Github!</a></p>
-<h2 id="1-project-partners">1. Project Partners<a class="headerlink" href="#1-project-partners" title="Permanent link"> </a></h2>
-<hr />
+<h2>1. Project Partners</h2>
+<hr>
 <ul>
 <li><a href="https://github.com/abguimba">Abraham Gimbao</a></li>
 <li><a href="https://github.com/alsomvil42">Alexandre Somville</a></li>
 <li><a href="https://github.com/BrendanSiche">Brendan Siche</a></li>
 <li><a href="https://github.com/mjose-portfolio">Marc Jose</a></li>
 </ul>
-<h2 id="2-install">2. Install<a class="headerlink" href="#2-install" title="Permanent link"> </a></h2>
-<hr />
+<h2>2. Install</h2>
+<hr>
 <ul>
 <li><code>make</code></li>
 </ul>
-<p><img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/42-42sh/images/make.gif" /></p>
-<h3 id="21-make-options">2.1. Make Options<a class="headerlink" href="#21-make-options" title="Permanent link"> </a></h3>
+<p><img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/42-42sh/images/make.gif"></p>
+<h3>2.1. Make Options</h3>
 <ul>
 <li><code>make</code>: Compiles the files and creates the executable 42sh</li>
 <li><code>make clean</code>: Remove binary files.</li>
 <li><code>make fclean</code>: Deletes the binary files and the 42sh executable file.</li>
 <li><code>make re</code>: Deletes the binary files and the 42sh executable file and recompiles them.</li>
 </ul>
-<h2 id="3-features">3. Features<a class="headerlink" href="#3-features" title="Permanent link"> </a></h2>
-<hr />
-<h3 id="31-builtins">3.1 Builtins<a class="headerlink" href="#31-builtins" title="Permanent link"> </a></h3>
+<h2>3. Features</h2>
+<hr>
+<h3>3.1 Builtins</h3>
 <ul>
 <li><a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#311-alias">3.1.1 alias</a></li>
 <li><a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#312-bg">3.1.2 bg</a></li>
@@ -197,17 +392,17 @@ We were restricted to our language of choice’s standard library. Except for th
 <li><a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#3118-unset">3.1.18 unset</a></li>
 <li><a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#3119-fc">3.1.19 fc</a></li>
 </ul>
-<h3 id="32-prompt">3.2 Prompt<a class="headerlink" href="#32-prompt" title="Permanent link"> </a></h3>
+<h3>3.2 Prompt</h3>
 <p>The prompt is displayed as follows:</p>
 <ul>
 <li><code>["user"]&lt;"current directory"&gt;42sh $/&gt;</code></li>
 </ul>
 <p>The current directory is updated live, each time you change directory, of course, the information is collected from the environment variable <code>PWD</code>.</p>
-<h3 id="33-execution-of-commands">3.3 Execution of Commands<a class="headerlink" href="#33-execution-of-commands" title="Permanent link"> </a></h3>
+<h3>3.3 Execution of Commands</h3>
 <p>The command shall be searched for using the PATH environment variable.</p>
 <p>It is possible to specify the paths where the command to execute resides (in case you want to execute a command that does not reside in any directory of the PATH variable, or the variable is not defined).</p>
 <p>The parameters of each command are taken into account.</p>
-<h3 id="34-redirections">3.4 Redirections<a class="headerlink" href="#34-redirections" title="Permanent link"> </a></h3>
+<h3>3.4 Redirections</h3>
 <ul>
 <li><a href="https://mjose-portfolio.github.io/pages/42shredirections.html#341-redirecting-input">3.4.1 Redirecting Input</a></li>
 <li><a href="https://mjose-portfolio.github.io/pages/42shredirections.html#342-redirecting-output">3.4.2 Redirecting Output</a></li>
@@ -215,23 +410,26 @@ We were restricted to our language of choice’s standard library. Except for th
 <li><a href="https://mjose-portfolio.github.io/pages/42shredirections.html#344-duplicating-an-input-file-descriptor">3.4.4 Duplicating an Input File Descriptor</a></li>
 <li><a href="https://mjose-portfolio.github.io/pages/42shredirections.html#345-duplicating-an-output-file-descriptor">3.4.5 Duplicating an Output File Descriptor</a></li>
 </ul>
-<h3 id="35-pipelines">3.5 Pipelines<a class="headerlink" href="#35-pipelines" title="Permanent link"> </a></h3>
+<h3>3.5 Pipelines</h3>
 <p>The format for a pipeline is:</p>
-<pre><code>command1 [ | command2 ...]
-</code></pre>
+<div class="highlight"><pre><span></span><span class="err">command1 [ | command2 ...]</span>
+</pre></div>
+
 
 <p>The standard output of <code>command1</code> shall be connected to the standard input of <code>command2</code>. The standard input, standard output, or both of a command shall be considered to be assigned by the pipeline before any redirection specified by redirection operators that are part of the command.</p>
-<h3 id="36-operand">3.6 <code>;</code> Operand<a class="headerlink" href="#36-operand" title="Permanent link"> </a></h3>
+<h3>3.6 <code>;</code> Operand</h3>
 <p>it is possible to separate commands using the operand <code>;</code>.</p>
-<pre><code>command1 ; command2 ...
-</code></pre>
+<div class="highlight"><pre><span></span><span class="err">command1 ; command2 ...</span>
+</pre></div>
 
-<h3 id="37-management-of-internal-variables">3.7 Management Of Internal Variables<a class="headerlink" href="#37-management-of-internal-variables" title="Permanent link"> </a></h3>
+
+<h3>3.7 Management Of Internal Variables</h3>
 <ul>
 <li>Creation of internal variables according to the syntax:</li>
 </ul>
-<pre><code>name=value
-</code></pre>
+<div class="highlight"><pre><span></span><span class="err">name=value</span>
+</pre></div>
+
 
 <ul>
 <li>Export of internal variables to the environment, via built-in <a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#317-export">export</a>.</li>
@@ -239,34 +437,37 @@ We were restricted to our language of choice’s standard library. Except for th
 <li>Removal of internal and environmental variables, via the built-in <a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#3118-unset">unset</a>.</li>
 <li>Creation of environment variables for a single command, example :</li>
 </ul>
-<pre><code>HOME=/tmp cd
-</code></pre>
+<div class="highlight"><pre><span></span><span class="err">HOME=/tmp cd</span>
+</pre></div>
+
 
 <ul>
 <li>Simple expansion of parameters according to the syntax:</li>
 </ul>
-<pre><code>${name}
-$name
-</code></pre>
+<div class="highlight"><pre><span></span><span class="cp">${</span><span class="n">name</span><span class="cp">}</span>
+<span class="nv">$name</span>
+</pre></div>
+
 
 <ul>
 <li>Management of special parameters:</li>
 </ul>
-<pre><code>$: PID of the current process.
-?: Last command exit code.
-0: Shell name.
-!: PID of the last process launched in backround.
-_: Last parameter used in a command.
-</code></pre>
+<div class="highlight"><pre><span></span><span class="err">$: PID of the current process.</span>
+<span class="err">?: Last command exit code.</span>
+<span class="c">0: Shell name.</span>
+<span class="err">!: PID of the last process launched in backround.</span>
+<span class="c">_: Last parameter used in a command.</span>
+</pre></div>
 
-<h3 id="38-job-control-management">3.8 Job Control Management<a class="headerlink" href="#38-job-control-management" title="Permanent link"> </a></h3>
+
+<h3>3.8 Job Control Management</h3>
 <p>The builtins that allow to interact with the Job Control are:</p>
 <ul>
 <li><a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#312-bg">bg</a></li>
 <li><a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#319-fg">fg</a></li>
 <li><a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#3112-jobs">jobs</a></li>
 </ul>
-<h3 id="39-inhibitors">3.9 Inhibitors<a class="headerlink" href="#39-inhibitors" title="Permanent link"> </a></h3>
+<h3>3.9 Inhibitors</h3>
 <ul>
 <li>Single-quotes: <code>'</code></li>
 </ul>
@@ -279,60 +480,73 @@ _: Last parameter used in a command.
 <li>Escape Character (Backslash): <code>\</code></li>
 </ul>
 <p>A <backslash> that is not quoted shall preserve the literal value of the following character, with the exception of a <newline>. If a <newline> follows the <backslash>, the shell shall interpret this as line continuation. The <backslash> and <newline> shall be removed before splitting the input into tokens. Since the escaped <newline> is removed entirely from the input and is not replaced by any white space, it cannot serve as a token separator.</p>
-<h3 id="310-parameter-expansions">3.10 Parameter Expansions<a class="headerlink" href="#310-parameter-expansions" title="Permanent link"> </a></h3>
-<pre><code>${parameter:-[word]}
-</code></pre>
+<h3>3.10 Parameter Expansions</h3>
+<div class="highlight"><pre><span></span><span class="err">$</span><span class="p">{</span><span class="nn">parameter</span><span class="p">:</span><span class="o">-</span><span class="p">[</span><span class="s s-Atom">word</span><span class="p">]}</span>
+</pre></div>
+
 
 <p><strong>Use Default Values</strong>. If <em>parameter</em> is unset or null, the expansion of <em>word</em> (or an empty string if <em>word</em> is omitted) shall be substituted; otherwise, the value of <em>parameter</em> shall be substituted.</p>
-<pre><code>${parameter:=[word]}
-</code></pre>
+<div class="highlight"><pre><span></span><span class="err">${</span><span class="k">parameter</span><span class="err">:</span><span class="o">=[</span><span class="n">word</span><span class="o">]</span><span class="err">}</span><span class="w"></span>
+</pre></div>
+
 
 <p><strong>Assign Default Values</strong>. If <em>parameter</em> is unset or null, the expansion of <em>word</em> (or an empty string if <em>word</em> is omitted) shall be assigned to <em>parameter</em>. In all cases, the final value of <em>parameter</em> shall be substituted. Only variables, not positional parameters or special parameters, can be assigned in this way.</p>
-<pre><code>${parameter:?[word]}
-</code></pre>
+<div class="highlight"><pre><span></span><span class="err">${</span><span class="k">parameter</span><span class="err">:</span><span class="vm">?</span><span class="o">[</span><span class="n">word</span><span class="o">]</span><span class="err">}</span><span class="w"></span>
+</pre></div>
+
 
 <p><strong>Indicate Error if Null or Unset</strong>. If <em>parameter</em> is unset or null, the expansion of <em>word</em> (or a message indicating it is unset if <em>word</em> is omitted) shall be written to standard error and the shell exits with a non-zero exit status. Otherwise, the value of <em>parameter</em> shall be substituted. An interactive shell need not exit.</p>
-<pre><code>${parameter:+[word]}
-</code></pre>
+<div class="highlight"><pre><span></span><span class="err">${</span><span class="k">parameter</span><span class="err">:</span><span class="o">+[</span><span class="n">word</span><span class="o">]</span><span class="err">}</span><span class="w"></span>
+</pre></div>
+
 
 <p><strong>Use Alternative Value</strong>. If <em>parameter</em> is unset or null, null shall be substituted; otherwise, the expansion of <em>word</em> (or an empty string if <em>word</em> is omitted) shall be substituted.</p>
-<pre><code>${#parameter}
-</code></pre>
+<div class="highlight"><pre><span></span><span class="cp">${</span><span class="c1">#parameter</span><span class="cp">}</span>
+</pre></div>
+
 
 <p><strong>String Length</strong>. The length in characters of the value of <em>parameter</em> shall be substituted. If <em>parameter</em> is <code>'*'</code> or <code>'@'</code>, the result of the expansion is unspecified. If <em>parameter</em> is unset and <a href="https://pubs.opengroup.org/onlinepubs/9699919799//utilities/V3_chap02.html#set"><em>set</em></a> <strong>-u</strong> is in effect, the expansion shall fail.</p>
-<pre><code>${parameter%[word]}
-</code></pre>
+<div class="highlight"><pre><span></span><span class="err">${</span><span class="k">parameter</span><span class="o">%[</span><span class="n">word</span><span class="o">]</span><span class="err">}</span><span class="w"></span>
+</pre></div>
+
 
 <p><strong>Remove Smallest Suffix Pattern</strong>. The <em>word</em> shall be expanded to produce a pattern. The parameter expansion shall then result in <em>parameter</em>, with the smallest portion of the suffix matched by the <em>pattern</em> deleted. If present, <em>word</em> shall not begin with an unquoted <code>'%'</code>.</p>
-<pre><code>${parameter%%[word]}
-</code></pre>
+<div class="highlight"><pre><span></span><span class="err">${</span><span class="k">parameter</span><span class="o">%%[</span><span class="n">word</span><span class="o">]</span><span class="err">}</span><span class="w"></span>
+</pre></div>
+
 
 <p><strong>Remove Largest Suffix Pattern</strong>. The <em>word</em> shall be expanded to produce a pattern. The parameter expansion shall then result in <em>parameter</em>, with the largest portion of the suffix matched by the <em>pattern</em> deleted.</p>
-<pre><code>${parameter#[word]}
-</code></pre>
+<div class="highlight"><pre><span></span><span class="err">${</span><span class="k">parameter</span><span class="err">#</span><span class="o">[</span><span class="n">word</span><span class="o">]</span><span class="err">}</span><span class="w"></span>
+</pre></div>
+
 
 <p><strong>Remove Smallest Prefix Pattern</strong>. The <em>word</em> shall be expanded to produce a pattern. The parameter expansion shall then result in <em>parameter</em>, with the smallest portion of the prefix matched by the <em>pattern</em> deleted. If present, <em>word</em> shall not begin with an unquoted <code>'#'</code>.</p>
-<pre><code>${parameter##[word]}
-</code></pre>
+<div class="highlight"><pre><span></span><span class="err">${</span><span class="k">parameter</span><span class="err">##</span><span class="o">[</span><span class="n">word</span><span class="o">]</span><span class="err">}</span><span class="w"></span>
+</pre></div>
+
 
 <p><strong>Remove Largest Prefix Pattern</strong>. The <em>word</em> shall be expanded to produce a pattern. The parameter expansion shall then result in <em>parameter</em>, with the largest portion of the prefix matched by the <em>pattern</em> deleted.</p>
-<pre><code>~
-</code></pre>
+<div class="highlight"><pre><span></span><span class="err">~</span>
+</pre></div>
+
 
 <p><strong>HOME path of the current user.</strong> Is replaced by the HOME path of the current user</p>
-<pre><code>~[user name]
-</code></pre>
+<div class="highlight"><pre><span></span><span class="o">~</span><span class="p">[</span><span class="n">user</span> <span class="n">name</span><span class="p">]</span>
+</pre></div>
+
 
 <p><strong>HOME path of the user name.</strong>  The tilde-prefix is replaced with the home directory associated with the specified user name.</p>
-<pre><code>~+
-</code></pre>
+<div class="highlight"><pre><span></span><span class="err">~+</span>
+</pre></div>
+
 
 <p><strong>PWD value</strong>. the value of the [shell variable] <code>PWD</code> replaces the tilde-prefix.</p>
-<pre><code>~-
-</code></pre>
+<div class="highlight"><pre><span></span><span class="err">~-</span>
+</pre></div>
+
 
 <p><strong>OLDPWD value</strong>. the value of the [shell variable] <code>OLDPWD</code> replaces the tilde-prefix.</p>
-<h3 id="311-history-management">3.11 History Management<a class="headerlink" href="#311-history-management" title="Permanent link"> </a></h3>
+<h3>3.11 History Management</h3>
 <p>Executed commands are automatically saved in the <code>$HOME/.42hist</code> file, so that they can be used from other sessions.</p>
 <p>Incremental search in the history with the key combination <code>CTRL-R</code>.</p>
 <p>The builtin that allow to interact with the Job Control is:</p>
@@ -340,30 +554,35 @@ _: Last parameter used in a command.
 <li><a href="https://mjose-portfolio.github.io/pages/42shbuiltins.html#3119-fc">fc</a></li>
 </ul>
 <p>It is also possible to navigate through the history with the <code>up and down arrow keys</code>.</p>
-<h4 id="3111-history-expansions">3.11.1 History Expansions<a class="headerlink" href="#3111-history-expansions" title="Permanent link"> </a></h4>
-<pre><code>!
-</code></pre>
+<h4>3.11.1 History Expansions</h4>
+<div class="highlight"><pre><span></span><span class="err">!</span>
+</pre></div>
+
 
 <p>Start a history substitution, except when followed by a space, tab, the end of the line, <code>=</code> or <code>(</code>.</p>
-<pre><code>!!
-</code></pre>
+<div class="highlight"><pre><span></span><span class="err">!!</span>
+</pre></div>
+
 
 <p>Refer to the previous command. This is a synonym for <code>!-1</code>.</p>
-<pre><code>![word]
-</code></pre>
+<div class="highlight"><pre><span></span><span class="err">!</span><span class="o">[</span><span class="n">word</span><span class="o">]</span><span class="w"></span>
+</pre></div>
+
 
 <p>Refer to the most recent command preceding the current position in the history list starting with <code>word</code>.</p>
-<pre><code>![number]
-</code></pre>
+<div class="highlight"><pre><span></span><span class="err">!</span><span class="o">[</span><span class="n">number</span><span class="o">]</span><span class="w"></span>
+</pre></div>
+
 
 <p>Refer to command line <code>number</code>.</p>
-<pre><code>!-[number]
-</code></pre>
+<div class="highlight"><pre><span></span><span class="err">!</span><span class="o">-[</span><span class="n">number</span><span class="o">]</span><span class="w"></span>
+</pre></div>
+
 
 <p>Refer to the command <code>n</code> lines back.</p>
-<h3 id="312-contextual-dynamic-completion">3.12 Contextual Dynamic Completion<a class="headerlink" href="#312-contextual-dynamic-completion" title="Permanent link"> </a></h3>
+<h3>3.12 Contextual Dynamic Completion</h3>
 <p>It is possible to autocomplete variables, file commands, by pressing the 'TAB key', whether or not the command has been typed.</p>
-<h3 id="313-command-line">3.13 Command line<a class="headerlink" href="#313-command-line" title="Permanent link"> </a></h3>
+<h3>3.13 Command line</h3>
 <p>The command line features are:</p>
 <ul>
 <li>Edit the line where the cursor is located.</li>
@@ -409,28 +628,28 @@ _: Last parameter used in a command.
                 <!-- /#posts-list 
                 <p>This project consists of creating a complete shell and uses the work done on <a href="https://github.com/mjose-portfolio/42-Minishell#minishell">minishell</a> project. We build our own shell. This project involves a large variety of standard UNIX (and POSIX) functionalities.</p>
 <p><a href="https://github.com/mjose-portfolio/42-21sh">Try it on Github!</a></p>
-<h2 id="1-project-partners">1. Project Partners<a class="headerlink" href="#1-project-partners" title="Permanent link"> </a></h2>
-<hr />
+<h2>1. Project Partners</h2>
+<hr>
 <ul>
 <li><a href="https://github.com/BrendanSiche">Brendan Siche</a></li>
 <li><a href="https://github.com/mjose-portfolio">Marc Jose</a></li>
 </ul>
-<h2 id="2-install">2. Install<a class="headerlink" href="#2-install" title="Permanent link"> </a></h2>
-<hr />
+<h2>2. Install</h2>
+<hr>
 <ul>
 <li><code>make</code></li>
 </ul>
-<p><img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/42-21sh/images/make.gif" /></p>
-<h3 id="21-make-options">2.1. Make Options<a class="headerlink" href="#21-make-options" title="Permanent link"> </a></h3>
+<p><img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/42-21sh/images/make.gif"></p>
+<h3>2.1. Make Options</h3>
 <ul>
 <li><code>make</code>: Compiles the files and creates the executable <code>21sh</code>.</li>
 <li><code>make clean</code>: Remove binary files.</li>
 <li><code>make fclean</code>: Deletes the binary files and the <code>21sh</code> executable file.</li>
 <li><code>make re</code>: Deletes the binary files and the <code>21sh</code> executable file and recompiles them.</li>
 </ul>
-<h2 id="3-features">3. Features<a class="headerlink" href="#3-features" title="Permanent link"> </a></h2>
-<hr />
-<h3 id="31-builtins">3.1 Builtins<a class="headerlink" href="#31-builtins" title="Permanent link"> </a></h3>
+<h2>3. Features</h2>
+<hr>
+<h3>3.1 Builtins</h3>
 <ul>
 <li><a href="https://mjose-portfolio.github.io/pages/21shbuiltins.html#311-cd">3.1.1 cd</a></li>
 <li><a href="https://mjose-portfolio.github.io/pages/21shbuiltins.html#312-echo">3.1.2 echo</a></li>
@@ -439,17 +658,17 @@ _: Last parameter used in a command.
 <li><a href="https://mjose-portfolio.github.io/pages/21shbuiltins.html#315-setenv">3.1.5 setenv</a></li>
 <li><a href="https://mjose-portfolio.github.io/pages/21shbuiltins.html#316-unsetenv">3.1.6 unsetenv</a></li>
 </ul>
-<h3 id="32-prompt">3.2 Prompt<a class="headerlink" href="#32-prompt" title="Permanent link"> </a></h3>
+<h3>3.2 Prompt</h3>
 <p>The prompt is displayed as follows:</p>
 <ul>
 <li><code>["user"]&lt;"current directory"&gt;21sh $/&gt;</code></li>
 </ul>
 <p>The current directory is updated live, each time you change directory, of course, the information is collected from the environment variable <code>PWD</code>.</p>
-<h3 id="33-execution-of-commands">3.3 Execution of Commands<a class="headerlink" href="#33-execution-of-commands" title="Permanent link"> </a></h3>
+<h3>3.3 Execution of Commands</h3>
 <p>The command shall be searched for using the PATH environment variable.</p>
 <p>It is possible to specify the paths where the command to execute resides (in case you want to execute a command that does not reside in any directory of the PATH variable, or the variable is not defined).</p>
 <p>The parameters of each command are taken into account.</p>
-<h3 id="34-redirections">3.4 Redirections<a class="headerlink" href="#34-redirections" title="Permanent link"> </a></h3>
+<h3>3.4 Redirections</h3>
 <ul>
 <li><a href="https://mjose-portfolio.github.io/pages/21shredirections.html#341-redirecting-input">3.4.1 Redirecting Input</a></li>
 <li><a href="https://mjose-portfolio.github.io/pages/21shredirections.html#342-redirecting-output">3.4.2 Redirecting Output</a></li>
@@ -457,24 +676,26 @@ _: Last parameter used in a command.
 <li><a href="https://mjose-portfolio.github.io/pages/21shredirections.html#344-duplicating-an-input-file-descriptor">3.4.4 Duplicating an Input File Descriptor</a></li>
 <li><a href="https://mjose-portfolio.github.io/pages/21shredirections.html#345-duplicating-an-output-file-descriptor">3.4.5 Duplicating an Output File Descriptor</a></li>
 </ul>
-<h3 id="35-pipelines">3.5 Pipelines<a class="headerlink" href="#35-pipelines" title="Permanent link"> </a></h3>
+<h3>3.5 Pipelines</h3>
 <p>The format for a pipeline is:</p>
-<pre><code>command1 [ | command2 ...]
-</code></pre>
+<div class="highlight"><pre><span></span><span class="err">command1 [ | command2 ...]</span>
+</pre></div>
+
 
 <p>The standard output of <code>command1</code> shall be connected to the standard input of <code>command2</code>. The standard input, standard output, or both of a command shall be considered to be assigned by the pipeline before any redirection specified by redirection operators that are part of the command.</p>
-<h3 id="36-operand">3.6 <code>;</code> Operand<a class="headerlink" href="#36-operand" title="Permanent link"> </a></h3>
+<h3>3.6 <code>;</code> Operand</h3>
 <p>it is possible to separate commands using the operand <code>;</code>.</p>
-<pre><code>command1 ; command2 ...
-</code></pre>
+<div class="highlight"><pre><span></span><span class="err">command1 ; command2 ...</span>
+</pre></div>
 
-<h3 id="37-management-of-internal-variables">3.7 Management Of Internal Variables<a class="headerlink" href="#37-management-of-internal-variables" title="Permanent link"> </a></h3>
+
+<h3>3.7 Management Of Internal Variables</h3>
 <ul>
 <li>List the internal variables of the shell via the built-in <a href="https://mjose-portfolio.github.io/pages/21shbuiltins.html#313-env">env</a>.</li>
 <li>Removal of internal and environmental variables, via the built-in <a href="https://mjose-portfolio.github.io/pages/21shbuiltins.html#316-unsetenv">unsetenv</a>.</li>
 <li>Creation of environment variables for a single command via the built-in <a href="https://mjose-portfolio.github.io/pages/21shbuiltins.html#316-setenv">setenv</a>.</li>
 </ul>
-<h3 id="38-inhibitors">3.8 Inhibitors<a class="headerlink" href="#38-inhibitors" title="Permanent link"> </a></h3>
+<h3>3.8 Inhibitors</h3>
 <ul>
 <li>Single-quotes: <code>'</code></li>
 </ul>
@@ -483,26 +704,30 @@ _: Last parameter used in a command.
 <li>Double-quotes:<code>"</code></li>
 </ul>
 <p>Enclosing characters in double-quotes ( <code>""</code> ) shall preserve the literal value of all characters within the double-quotes, with the exception of the characters backquote, <dollar-sign>, and <backslash>.</p>
-<h3 id="39-parameter-expansions">3.9 Parameter Expansions<a class="headerlink" href="#39-parameter-expansions" title="Permanent link"> </a></h3>
-<pre><code>~
-</code></pre>
+<h3>3.9 Parameter Expansions</h3>
+<div class="highlight"><pre><span></span><span class="err">~</span>
+</pre></div>
+
 
 <p><strong>HOME path of the current user.</strong> Is replaced by the HOME path of the current user</p>
-<pre><code>~[user name]
-</code></pre>
+<div class="highlight"><pre><span></span><span class="o">~</span><span class="p">[</span><span class="n">user</span> <span class="n">name</span><span class="p">]</span>
+</pre></div>
+
 
 <p><strong>HOME path of the user name.</strong>  The tilde-prefix is replaced with the home directory associated with the specified user name.</p>
-<pre><code>~+
-</code></pre>
+<div class="highlight"><pre><span></span><span class="err">~+</span>
+</pre></div>
+
 
 <p><strong>PWD value</strong>. the value of the [shell variable] <code>PWD</code> replaces the tilde-prefix.</p>
-<pre><code>~-
-</code></pre>
+<div class="highlight"><pre><span></span><span class="err">~-</span>
+</pre></div>
+
 
 <p><strong>OLDPWD value</strong>. the value of the [shell variable] <code>OLDPWD</code> replaces the tilde-prefix.</p>
-<h3 id="310-contextual-dynamic-completion">3.10 Contextual Dynamic Completion<a class="headerlink" href="#310-contextual-dynamic-completion" title="Permanent link"> </a></h3>
+<h3>3.10 Contextual Dynamic Completion</h3>
 <p>It is possible to autocomplete variables, file commands, by pressing the 'TAB key', whether or not the command has been typed.</p>
-<h3 id="311-command-line">3.11 Command line<a class="headerlink" href="#311-command-line" title="Permanent link"> </a></h3>
+<h3>3.11 Command line</h3>
 <p>The command line features are:</p>
 <ul>
 <li>Edit the line where the cursor is located.</li>
@@ -548,27 +773,27 @@ _: Last parameter used in a command.
                 <!-- /#posts-list 
                 <p>First step in the creation of a shell. This project consists in a mini-shell capable of reading and evaluating simple user commands. Trivial lexical analysis and parsing of the command. Searching for the corresponding binary on the machine and execute it, or execute the relevant code in the case of a “built-in” command in the shell.</p>
 <p><a href="https://github.com/mjose-portfolio/42-minishell">Try it on Github!</a></p>
-<h2 id="1-project-partners">1. Project Partners<a class="headerlink" href="#1-project-partners" title="Permanent link"> </a></h2>
-<hr />
+<h2>1. Project Partners</h2>
+<hr>
 <ul>
 <li><a href="https://github.com/mjose-portfolio">Marc Jose</a></li>
 </ul>
-<h2 id="2-install">2. Install<a class="headerlink" href="#2-install" title="Permanent link"> </a></h2>
-<hr />
+<h2>2. Install</h2>
+<hr>
 <ul>
 <li><code>make</code></li>
 </ul>
-<p><img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/42-Minishell/images/make.gif" /></p>
-<h3 id="21-make-options">2.1. Make Options<a class="headerlink" href="#21-make-options" title="Permanent link"> </a></h3>
+<p><img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/42-Minishell/images/make.gif"></p>
+<h3>2.1. Make Options</h3>
 <ul>
 <li><code>make</code>: Compiles the files and creates the executable <code>minishell</code></li>
 <li><code>make clean</code>: Remove binary files.</li>
 <li><code>make fclean</code>: Deletes the binary files and the <code>minishell</code> executable file.</li>
 <li><code>make re</code>: Deletes the binary files and the <code>minishell</code> executable file and recompiles them.</li>
 </ul>
-<h2 id="3-features">3. Features<a class="headerlink" href="#3-features" title="Permanent link"> </a></h2>
-<hr />
-<h3 id="31-builtins">3.1 Builtins<a class="headerlink" href="#31-builtins" title="Permanent link"> </a></h3>
+<h2>3. Features</h2>
+<hr>
+<h3>3.1 Builtins</h3>
 <ul>
 <li><a href="https://mjose-portfolio.github.io/pages/minishellbuiltins.html#311-cd">3.1.1 cd</a></li>
 <li><a href="https://mjose-portfolio.github.io/pages/minishellbuiltins.html#312-echo">3.1.2 echo</a></li>
@@ -577,25 +802,26 @@ _: Last parameter used in a command.
 <li><a href="https://mjose-portfolio.github.io/pages/minishellbuiltins.html#315-setenv">3.1.5 setenv</a></li>
 <li><a href="https://mjose-portfolio.github.io/pages/minishellbuiltins.html#316-unsetenv">3.1.6 unsetenv</a></li>
 </ul>
-<h3 id="32-prompt">3.2 Prompt<a class="headerlink" href="#32-prompt" title="Permanent link"> </a></h3>
+<h3>3.2 Prompt</h3>
 <p>The prompt is displayed as follows:</p>
 <ul>
 <li><code>["shell name"] :: "current directory" -&gt;</code></li>
 </ul>
 <p>The current directory is updated live, each time you change directory, of course, the information is collected from the environment variable <code>PWD</code>.</p>
-<h3 id="33-execution-of-commands">3.3 Execution of Commands<a class="headerlink" href="#33-execution-of-commands" title="Permanent link"> </a></h3>
+<h3>3.3 Execution of Commands</h3>
 <p>The command shall be searched for using the PATH environment variable.</p>
 <p>It is possible to specify the paths where the command to execute resides (in case you want to execute a command that does not reside in any directory of the PATH variable, or the variable is not defined).</p>
 <p>The parameters of each command are taken into account.</p>
-<h3 id="37-management-of-internal-variables">3.7 Management Of Internal Variables<a class="headerlink" href="#37-management-of-internal-variables" title="Permanent link"> </a></h3>
+<h3>3.7 Management Of Internal Variables</h3>
 <ul>
 <li>List the internal variables of the shell via the built-in <a href="https://mjose-portfolio.github.io/pages/minishellbuiltins.html#313-env">env</a>.</li>
 <li>Removal of internal and environmental variables, via the built-in <a href="https://mjose-portfolio.github.io/pages/minishellbuiltins.html#316-unsetenv">unsetenv</a>.</li>
 <li>Creation of environment variables for a single command via the built-in <a href="https://mjose-portfolio.github.io/pages/minishellbuiltins.html#316-setenv">setenv</a>.</li>
 </ul>
-<h3 id="39-parameter-expansions">3.9 Parameter Expansions<a class="headerlink" href="#39-parameter-expansions" title="Permanent link"> </a></h3>
-<pre><code>~
-</code></pre>
+<h3>3.9 Parameter Expansions</h3>
+<div class="highlight"><pre><span></span><span class="err">~</span>
+</pre></div>
+
 
 <p><strong>HOME path of the current user.</strong> Is replaced by the HOME path of the current user.</p> -->
                 <p>First step in the creation of a shell. This project consists in a mini-shell capable of reading and evaluating simple user commands. Trivial lexical analysis and parsing of the command. Searching for the corresponding binary on the machine and execute it, or execute the relevant code in the case of a “built-in” command in the shell.</p>
@@ -633,26 +859,26 @@ _: Last parameter used in a command.
                 <!-- /#posts-list 
                 <p>First project of the security and systems branch. It's about recoding the <code>ls</code> command and some of its options.</p>
 <p><a href="https://github.com/mjose-portfolio/42-ft_ls">Try it on Github!</a></p>
-<h2 id="1-project-partners">1. Project Partners<a class="headerlink" href="#1-project-partners" title="Permanent link"> </a></h2>
-<hr />
+<h2>1. Project Partners</h2>
+<hr>
 <ul>
 <li><a href="https://github.com/mjose-portfolio">Marc Jose</a></li>
 </ul>
-<h2 id="2-install">2. Install<a class="headerlink" href="#2-install" title="Permanent link"> </a></h2>
-<hr />
+<h2>2. Install</h2>
+<hr>
 <ul>
 <li><code>make</code></li>
 </ul>
-<p><img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/42-Ft_ls/images/make.gif" /></p>
-<h3 id="21-make-options">2.1. Make Options<a class="headerlink" href="#21-make-options" title="Permanent link"> </a></h3>
+<p><img alt="alt text" src="https://mjose-portfolio.github.io/projects/resources/42-Ft_ls/images/make.gif"></p>
+<h3>2.1. Make Options</h3>
 <ul>
 <li><code>make</code>: Compiles the files and creates the executable <code>ft_ls</code></li>
 <li><code>make clean</code>: Remove binary files.</li>
 <li><code>make fclean</code>: Deletes the binary files and the <code>ft_ls</code> executable file.</li>
 <li><code>make re</code>: Deletes the binary files and the <code>ft_ls</code> executable file and recompiles them.</li>
 </ul>
-<h2 id="3-options">3. Options<a class="headerlink" href="#3-options" title="Permanent link"> </a></h2>
-<hr />
+<h2>3. Options</h2>
+<hr>
 <ul>
 <li><code>-A</code>: List all entries except for <code>.</code> and <code>..</code>.</li>
 <li><code>-a</code>: Include directory entries whose names begin with a dot (<code>.</code>).</li>
